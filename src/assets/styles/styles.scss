@@ -1,0 +1,87 @@
+/*
+ * Project: blog
+ * File Created: Monday, 23rd July 2018 4:32:42 pm
+ * Author: Ice-Hazymoon (imiku.me@gmail.com)
+ * -----
+ * Last Modified: Friday, 27th July 2018 11:56:54 am
+ */
+
+@import "~vue-material/dist/theme/engine"; // Import the theme engine
+
+@include md-register-theme("default", (
+    background: #fff,
+    primary: #448aff
+));
+
+body{
+    padding-left: calc(100vw - 100%);
+}
+
+.md-app{
+    background-color: #f1f1f1 !important;
+}
+
+.md-drawer{
+    width: 210px !important;
+    border: none !important;
+    padding-top: 64px !important;
+    position: fixed !important;
+    background-color: #f1f1f1 !important;
+    .md-list{
+        background-color: #f1f1f1 !important;
+    }
+}
+.md-content{
+    padding: 88px 50px 0 50px !important;
+    border: none !important;
+    background-color: #f1f1f1 !important;
+    overflow: -moz-scrollbars-none;
+    overflow: auto;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        width: 0 !important
+    }
+}
+
+@media (max-width:599px){
+    .md-content{
+        padding-top: 71px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    #content{
+        .grid-item{
+            max-width: none !important;
+            margin-bottom: 16px !important;
+            .md-card{
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+        }
+    }
+    #appbar{
+        z-index: 1;
+        .end{
+            margin-left: 0 !important;
+        }
+    }
+    .md-drawer{
+        width: 300px !important;
+        padding-top: 0 !important;
+        background-color: #ffffff !important;
+        .md-list{
+            background-color: #ffffff !important;
+        }
+    }
+    .md-app-container{
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width:375px){
+    #appbar{
+        .title{
+            font-size: 20px;
+        }
+    }
+}

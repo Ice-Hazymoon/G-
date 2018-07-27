@@ -1,29 +1,53 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <Appbar/>
+        <md-app>
+            <md-app-content>
+                <Content/>
+            </md-app-content>
+            <md-app-drawer :md-active.sync="$store.state.drawerVisible" md-persistent="full">
+                <Sidebar/>
+            </md-app-drawer>
+        </md-app>
     </div>
-    <router-view/>
-  </div>
 </template>
+<script>
+import Sidebar from "./components/Sidebar";
+import Appbar from "./components/Appbar";
+import Content from "./components/Content";
+export default {
+    components: {
+        Sidebar,
+        Appbar,
+        Content
+    },
+    computed: {
+        drawerVisible() {
+            return this.$store.state.drawerVisible;
+        }
+    },
+    mounted() {
+        function d() {
+            let w = window.innerWidth;
+            if (w <= 750) {
+                this.$store.commit("switchSidebar", false);
+            }
+            if (w > 750) {
+                this.$store.commit("switchSidebar", true);
+            }
+        }
+        d.bind(this)();
+        window.addEventListener("resize", d.bind(this));
+    }
+};
+</script>
 
 <style lang="scss">
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+    position: relative;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f1f1f1;
 }
 </style>
