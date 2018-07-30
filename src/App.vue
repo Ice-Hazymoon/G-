@@ -1,5 +1,9 @@
 <template>
     <div id="app">
+        <md-snackbar :md-position="$store.state.snackbar.position" :md-duration="$store.state.snackbar.isInfinity ? Infinity : $store.state.snackbar.duration" :md-active.sync="$store.state.snackbar.showSnackbar" md-persistent>
+            <span>{{ $store.state.snackbar.content }}</span>
+            <md-button class="md-primary" @click="$store.state.snackbar.showSnackbar = false">OK</md-button>
+        </md-snackbar>
         <Appbar/>
         <md-app>
             <md-app-content>
@@ -12,9 +16,9 @@
     </div>
 </template>
 <script>
-import Sidebar from "./components/Sidebar";
-import Appbar from "./components/Appbar";
-import Content from "./components/Content";
+import Sidebar from "./template/Sidebar";
+import Appbar from "./template/Appbar";
+import Content from "./template/Content";
 export default {
     components: {
         Sidebar,

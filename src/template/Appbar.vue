@@ -3,7 +3,7 @@
  * File Created: Wednesday, 25th July 2018 10:35:36 am
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Thursday, 26th July 2018 2:49:59 pm
+ * Last Modified: Monday, 30th July 2018 11:47:08 am
  */
 <template>
     <div id="appbar" class="md-elevation-2">
@@ -41,7 +41,17 @@
 export default {
     data: () => ({
         searchVal: "",
-        showRi: false
+        showRi: false,
+        countries: [
+            "Algeria",
+            "Argentina",
+            "Brazil",
+            "Canada",
+            "Italy",
+            "Japan",
+            "United Kingdom",
+            "United States"
+        ]
     }),
     methods: {
         switchSidebar() {
@@ -59,7 +69,7 @@ export default {
 
 <style lang="scss">
 #appbar {
-    z-index: 999;
+    z-index: 2;
     position: fixed;
     top: 0;
     left: 0;
@@ -86,6 +96,7 @@ export default {
         display: none;
     }
     .search {
+        max-width: 720px;
         position: relative;
         display: flex;
         flex: auto;

@@ -5,6 +5,8 @@ import store from "./store";
 import "./registerServiceWorker";
 import "normalize.css";
 import "./assets/styles/styles.scss";
+import axios from "axios";
+Vue.prototype.$http = axios;
 
 import VueMaterial from "vue-material";
 import "vue-material/dist/vue-material.min.css";

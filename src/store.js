@@ -5,11 +5,23 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        drawerVisible: true
+        drawerVisible: true,
+        snackbar: {
+            showSnackbar: false,
+            position: "center",
+            duration: 4000,
+            isInfinity: false,
+            content: "Snackbar"
+        }
     },
     mutations: {
         switchSidebar(state, e) {
             state.drawerVisible = e;
+        },
+        snackbar(state, content, config) {
+            state.snackbar.content = content;
+            state.snackbar.showSnackbar = true;
+            if (config) state.snackbar = config;
         }
     },
     actions: {}
