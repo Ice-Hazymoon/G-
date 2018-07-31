@@ -3,7 +3,7 @@
  * File Created: Monday, 30th July 2018 2:26:45 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 31st July 2018 4:50:39 pm
+ * Last Modified: Tuesday, 31st July 2018 6:55:57 pm
  */
 <template>
     <div class="article">
@@ -25,7 +25,7 @@
             </md-dialog-actions>
         </md-dialog>
 
-        <article class="grid-item" v-for="(item, index) in data" :key="index">
+        <article class="grid-item" v-for="(item, index) in data" :key="index" :index="index">
             <md-card @click.native="handleActive(item)" :class="{'active': item.tmp.m}">
                 <md-card-header>
                     <md-avatar>
@@ -80,8 +80,9 @@
 
                             <div class="date" v-text="handleDate(item2.date)">1 小时</div>
 
-                            <md-button class="md-icon-button md-dense" :md-ripple="false" @click.stop="reply(item, item2)">
+                            <md-button class="md-icon-button md-dense" :md-ripple="false" @click.stop="reply(item, item2, index, $event)">
                                 <md-icon>reply</md-icon>
+                                <md-tooltip md-direction="bottom">回复</md-tooltip>
                             </md-button>
                         </li>
                     </ul>
@@ -99,8 +100,7 @@
                         <md-avatar class="md-small">
                             <img :src="item.avatar" alt="Avatar">
                         </md-avatar>
-                        <textarea v-show="item.tmp.c" type="text" placeholder="发表评论..." @input="autogrow" v-model.trim="item.commentVal" @click.stop></textarea>
-
+                        <textarea v-show="item.tmp.c" type="text" :placeholder="item.tmp.r ? '回复给: ' + item.tmp.r : '发表评论...'" @input="autogrow" v-model.trim="item.commentVal" @click.stop></textarea>
                         <div v-show="!item.tmp.c" class="placeholder" @click.stop="item.tmp.c = true | layout() | focus($event)" tabindex="1">发表评论...</div>
                         <div class="toolsbar" v-show="!item.tmp.c">
                             <md-button @click.stop :md-ripple="false" class="md-icon-button">
@@ -110,6 +110,18 @@
                                 <md-icon>share</md-icon>
                             </md-button>
                         </div>
+                    </div>
+                    <div class="m" v-show="item.tmp.c">
+                        <md-field>
+                            <label>邮箱</label>
+                            <md-input @click.stop v-model="comment.email"></md-input>
+                            <md-icon>email</md-icon>
+                        </md-field>
+                        <md-field>
+                            <label>昵称</label>
+                            <md-input @click.stop v-model="comment.nickname"></md-input>
+                            <md-icon>person</md-icon>
+                        </md-field>
                     </div>
                     <div class="b" v-show="item.tmp.c">
                         <md-button @click.stop="(add.linkDialog = true) | (add.index = index) | (add.img = true)" :md-ripple="false" class="md-icon-button">
@@ -121,8 +133,8 @@
                             <md-tooltip md-direction="bottom">添加链接</md-tooltip>
                         </md-button>
                         <div class="toolsbar">
-                            <md-button @click.stop="item.tmp.c = false | $emit('layout')" class="md-primary cancel">取消</md-button>
-                            <md-button @click.stop :disabled="item.commentVal =='' " class="submit">发布</md-button>
+                            <md-button @click.stop="cancelReply(item)" class="md-primary cancel">{{ item.tmp.r ? '取消回复' : '取消' }}</md-button>
+                            <md-button @click.stop :disabled="item.commentVal=='' || comment.nickname=='' || comment.email==''" class="submit">发布</md-button>
                         </div>
                     </div>
                 </div>
@@ -145,6 +157,10 @@ export default {
                 linkAddress: ""
             },
             linkDialog: false
+        },
+        comment: {
+            email: "",
+            nickname: ""
         }
     }),
     methods: {
@@ -233,9 +249,23 @@ export default {
             o.style.height = 0;
             o.style.height = o.scrollTop + o.scrollHeight + "px";
         },
-        reply(e, x) {
-            e.tmp.reply = x.id;
-            e.commentVal += "@" + x.name + ": ";
+        reply(item, item2, index) {
+            item.commentVal = "";
+            this.data[index].tmp.c = true;
+            item.tmp.x = item2.id;
+            item.tmp.r = item2.name;
+            this.$nextTick(() => {
+                document
+                    .querySelector('[index="' + index + '"] textarea')
+                    .focus();
+                this.layout();
+            });
+        },
+        cancelReply(item) {
+            item.tmp.r = "";
+            item.tmp.x = "";
+            item.tmp.c = false;
+            this.$emit("layout");
         }
     }
 };
@@ -441,6 +471,13 @@ export default {
                     color: #000;
                     font-size: 18px !important;
                 }
+            }
+        }
+        .m {
+            padding: 0 16px;
+            box-sizing: border-box;
+            .md-field {
+                // display: block;
             }
         }
         .b {

@@ -3,7 +3,7 @@
  * File Created: Wednesday, 25th July 2018 11:55:37 am
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 31st July 2018 4:35:50 pm
+ * Last Modified: Tuesday, 31st July 2018 6:55:58 pm
  */
 <template>
     <div id="content">
@@ -29,7 +29,7 @@
                 </md-card>
             </div>
 
-            <ArticleCard @layout="layout" :data="data"></ArticleCard>
+            <ArticleCard @layout="layout" :data.sync="data"></ArticleCard>
         </div>
     </div>
 </template>
@@ -52,7 +52,8 @@ export default {
                             c: false, //Cardactive
                             m: false, //Comment
                             b: false, //Progress Bar
-                            r: "" //reply
+                            r: "", //replyComtent
+                            x: "" //replyId
                         };
                         return item;
                     });
