@@ -3,7 +3,7 @@
  * File Created: Wednesday, 25th July 2018 11:55:37 am
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 30th July 2018 3:32:35 pm
+ * Last Modified: Tuesday, 31st July 2018 4:35:50 pm
  */
 <template>
     <div id="content">
@@ -42,18 +42,23 @@ import ArticleCard from "../components/ArticleCard";
 export default {
     created() {
         this.$http
-            .get("http://127.0.0.1:8090/posts")
+            .get("http://192.168.31.32:8090/posts")
             .then(e => {
                 if (e.data.code === 200) {
                     this.data = e.data.data.map(item => {
                         item.commentVal = "";
+                        item.commentList = [];
                         item.tmp = {
-                            c: false
+                            c: false, //Cardactive
+                            m: false, //Comment
+                            b: false, //Progress Bar
+                            r: "" //reply
                         };
                         return item;
                     });
                     this.$nextTick(() => {
                         imagesLoaded(document.querySelector(".grid"), () => {
+                            if (window.innerWidth < 600) return false;
                             this.msnry = new Masonry(".grid", {
                                 percentPosition: true,
                                 columnWidth: ".grid-sizer",
@@ -63,16 +68,23 @@ export default {
                         });
                     });
                 } else {
-                    alert("请求错误, 请稍后重试" + e.data.msg);
+                    this.$store.commit(
+                        "snackbar",
+                        "请求错误, 请稍后重试" + e.data.msg
+                    );
                 }
             })
             .catch(err => {
-                alert("数据请求失败, 请稍后重试" + err);
+                this.$store.commit("snackbar", "请求错误, 请稍后重试" + err);
             });
     },
     data: () => ({
         more: true,
-        msnry: null,
+        msnry: {
+            layout() {
+                return false;
+            }
+        },
         data: [],
         the: _ => {
             return {

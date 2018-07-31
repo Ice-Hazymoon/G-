@@ -3,12 +3,12 @@
  * File Created: Monday, 30th July 2018 2:26:45 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 30th July 2018 4:14:08 pm
+ * Last Modified: Tuesday, 31st July 2018 4:50:39 pm
  */
 <template>
     <div class="article">
         <md-dialog class="addList" :md-active.sync="add.linkDialog">
-            <md-dialog-title>{{ add.img ? '添加图片' : '添加链接' }}</md-dialog-title>
+            <md-dialog-title>{{ add.img ? '添加图片' : '添加链接' }} <small v-show="add.img"><a target="_blank" href="https://sm.ms">图床</a></small></md-dialog-title>
             <md-dialog-content>
                 <md-field md-clearable>
                     <label>{{ add.img ? '图片名称' : '链接名称' }}</label>
@@ -26,7 +26,7 @@
         </md-dialog>
 
         <article class="grid-item" v-for="(item, index) in data" :key="index">
-            <md-card @click.native="handleActive">
+            <md-card @click.native="handleActive(item)" :class="{'active': item.tmp.m}">
                 <md-card-header>
                     <md-avatar>
                         <img :src="item.avatar" alt="Avatar">
@@ -61,12 +61,36 @@
                     <img :src="item.cover" alt="Cover">
                 </md-card-media>
 
-                <div class="comment-list">
+                <md-progress-bar md-mode="indeterminate" v-show="item.tmp.b"></md-progress-bar>
+
+                <div class="comment-list-open" v-show="item.tmp.m" :index="item.id">
+                    <div class="status">共 {{ item.commentsNum }} 条评论</div>
+                    <ul>
+                        <li v-for="(item2, index2) in item.commentList" :key="index2">
+                            <div class="avatar">
+                                <md-avatar>
+                                    <img :src="item2.avatar" alt="Avatar">
+                                </md-avatar>
+                            </div>
+
+                            <div class="comment-content">
+                                <div class="name" v-text="item2.name">Hazymoon</div>
+                                <div class="con" v-html="(item2.reply ? '<a>@ + ' + item2.reply +'</a> ' : '') + item2.content">评论内容</div>
+                            </div>
+
+                            <div class="date" v-text="handleDate(item2.date)">1 小时</div>
+
+                            <md-button class="md-icon-button md-dense" :md-ripple="false" @click.stop="reply(item, item2)">
+                                <md-icon>reply</md-icon>
+                            </md-button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="comment-list" v-show="!item.tmp.m">
+                    <div class="status">显示所有评论（共 {{ item.commentsNum }} 条）</div>
                     <ul tabindex="0">
-                        <li class="show-more">显示所有评论（共 4 条）</li>
-                        <li>神楽坂玲奈（zh99998）: 摸摸..</li>
-                        <li>SASHIHARA WONG (AKIRAMENAI): 默默支持</li>
-                        <li>咩唔栗栗子: 路漫漫其修远兮…</li>
+                        <li v-for="(item2, index2) in item.comments" :key="index2" v-html="'<b>' + item2.name + '</b>' + ' : ' + (item2.reply ? '<a>@ + ' + item2.reply +'</a> ' : '') + item2.content">评论内容</li>
                     </ul>
                 </div>
 
@@ -75,7 +99,8 @@
                         <md-avatar class="md-small">
                             <img :src="item.avatar" alt="Avatar">
                         </md-avatar>
-                        <input v-show="item.tmp.c" type="text" placeholder="发表评论..." v-model.trim="item.commentVal" @click.stop>
+                        <textarea v-show="item.tmp.c" type="text" placeholder="发表评论..." @input="autogrow" v-model.trim="item.commentVal" @click.stop></textarea>
+
                         <div v-show="!item.tmp.c" class="placeholder" @click.stop="item.tmp.c = true | layout() | focus($event)" tabindex="1">发表评论...</div>
                         <div class="toolsbar" v-show="!item.tmp.c">
                             <md-button @click.stop :md-ripple="false" class="md-icon-button">
@@ -107,6 +132,8 @@
 </template>
 
 <script>
+import imagesLoaded from "imagesloaded";
+
 export default {
     props: ["data"],
     data: () => ({
@@ -121,27 +148,59 @@ export default {
         }
     }),
     methods: {
-        toggleClass: require("../fun.js").toggleClass,
-        handleActive(e) {
-            this.toggleClass(e.currentTarget, "active");
+        handleActive(item) {
+            if (item.commentList.length) {
+                item.tmp.m = !item.tmp.m;
+                this.layout();
+                return false;
+            }
+            item.tmp.b = true;
+            this.$http
+                .get("http://192.168.31.32:8090/comment/" + item.id)
+                .then(e => {
+                    if (e.data.code === 200) {
+                        item.commentList = e.data.data;
+                        item.tmp.m = !item.tmp.m;
+                        this.$nextTick(() => {
+                            imagesLoaded(
+                                document.querySelector(
+                                    '[index="' + item.id + '"]'
+                                ),
+                                () => {
+                                    setTimeout(() => (item.tmp.b = false), 500);
+                                    this.$nextTick(() => {
+                                        this.layout();
+                                    });
+                                }
+                            );
+                            this.layout();
+                        });
+                    } else {
+                        this.$store.commit(
+                            "snackbar",
+                            "请求错误, 请稍后重试" + e.data.msg
+                        );
+                    }
+                })
+                .catch(err => {
+                    this.$store.commit(
+                        "snackbar",
+                        "请求错误, 请稍后重试" + err
+                    );
+                });
         },
         layout() {
             this.$emit("layout");
         },
         focus(e) {
             this.$nextTick(() => {
-                setTimeout(() => e.path[1].querySelector("input").focus(), 0);
+                setTimeout(
+                    () => e.path[1].querySelector("textarea").focus(),
+                    0
+                );
             });
         },
-        handleDate(date) {
-            let [t, d] = [new Date().getTime(), new Date(date).getTime()];
-            let e = (t - d) / 86400000;
-            if (e <= 1) return "今天";
-            if (e > 1 && e <= 7) return (e / 1).toFixed(0) + "天";
-            if (e > 7 && e <= 30) return (e / 30).toFixed(0) + "周";
-            if (e > 30 && e <= 365) return (e / 30).toFixed(0) + "月";
-            if (e > 365) return (e / 365).toFixed(0) + "年";
-        },
+        handleDate: require("../fun.js").handleDate,
         addlink() {
             if (this.add.link.linkName && this.add.link.linkAddress) {
                 let a = this.add.img
@@ -168,6 +227,15 @@ export default {
             } else {
                 this.$store.commit("snackbar", "请输入正确的信息");
             }
+        },
+        autogrow(e) {
+            let o = e.target;
+            o.style.height = 0;
+            o.style.height = o.scrollTop + o.scrollHeight + "px";
+        },
+        reply(e, x) {
+            e.tmp.reply = x.id;
+            e.commentVal += "@" + x.name + ": ";
         }
     }
 };
@@ -251,23 +319,99 @@ export default {
             color: rgba(0, 0, 0, 0.87);
         }
     }
-    .comment-list {
+    .md-progress-bar {
+        position: absolute;
+        width: 100%;
+        height: 5px;
+    }
+    .cl {
         background-color: #fafafa;
         overflow: hidden;
         border-top: 1px solid #ebebeb;
-        padding-top: 12px;
+        .status {
+            padding: 16px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ebebeb;
+            color: #448aff;
+        }
         ul {
-            margin: 12px 8px 0;
             padding: 0;
             li {
-                margin: 8px;
                 padding: 0;
                 list-style: none;
+            }
+        }
+    }
+    .comment-list {
+        @extend .cl;
+        .status {
+            cursor: pointer;
+        }
+        ul {
+            margin: 12px 8px 0;
+            li {
+                margin: 8px;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 font-weight: 500;
                 &.show-more {
                     color: #448aff;
+                }
+                img {
+                    display: block;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+    .comment-list-open {
+        @extend .cl;
+        ul {
+            li {
+                position: relative;
+                padding: 12px 16px;
+                box-sizing: border-box;
+                .avatar {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .name {
+                    display: inline-block;
+                    font-weight: bold;
+                }
+                .comment-content {
+                    display: inline-block;
+                    min-height: 40px;
+                    margin-left: 16px;
+                    width: calc(100% - 40px - 38px - 16px);
+                    img {
+                        max-width: 100%;
+                        display: block;
+                    }
+                }
+                .date {
+                    opacity: 1;
+                    display: inline-block;
+                    position: absolute;
+                    right: 16px;
+                    line-height: 32px;
+                    color: rgba(0, 0, 0, 0.54);
+                    transition: opacity 0.2s ease;
+                }
+                button {
+                    opacity: 0;
+                    display: inline-block;
+                    position: absolute;
+                    right: 16px;
+                    transition: opacity 0.2s ease;
+                }
+                &:hover {
+                    button {
+                        opacity: 1;
+                    }
+                    .date {
+                        opacity: 0;
+                    }
                 }
             }
         }
@@ -323,15 +467,22 @@ export default {
             height: 36px;
             line-height: 36px;
         }
-        input {
+        .r {
+        }
+        textarea {
             width: calc(100% - 56px);
-            height: 36px;
+            height: 20px;
+            line-height: 20px;
             margin-left: 16px;
+            padding: 0;
             font-size: 15px;
+            overflow-y: hidden;
             outline: none;
+            resize: none;
             background-color: transparent;
             border: none;
             box-shadow: none;
+            vertical-align: middle;
         }
     }
 }

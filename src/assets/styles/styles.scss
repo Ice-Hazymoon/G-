@@ -3,7 +3,7 @@
  * File Created: Monday, 23rd July 2018 4:32:42 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 30th July 2018 3:48:14 pm
+ * Last Modified: Tuesday, 31st July 2018 10:33:56 am
  */
 
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
@@ -58,15 +58,15 @@ body{
     }
     #content{
         .grid-item{
+            position: relative !important;
+            top: 0 !important;
+            left: 0 !important;
             max-width: none !important;
             margin-bottom: 16px !important;
             .md-card{
                 margin-left: 0 !important;
                 margin-right: 0 !important;
             }
-        }
-        .c-header{
-            margin-bottom: 8px !important;
         }
     }
     #appbar{
