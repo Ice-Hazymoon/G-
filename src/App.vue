@@ -7,7 +7,9 @@
         <Appbar/>
         <md-app>
             <md-app-content>
-                <Content/>
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
             </md-app-content>
             <md-app-drawer :md-active.sync="$store.state.drawerVisible" md-persistent="full">
                 <Sidebar/>
@@ -18,12 +20,10 @@
 <script>
 import Sidebar from "./template/Sidebar";
 import Appbar from "./template/Appbar";
-import Content from "./template/Content";
 export default {
     components: {
         Sidebar,
-        Appbar,
-        Content
+        Appbar
     },
     computed: {
         drawerVisible() {
@@ -53,5 +53,19 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #f1f1f1;
+    .md-content > div {
+        transition: all 0.5s cubic-bezier(0, 0, 0.2, 1);
+        animation: ru 0.5s cubic-bezier(0, 0, 0.2, 1);
+    }
+    @keyframes ru {
+        0% {
+            transform: translateY(15vh);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    }
 }
 </style>

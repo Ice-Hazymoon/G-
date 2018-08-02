@@ -3,7 +3,7 @@
  * File Created: Tuesday, 24th July 2018 4:10:42 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Saturday, 28th July 2018 12:08:58 pm
+ * Last Modified: Wednesday, 1st August 2018 4:59:02 pm
  */
 <template>
     <div id="sidebar">
@@ -14,14 +14,14 @@
             </md-button>
         </md-toolbar>
         <md-list class="links">
-            <md-list-item>
-                <md-icon>move_to_inbox</md-icon>
-                <span class="md-list-item-text">Inbox</span>
+            <md-list-item to="/">
+                <md-icon>home</md-icon>
+                <span class="md-list-item-text">首页</span>
             </md-list-item>
 
-            <md-list-item>
-                <md-icon>send</md-icon>
-                <span class="md-list-item-text">Sent Mail</span>
+            <md-list-item to="/links">
+                <md-icon>supervisor_account</md-icon>
+                <span class="md-list-item-text">人脉</span>
             </md-list-item>
 
             <md-list-item>
@@ -58,6 +58,16 @@
 
 <style lang="scss" scoped>
 #sidebar {
+    .md-list-item-content {
+        i {
+            margin-right: 22px;
+            color: #888888;
+        }
+    }
+    .md-list-item-text {
+        color: rgba(0, 0, 0, 0.87);
+        font-size: 15px;
+    }
     .header {
         border-bottom: 1px solid #ddd;
         margin-bottom: 10px;

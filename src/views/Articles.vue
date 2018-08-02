@@ -1,9 +1,9 @@
 /*
  * Project: blog
- * File Created: Wednesday, 25th July 2018 11:55:37 am
+ * File Created: Wednesday, 1st August 2018 4:53:33 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 31st July 2018 6:55:58 pm
+ * Last Modified: Thursday, 2nd August 2018 5:59:45 pm
  */
 <template>
     <div id="content">
@@ -21,10 +21,14 @@
                         </div>
                         <div class="md-subhead">聆听最初的声音，向往无尽的未来</div>
 
-                        <md-button @click.stop class="md-icon-button like" :md-ripple="false">
-                            <md-icon>favorite_border</md-icon>
-                            <md-tooltip md-direction="left">Do you like me?</md-tooltip>
-                        </md-button>
+                        <div class="like">
+                            <span class="like-number">{{ likeNum[1] }}</span>
+                            <md-button @click.stop="like" class="md-icon-button" :class="{'liked': likeNum[0]}" :md-ripple="false">
+                                <md-icon v-if="likeNum[0]">favorite</md-icon>
+                                <md-icon v-else>favorite_border</md-icon>
+                                <md-tooltip md-direction="left">Do you like me?</md-tooltip>
+                            </md-button>
+                        </div>
                     </md-card-header>
                 </md-card>
             </div>
@@ -40,11 +44,27 @@ import imagesLoaded from "imagesloaded";
 import ArticleCard from "../components/ArticleCard";
 
 export default {
+    beforeRouteLeave(to, from, next) {
+        document.querySelector(".md-content > div").classList.add("r-b");
+        setTimeout(() => {
+            setTimeout(() => {
+                document
+                    .querySelector(".md-content > div")
+                    .classList.remove("r-b");
+            }, 500);
+            // window.scrollTo(0,0);
+            next();
+        }, 500);
+    },
     created() {
         this.$http
             .get("http://192.168.31.32:8090/posts")
             .then(e => {
                 if (e.data.code === 200) {
+                    this.likeNum =
+                        localStorage.getItem("like") === "true"
+                            ? [true, e.data.likeNum]
+                            : [false, e.data.likeNum];
                     this.data = e.data.data.map(item => {
                         item.commentVal = "";
                         item.commentList = [];
@@ -87,17 +107,35 @@ export default {
             }
         },
         data: [],
-        the: _ => {
-            return {
-                "": _
-            };
-        }
+        likeNum: [false, 0]
     }),
     methods: {
         layout() {
             this.$nextTick(() => {
                 setTimeout(() => this.msnry.layout(), 0);
             });
+        },
+        like() {
+            this.$http
+                .get("http://127.0.0.1:8090/like")
+                .then(e => {
+                    if (e.data.code === 200) {
+                        this.likeNum = [true, e.data.likeNum];
+                        localStorage.setItem("like", true);
+                        this.$store.commit("snackbar", "我也喜欢你~");
+                    } else {
+                        this.$store.commit(
+                            "snackbar",
+                            "请求错误, 请稍后重试" + e.data.msg
+                        );
+                    }
+                })
+                .catch(err => {
+                    this.$store.commit(
+                        "snackbar",
+                        "请求错误, 请稍后重试" + err
+                    );
+                });
         }
     },
     watch: {
