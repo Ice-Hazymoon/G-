@@ -3,7 +3,7 @@
  * File Created: Monday, 30th July 2018 2:26:45 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Thursday, 2nd August 2018 7:01:43 pm
+ * Last Modified: Friday, 3rd August 2018 6:02:59 pm
  */
 <template>
     <div class="article">
@@ -41,14 +41,23 @@
                     </div>
                     <div class="md-subhead" v-text="item.status">管理员</div>
 
-                    <div class="date" v-text="handleDate(item.date)">3 分钟</div>
-                    <div class="toolsbar">
-                        <md-button :md-ripple="false" class="md-icon-button md-dense" @click.stop="$router.push(item.path)">
-                            <md-icon class="open-post">open_in_new</md-icon>
-                        </md-button>
-                        <md-button @click.stop :md-ripple="false" class="md-icon-button md-dense">
-                            <md-icon>more_vert</md-icon>
-                        </md-button>
+                    <div class="r">
+                        <div class="toolsbar">
+                            <md-button :md-ripple="false" class="md-icon-button md-dense" @click.stop="$router.push(item.path)">
+                                <md-icon class="open-post">open_in_new</md-icon>
+                            </md-button>
+                            <md-menu :md-offset-x="5" :md-offset-y="10">
+                                <md-button :md-ripple="false" class="md-icon-button md-dense" md-menu-trigger @click.stop>
+                                    <md-icon>devices</md-icon>
+                                    <md-tooltip md-direction="bottom">二维码</md-tooltip>
+                                </md-button>
+                                <md-menu-content class="qrcode">
+                                    <span>在其它设备中阅读本文章</span>
+                                    <img :src="'https://api.imjad.cn/qrcode/?encode=raw&size=180&text=' + getUrl + item.path" alt="">
+                                </md-menu-content>
+                            </md-menu>
+                        </div>
+                        <div class="date" v-text="handleDate(item.date)">3 分钟</div>
                     </div>
                 </md-card-header>
 
@@ -103,12 +112,36 @@
                         <textarea v-show="item.tmp.c" type="text" :placeholder="item.tmp.r ? '回复给: ' + item.tmp.r : '发表评论...'" @input="autogrow" v-model.trim="item.commentVal" @click.stop></textarea>
                         <div v-show="!item.tmp.c" class="placeholder" @click.stop="item.tmp.c = true | layout() | focus($event)" tabindex="1">发表评论...</div>
                         <div class="toolsbar" v-show="!item.tmp.c">
-                            <md-button @click.stop :md-ripple="false" class="md-icon-button">
+                            <md-button @click.stop="likeArticles(item)" :md-ripple="false" class="md-icon-button" :class="{'liked': item.isLike}">
                                 <md-icon>plus_one</md-icon>
                             </md-button>
-                            <md-button @click.stop :md-ripple="false" class="md-icon-button">
-                                <md-icon>share</md-icon>
-                            </md-button>
+                            <span>{{ item.like }}</span>
+                            <md-menu  :md-offset-x="5" :md-offset-y="10">
+                                <md-button class="md-icon-button" md-menu-trigger @click.stop :md-ripple="false">
+                                    <md-icon>share</md-icon>
+                                </md-button>
+                                <md-menu-content>
+                                    <md-menu-item target="_blank" :href="shareUrl.weibo + 'appkey=&searchPic=false&style=simple&title=' + item.title + '&url=' + getUrl + item.path">
+                                        <span>分享到 微博</span>
+                                    </md-menu-item>
+
+                                    <md-menu-item target="_blank" :href="shareUrl.twitter + 'via=Ice-Hazymoon&url=' + getUrl + item.path + '&text=' + item.title">
+                                        <span>分享到 Twitter</span>
+                                    </md-menu-item>
+
+                                    <md-menu-item target="_blank" :href="shareUrl.qq + 'site=Ice-Hazymoon%20blog&url=' + getUrl + item.path + '&pics=' + item.cover + '&summary=' + item.summary + '&title' + item.title">
+                                        <span>分享到 QQ</span>
+                                    </md-menu-item>
+
+                                    <md-menu-item target="_blank" :href="shareUrl.google_plus + 'url=' + getUrl + item.path">
+                                        <span>分享到 Google+</span>
+                                    </md-menu-item>
+
+                                    <md-menu-item target="_blank" :href="shareUrl.telegram + 'url=' + getUrl + item.path">
+                                        <span>分享到 Telegram</span>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
                         </div>
                     </div>
                     <div class="m" v-show="item.tmp.c">
@@ -197,7 +230,7 @@ export default {
                 );
             });
         },
-        handleDate: require("../fun.js").handleDate,
+        handleDate: require("../fun.js").default.handleDate,
         addlink() {
             if (this.add.link.linkName && this.add.link.linkAddress) {
                 let a = this.add.img
@@ -274,6 +307,44 @@ export default {
                         "请求错误, 请稍后重试" + err
                     );
                 });
+        },
+        likeArticles(item) {
+            if (item.isLike) return false;
+            this.$http
+                .post("http://127.0.0.1:8090/like", {
+                    id: item.id
+                })
+                .then(e => {
+                    if (e.data.code === 200) {
+                        item.isLike = true;
+                        item.like = e.data.likeNum;
+                    } else {
+                        this.$store.commit(
+                            "snackbar",
+                            "请求错误, 请稍后重试" + e.data.msg
+                        );
+                    }
+                })
+                .catch(err => {
+                    this.$store.commit(
+                        "snackbar",
+                        "请求错误, 请稍后重试" + err
+                    );
+                });
+        }
+    },
+    computed: {
+        getUrl() {
+            return window.location.href;
+        },
+        shareUrl() {
+            return {
+                weibo: "http://service.weibo.com/share/share.php?",
+                twitter: "https://twitter.com/intent/tweet?",
+                qq: "http://connect.qq.com/widget/shareqq/index.html?",
+                telegram: "https://telegram.me/share/url?",
+                google_plus: "https://plus.google.com/share?"
+            };
         }
     }
 };
@@ -289,10 +360,14 @@ export default {
     .comment {
         .t {
             .toolsbar {
-                display: inline-block;
+                display: inline-flex;
+                align-items: center;
                 position: absolute;
                 right: 16px;
                 top: 12px;
+                span {
+                    margin-right: 6px;
+                }
                 button {
                     margin: 0 8px;
                     min-width: 36px;
@@ -308,12 +383,18 @@ export default {
                     color: #000;
                     font-size: 18px !important;
                 }
+                .liked {
+                    background-color: #ff5252;
+                    i {
+                        color: #ffffff;
+                    }
+                    &:hover {
+                        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.26);
+                        background-color: #ff3333;
+                    }
+                }
             }
         }
-    }
-    .comment {
-        position: relative;
-        background-color: #fafafa;
         .placeholder {
             display: inline-block;
             width: 200px;

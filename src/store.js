@@ -12,7 +12,8 @@ export default new Vuex.Store({
             duration: 4000,
             isInfinity: false,
             content: "Snackbar"
-        }
+        },
+        globalProgress: false
     },
     mutations: {
         switchSidebar(state, e) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
             state.snackbar.content = content;
             state.snackbar.showSnackbar = true;
             if (config) state.snackbar = config;
+        },
+        setGlobalProgress(state, val) {
+            state.globalProgress = val;
         }
     },
     actions: {}

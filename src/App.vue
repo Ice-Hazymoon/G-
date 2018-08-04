@@ -4,12 +4,14 @@
             <span>{{ $store.state.snackbar.content }}</span>
             <md-button class="md-primary" @click="$store.state.snackbar.showSnackbar = false">OK</md-button>
         </md-snackbar>
+        <md-progress-bar v-show="$store.state.globalProgress" class="global-progress-bar" md-mode="indeterminate"></md-progress-bar>
         <Appbar/>
         <md-app>
             <md-app-content>
-                <keep-alive>
-                    <router-view></router-view>
+                <keep-alive exclude="Posts">
+                    <router-view v-if="$route.meta.keep_alive"></router-view>
                 </keep-alive>
+                <router-view v-if="!$route.meta.keep_alive"></router-view>
             </md-app-content>
             <md-app-drawer :md-active.sync="$store.state.drawerVisible" md-persistent="full">
                 <Sidebar/>
@@ -56,6 +58,13 @@ export default {
     .md-content > div {
         transition: all 0.5s cubic-bezier(0, 0, 0.2, 1);
         animation: ru 0.5s cubic-bezier(0, 0, 0.2, 1);
+    }
+    .global-progress-bar {
+        z-index: 100000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
     }
     @keyframes ru {
         0% {

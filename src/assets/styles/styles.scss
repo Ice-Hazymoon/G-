@@ -3,7 +3,7 @@
  * File Created: Monday, 23rd July 2018 4:32:42 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Thursday, 2nd August 2018 6:54:24 pm
+ * Last Modified: Friday, 3rd August 2018 5:22:24 pm
  */
 
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
@@ -15,6 +15,17 @@
 
 body{
     padding-left: calc(100vw - 100%);
+}
+
+#sidebar{
+    .router-link-exact-active{
+        span{
+            color: #ff5252 !important;
+        }
+        i{
+            color: #ff5252 !important;
+        }
+    }
 }
 
 .md-app{
@@ -51,6 +62,31 @@ body{
 }
 
 @media (max-width:599px){
+    .md-card .comment-list-open ul li{
+        .date{
+            opacity: 1 !important;
+        }
+        button{
+            top: 40px !important;
+            opacity: 1 !important;
+        }
+    }
+    .md-card-header{
+        .r{
+            .toolsbar{
+                display: inline-flex !important;
+                width: 40px !important;
+                margin-right: 6px;
+                .md-menu{
+                    display: none;
+                }
+            }
+            .date{
+                display: inline-block !important;
+                font-size: 15px !important;
+            }
+        }
+    }
     .md-content{
         padding-top: 71px !important;
         padding-left: 0 !important;
@@ -107,12 +143,19 @@ body{
     opacity: 0 !important;
 }
 
+.qrcode{
+    span{
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+
 // 文章
 
 .md-card {
     margin: 0 12px !important;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-    transition: box-shadow 0.2s ease;
+    transition: box-shadow 0.2s ease !important;
     .md-card-header {
         margin-bottom: 0;
         .classN {
@@ -137,26 +180,29 @@ body{
             }
         }
         .liked i {
-            color: #ff5252;
+            color: #ff5252 !important;
         }
-        .date {
+        .r{
+            display: inline-flex !important;
+            align-items: center;
             position: absolute;
             height: 40px;
             right: 16px;
             top: 16px;
+        }
+        .date {
+            display: inline-block;
             line-height: 40px;
             color: #9e9e9e;
             font-size: 13px;
         }
         .toolsbar {
-            position: absolute;
             width: 80px;
             height: 40px;
-            right: 16px;
-            top: 16px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             display: none;
+            justify-content: space-around;
         }
         &:hover {
             .date {

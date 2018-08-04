@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 4:53:33 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Thursday, 2nd August 2018 5:59:45 pm
+ * Last Modified: Friday, 3rd August 2018 4:25:15 pm
  */
 <template>
     <div id="content">
@@ -56,6 +56,11 @@ export default {
             next();
         }, 500);
     },
+    activated() {
+        if (this.data.length) {
+            this.$store.commit("setGlobalProgress", false);
+        }
+    },
     created() {
         this.$http
             .get("http://192.168.31.32:8090/posts")
@@ -79,6 +84,7 @@ export default {
                     });
                     this.$nextTick(() => {
                         imagesLoaded(document.querySelector(".grid"), () => {
+                            this.$store.commit("setGlobalProgress", false);
                             if (window.innerWidth < 600) return false;
                             this.msnry = new Masonry(".grid", {
                                 percentPosition: true,
@@ -117,7 +123,7 @@ export default {
         },
         like() {
             this.$http
-                .get("http://127.0.0.1:8090/like")
+                .get("http://192.168.31.32:8090/like")
                 .then(e => {
                     if (e.data.code === 200) {
                         this.likeNum = [true, e.data.likeNum];

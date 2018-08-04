@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 5:08:47 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Thursday, 2nd August 2018 7:04:18 pm
+ * Last Modified: Friday, 3rd August 2018 6:02:35 pm
  */
 <template>
     <div id="posts">
@@ -40,14 +40,20 @@
                 </div>
                 <div class="md-subhead" v-text="data.status">管理员</div>
 
-                <div class="date" v-text="handleDate(data.date)">3 分钟</div>
-                <div class="toolsbar">
-                    <md-button :md-ripple="false" class="md-icon-button md-dense">
-                        <md-icon class="open-post">open_in_new</md-icon>
-                    </md-button>
-                    <md-button :md-ripple="false" class="md-icon-button md-dense">
-                        <md-icon>more_vert</md-icon>
-                    </md-button>
+                <div class="r">
+                    <div class="date" v-text="dateFormat(data.date, 'yyyy年MM月dd日')">3 分钟</div>
+                    <div class="toolsbar">
+                        <md-menu :md-offset-x="5" :md-offset-y="10">
+                            <md-button :md-ripple="false" class="md-icon-button md-dense" md-menu-trigger>
+                                <md-icon>devices</md-icon>
+                                <md-tooltip md-direction="bottom">二维码</md-tooltip>
+                            </md-button>
+                            <md-menu-content class="qrcode">
+                                <span>在其它设备中阅读本文章</span>
+                                <img :src="'https://api.imjad.cn/qrcode/?encode=raw&size=180&text=' + data.path" alt="">
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
                 </div>
             </md-card-header>
 
@@ -59,6 +65,53 @@
             <md-card-media>
                 <img :src="data.cover" alt="Cover">
             </md-card-media>
+
+            <md-card-actions>
+                <md-button class="md-icon-button" @click="focus">
+                    <md-icon>message</md-icon>
+                </md-button>
+
+                <span>{{ data.commentsNum }}</span>
+
+                <md-button class="md-icon-button" @click="likeArticles" :class="{'liked': data.isLike}">
+                    <md-icon>plus_one</md-icon>
+                </md-button>
+
+                <span>{{ data.like }}</span>
+
+                <md-menu  :md-offset-x="5" :md-offset-y="10">
+                    <md-button class="md-icon-button" md-menu-trigger>
+                        <md-icon>share</md-icon>
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item target="_blank" :href="shareUrl.weibo + 'appkey=&searchPic=false&style=simple&title=' + data.title + '&url=' + getUrl">
+                            <span>分享到 微博</span>
+                        </md-menu-item>
+
+                        <md-menu-item target="_blank" :href="shareUrl.twitter + 'via=Ice-Hazymoon&url=' + getUrl + '&text=' + data.title">
+                            <span>分享到 Twitter</span>
+                        </md-menu-item>
+
+                        <md-menu-item target="_blank" :href="shareUrl.qq + 'site=Ice-Hazymoon%20blog&url=' + getUrl + '&pics=' + data.cover + '&summary=' + data.summary + '&title' + data.title">
+                            <span>分享到 QQ</span>
+                        </md-menu-item>
+
+                        <md-menu-item target="_blank" :href="shareUrl.google_plus + 'url=' + getUrl">
+                            <span>分享到 Google+</span>
+                        </md-menu-item>
+
+                        <md-menu-item target="_blank" :href="shareUrl.telegram + 'url=' + getUrl">
+                            <span>分享到 Telegram</span>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+
+                <!-- <md-button class="md-icon-button">
+                    <md-icon>share</md-icon>
+                </md-button> -->
+
+                <!-- <span>1</span> -->
+            </md-card-actions>
 
             <div class="comment-list-open">
                 <div class="status">共 {{ data.commentsNum }} 条评论</div>
@@ -128,7 +181,7 @@ export default {
     props: ["id"],
     created() {
         this.$http
-            .get("http://127.0.0.1:8090/posts/" + this.id)
+            .get("http://192.168.31.32:8090/posts/" + this.id)
             .then(e => {
                 if (e.data.code === 200) {
                     e.data.data.tmp = {
@@ -136,6 +189,9 @@ export default {
                         x: "" //replyId
                     };
                     this.data = e.data.data;
+                    setTimeout(() => {
+                        this.$store.commit("setGlobalProgress", false);
+                    }, 500);
                 } else {
                     this.$store.commit(
                         "snackbar",
@@ -175,7 +231,11 @@ export default {
         }, 500);
     },
     methods: {
-        handleDate: require("../fun.js").handleDate,
+        handleDate: require("../fun.js").default.handleDate,
+        dateFormat: require("../fun.js").default.dateFormat,
+        focus() {
+            document.getElementsByTagName("textarea")[0].focus();
+        },
         addlink() {
             if (this.add.link.linkName && this.add.link.linkAddress) {
                 let a = this.add.img
@@ -220,7 +280,7 @@ export default {
         },
         sendReply() {
             this.$http
-                .post("http://127.0.0.1:8090/comment/" + this.data.id, {
+                .post("http://192.168.31.32:8090/comment/" + this.data.id, {
                     content: this.data.tmp.r,
                     name: this.comment.nickname,
                     email: this.comment.email,
@@ -243,6 +303,44 @@ export default {
                         "请求错误, 请稍后重试" + err
                     );
                 });
+        },
+        likeArticles() {
+            if (this.data.isLike) return false;
+            this.$http
+                .post("http://192.168.31.32:8090/like", {
+                    id: this.data.id
+                })
+                .then(e => {
+                    if (e.data.code === 200) {
+                        this.data.isLike = true;
+                        this.data.like = e.data.likeNum;
+                    } else {
+                        this.$store.commit(
+                            "snackbar",
+                            "请求错误, 请稍后重试" + e.data.msg
+                        );
+                    }
+                })
+                .catch(err => {
+                    this.$store.commit(
+                        "snackbar",
+                        "请求错误, 请稍后重试" + err
+                    );
+                });
+        }
+    },
+    computed: {
+        shareUrl() {
+            return {
+                weibo: "http://service.weibo.com/share/share.php?",
+                twitter: "https://twitter.com/intent/tweet?",
+                qq: "http://connect.qq.com/widget/shareqq/index.html?",
+                telegram: "https://telegram.me/share/url?",
+                google_plus: "https://plus.google.com/share?"
+            };
+        },
+        getUrl() {
+            return window.location.href;
         }
     }
 };
@@ -254,5 +352,49 @@ export default {
     max-width: 530px;
     min-height: 1000px;
     margin-bottom: 50px;
+    .md-card-header {
+        .date,
+        .toolsbar {
+            display: inline-flex;
+        }
+        .toolsbar {
+            width: 40px;
+            margin-left: 10px;
+        }
+    }
+    .md-card-actions {
+        .liked {
+            background-color: #ff5252;
+            i {
+                color: #ffffff;
+            }
+            &:hover {
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.26);
+                background-color: #ff3333;
+            }
+        }
+        span {
+            margin-right: 6px;
+        }
+        button {
+            margin: 0 8px;
+            min-width: 36px;
+            width: 36px;
+            height: 36px;
+            background-color: #eeeeee;
+            &:hover {
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.26);
+                background-color: #fff;
+            }
+            i {
+                color: #757575;
+                font-size: 18px !important;
+            }
+        }
+    }
+    .comment,
+    .comment-list-open {
+        background-color: #fff;
+    }
 }
 </style>

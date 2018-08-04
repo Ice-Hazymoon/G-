@@ -7,7 +7,7 @@ const Posts = () => import("./views/Posts.vue");
 
 Vue.use(Router);
 
-let router = new Router({
+export default new Router({
     mode: "history",
     routes: [
         {
@@ -28,7 +28,7 @@ let router = new Router({
             path: "/:year/:month/:day/:id.html",
             component: Posts,
             meta: {
-                keep_alive: true
+                keep_alive: false
             }
         },
         {
@@ -47,5 +47,3 @@ let router = new Router({
         }
     }
 });
-
-export default router;
