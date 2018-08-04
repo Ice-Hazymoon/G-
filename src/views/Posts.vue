@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 5:08:47 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Friday, 3rd August 2018 6:02:35 pm
+ * Last Modified: Saturday, 4th August 2018 1:10:18 pm
  */
 <template>
     <div id="posts">
@@ -32,16 +32,16 @@
                 </md-avatar>
 
                 <div class="md-title">
-                    <span v-text="data.author">Ice-Hazymoon</span>
+                    <span>{{ data.author }}</span>
                     <div class="classN">
                         <md-icon class="md-primary">play_arrow</md-icon>
-                        <span v-text="data.className">Love Live!!</span>
+                        <span>{{ data.className }}</span>
                     </div>
                 </div>
-                <div class="md-subhead" v-text="data.status">管理员</div>
+                <div class="md-subhead">{{ data.status }}</div>
 
                 <div class="r">
-                    <div class="date" v-text="dateFormat(data.date, 'yyyy年MM月dd日')">3 分钟</div>
+                    <div class="date">{{ dateFormat(data.date, 'yyyy年MM月dd日') }}</div>
                     <div class="toolsbar">
                         <md-menu :md-offset-x="5" :md-offset-y="10">
                             <md-button :md-ripple="false" class="md-icon-button md-dense" md-menu-trigger>
@@ -58,8 +58,8 @@
             </md-card-header>
 
             <md-card-content>
-                <div class="title" v-text="data.title">文章标题</div>
-                <div class="content" v-text="data.summary">文章摘要</div>
+                <div class="title">{{ data.title }}</div>
+                <div class="content">{{ data.summary }}</div>
             </md-card-content>
 
             <md-card-media>
@@ -105,12 +105,6 @@
                         </md-menu-item>
                     </md-menu-content>
                 </md-menu>
-
-                <!-- <md-button class="md-icon-button">
-                    <md-icon>share</md-icon>
-                </md-button> -->
-
-                <!-- <span>1</span> -->
             </md-card-actions>
 
             <div class="comment-list-open">
@@ -124,15 +118,15 @@
                         </div>
 
                         <div class="comment-content">
-                            <div class="name" v-text="item.name">Hazymoon</div>
+                            <div class="name">{{ item.name }}</div>
                             <div class="con" v-html="(item.reply ? '<a>@ + ' + item.reply +'</a> ' : '') + item.content">评论内容</div>
                         </div>
 
-                        <div class="date" v-text="handleDate(item.date)">1 小时</div>
+                        <div class="date">{{ handleDate(item.date) }}</div>
 
                         <md-button class="md-icon-button md-dense" :md-ripple="false" @click="reply(item)">
                             <md-icon>reply</md-icon>
-                            <md-tooltip md-direction="bottom">回复</md-tooltip>
+                            <md-tooltip v-if="!isMobile" md-direction="bottom">回复</md-tooltip>
                         </md-button>
                     </li>
                 </ul>
@@ -148,23 +142,23 @@
                 <div class="m">
                     <md-field>
                         <label>邮箱</label>
-                        <md-input v-model="comment.email"></md-input>
+                        <md-input v-model.trim="comment.email"></md-input>
                         <md-icon>email</md-icon>
                     </md-field>
                     <md-field>
                         <label>昵称</label>
-                        <md-input v-model="comment.nickname"></md-input>
+                        <md-input v-model.trim="comment.nickname"></md-input>
                         <md-icon>person</md-icon>
                     </md-field>
                 </div>
                 <div class="b">
                     <md-button @click="(add.linkDialog = true) | (add.img = true)" :md-ripple="false" class="md-icon-button">
                         <md-icon>camera_alt</md-icon>
-                        <md-tooltip md-direction="bottom">添加图片</md-tooltip>
+                        <md-tooltip v-if="!isMobile" md-direction="bottom">添加图片</md-tooltip>
                     </md-button>
                     <md-button @click="(add.linkDialog = true) | (add.img = false)" :md-ripple="false" class="md-icon-button">
                         <md-icon>link</md-icon>
-                        <md-tooltip md-direction="bottom">添加链接</md-tooltip>
+                        <md-tooltip v-if="!isMobile" md-direction="bottom">添加链接</md-tooltip>
                     </md-button>
                     <div class="toolsbar">
                         <md-button @click="cancelReply" v-if="data.tmp.r" class="md-primary cancel">取消回复</md-button>
@@ -191,6 +185,7 @@ export default {
                     this.data = e.data.data;
                     setTimeout(() => {
                         this.$store.commit("setGlobalProgress", false);
+                        this.$store.commit("setForbidMask", false);
                     }, 500);
                 } else {
                     this.$store.commit(
@@ -341,6 +336,9 @@ export default {
         },
         getUrl() {
             return window.location.href;
+        },
+        isMobile() {
+            return window.innerWidth < 650;
         }
     }
 };

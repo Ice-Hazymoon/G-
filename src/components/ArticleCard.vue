@@ -3,7 +3,7 @@
  * File Created: Monday, 30th July 2018 2:26:45 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Friday, 3rd August 2018 6:02:59 pm
+ * Last Modified: Saturday, 4th August 2018 11:43:14 am
  */
 <template>
     <div class="article">
@@ -33,13 +33,13 @@
                     </md-avatar>
 
                     <div class="md-title">
-                        <span v-text="item.author">Ice-Hazymoon</span>
+                        <span>{{ item.author }}</span>
                         <div class="classN">
                             <md-icon class="md-primary">play_arrow</md-icon>
-                            <span v-text="item.className">Love Live!!</span>
+                            <span>{{ item.className }}</span>
                         </div>
                     </div>
-                    <div class="md-subhead" v-text="item.status">管理员</div>
+                    <div class="md-subhead">{{ item.status }}</div>
 
                     <div class="r">
                         <div class="toolsbar">
@@ -57,13 +57,13 @@
                                 </md-menu-content>
                             </md-menu>
                         </div>
-                        <div class="date" v-text="handleDate(item.date)">3 分钟</div>
+                        <div class="date">{{ handleDate(item.date) }}</div>
                     </div>
                 </md-card-header>
 
                 <md-card-content>
-                    <div class="title" v-text="item.title">文章标题</div>
-                    <div class="content" v-text="item.summary">文章摘要</div>
+                    <div class="title">{{ item.title }}</div>
+                    <div class="content">{{ item.summary }}</div>
                 </md-card-content>
 
                 <md-card-media>
@@ -83,15 +83,15 @@
                             </div>
 
                             <div class="comment-content">
-                                <div class="name" v-text="item2.name">Hazymoon</div>
+                                <div class="name">{{ item2.name }}</div>
                                 <div class="con" v-html="(item2.reply ? '<a>@ + ' + item2.reply +'</a> ' : '') + item2.content">评论内容</div>
                             </div>
 
-                            <div class="date" v-text="handleDate(item2.date)">1 小时</div>
+                            <div class="date">{{ handleDate(item2.date) }}</div>
 
                             <md-button class="md-icon-button md-dense" :md-ripple="false" @click.stop="reply(item, item2, index, $event)">
                                 <md-icon>reply</md-icon>
-                                <md-tooltip md-direction="bottom">回复</md-tooltip>
+                                <md-tooltip v-if="!isMobile" md-direction="bottom">回复</md-tooltip>
                             </md-button>
                         </li>
                     </ul>
@@ -147,23 +147,23 @@
                     <div class="m" v-show="item.tmp.c">
                         <md-field>
                             <label>邮箱</label>
-                            <md-input @click.stop v-model="comment.email"></md-input>
+                            <md-input @click.stop v-model.trim="comment.email"></md-input>
                             <md-icon>email</md-icon>
                         </md-field>
                         <md-field>
                             <label>昵称</label>
-                            <md-input @click.stop v-model="comment.nickname"></md-input>
+                            <md-input @click.stop v-model.trim="comment.nickname"></md-input>
                             <md-icon>person</md-icon>
                         </md-field>
                     </div>
                     <div class="b" v-show="item.tmp.c">
                         <md-button @click.stop="(add.linkDialog = true) | (add.index = index) | (add.img = true)" :md-ripple="false" class="md-icon-button">
                             <md-icon>camera_alt</md-icon>
-                            <md-tooltip md-direction="bottom">添加图片</md-tooltip>
+                            <md-tooltip md-direction="bottom" v-if="!isMobile">添加图片</md-tooltip>
                         </md-button>
                         <md-button @click.stop="(add.linkDialog = true) | (add.index = index) | (add.img = false)" :md-ripple="false" class="md-icon-button">
                             <md-icon>link</md-icon>
-                            <md-tooltip md-direction="bottom">添加链接</md-tooltip>
+                            <md-tooltip md-direction="bottom" v-if="!isMobile">添加链接</md-tooltip>
                         </md-button>
                         <div class="toolsbar">
                             <md-button @click.stop="cancelReply(item)" class="md-primary cancel">{{ item.tmp.r ? '取消回复' : '取消' }}</md-button>
@@ -345,6 +345,9 @@ export default {
                 telegram: "https://telegram.me/share/url?",
                 google_plus: "https://plus.google.com/share?"
             };
+        },
+        isMobile() {
+            return window.innerWidth < 650;
         }
     }
 };

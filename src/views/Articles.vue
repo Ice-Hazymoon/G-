@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 4:53:33 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Friday, 3rd August 2018 4:25:15 pm
+ * Last Modified: Saturday, 4th August 2018 11:54:03 am
  */
 <template>
     <div id="content">
@@ -86,12 +86,14 @@ export default {
                         imagesLoaded(document.querySelector(".grid"), () => {
                             this.$store.commit("setGlobalProgress", false);
                             if (window.innerWidth < 600) return false;
+                            this.$store.commit("setForbidMask", false);
                             this.msnry = new Masonry(".grid", {
                                 percentPosition: true,
                                 columnWidth: ".grid-sizer",
                                 itemSelector: ".grid-item",
                                 stagger: 50
                             });
+                            this.$store.commit("setForbidMask", false);
                         });
                     });
                 } else {

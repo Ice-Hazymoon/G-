@@ -13,7 +13,8 @@ export default new Vuex.Store({
             isInfinity: false,
             content: "Snackbar"
         },
-        globalProgress: false
+        globalProgress: false,
+        forbidMask: true
     },
     mutations: {
         switchSidebar(state, e) {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
         },
         setGlobalProgress(state, val) {
             state.globalProgress = val;
+        },
+        setForbidMask(state, val) {
+            state.forbidMask = val;
         }
     },
     actions: {}

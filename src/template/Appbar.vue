@@ -3,7 +3,7 @@
  * File Created: Wednesday, 25th July 2018 10:35:36 am
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 30th July 2018 11:47:08 am
+ * Last Modified: Saturday, 4th August 2018 1:29:46 pm
  */
 <template>
     <div id="appbar" class="md-elevation-2">
@@ -24,8 +24,8 @@
             <md-button class="md-icon-button _search">
                 <md-icon>search</md-icon>
             </md-button>
-            <md-button class="md-icon-button apps">
-                <md-icon>apps</md-icon>
+            <md-button class="md-icon-button apps" @click="darkTheme">
+                <md-icon>brightness_6</md-icon>
             </md-button>
             <md-button href="http://github.com/Ice-Hazymoon" target="_blank" class="md-icon-button github">
                 <md-icon md-src="/icon/icon-github.svg"/>
@@ -62,6 +62,12 @@ export default {
         },
         removeInput() {
             this.searchVal = "";
+        },
+        darkTheme() {
+            this.$material.theming.theme =
+                this.$material.theming.theme === "default-dark"
+                    ? "default"
+                    : "default-dark";
         }
     }
 };

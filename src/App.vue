@@ -4,6 +4,7 @@
             <span>{{ $store.state.snackbar.content }}</span>
             <md-button class="md-primary" @click="$store.state.snackbar.showSnackbar = false">OK</md-button>
         </md-snackbar>
+        <div class="forbidMask" v-show="$store.state.forbidMask"></div>
         <md-progress-bar v-show="$store.state.globalProgress" class="global-progress-bar" md-mode="indeterminate"></md-progress-bar>
         <Appbar/>
         <md-app>
@@ -60,11 +61,19 @@ export default {
         animation: ru 0.5s cubic-bezier(0, 0, 0.2, 1);
     }
     .global-progress-bar {
-        z-index: 100000;
+        z-index: 10;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
+    }
+    .forbidMask {
+        z-index: 11;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
     @keyframes ru {
         0% {
