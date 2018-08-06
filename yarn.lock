@@ -4422,17 +4422,9 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lg-autoplay.js@^1.0.0:
-  version "1.0.0"
-  resolved "http://r.cnpmjs.org/lg-autoplay.js/download/lg-autoplay.js-1.0.0.tgz#08307dd4183ec3d3a23c345890a41a5c64fe3751"
-
 lg-fullscreen.js@^1.0.0:
   version "1.0.0"
   resolved "http://r.cnpmjs.org/lg-fullscreen.js/download/lg-fullscreen.js-1.0.0.tgz#9c4f934bc5027a0ab5c88fce70675571d64e0d5e"
-
-lg-pager.js@^1.0.0:
-  version "1.0.0"
-  resolved "http://r.cnpmjs.org/lg-pager.js/download/lg-pager.js-1.0.0.tgz#62a5f07f9f976cae7cfdb1dbd3e208b6c12fc7ab"
 
 lg-zoom.js@^1.0.1:
   version "1.0.1"

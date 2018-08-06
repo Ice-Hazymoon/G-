@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 5:08:47 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 11:11:53 pm
+ * Last Modified: Tuesday, 7th August 2018 12:09:25 am
  */
 <template>
     <div id="posts">
@@ -68,16 +68,19 @@
                         ）
                         </small>
                     </p>
+                    <div data-sub-html=".caption" class="lightgallery" data-src="https://myblogpic.b0.upaiyun.com/2018/04/2018040713220825.jpg">
+                        <img src="https://myblogpic.b0.upaiyun.com/2018/04/2018040713220825.jpg" alt="巡音露卡">
+                        <div class="caption">
+                            <h4>巡音露卡</h4><p>嘎嘎嘎</p>
+                        </div>
+                    </div>
                     <h4>本篇引语</h4>
                     <p>《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。 </p>
                     <h4>原文</h4>
                     <p>子曰：「学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知，而不愠，不亦君子乎？」 </p>
                     <h4>译文</h4>
-                    <!-- <a href="../assets/images/card2.jpg">
-                        <img src="../assets/images/card2.jpg" alt="">
-                    </a> -->
-                    <div data-sub-html=".caption" class="lightgallery" data-src="https://myblogpic.b0.upaiyun.com/2018/07/2018070516124833.jpg">
-                        <img src="https://myblogpic.b0.upaiyun.com/2018/07/2018070516124833.jpg" alt="初音未来">
+                    <div data-sub-html=".caption" class="lightgallery" data-src="https://myblogpic.b0.upaiyun.com/2018/07/201807050308486.jpg">
+                        <img src="https://myblogpic.b0.upaiyun.com/2018/07/201807050308486.jpg" alt="镜音双子">
                         <div class="caption">
                             <h4>镜音双子</h4><p>汪汪汪</p>
                         </div>
@@ -207,7 +210,7 @@
 <script>
 // import "lightgallery.js/src/sass/lightgallery.scss";
 import "lightgallery.js/dist/css/lightgallery.min.css";
-import "lightgallery.js/dist/css/lg-transitions.css";
+// import "lightgallery.js/dist/css/lg-transitions.css";
 import api from "../api.js";
 export default {
     props: ["id"],
@@ -261,16 +264,16 @@ export default {
                     loop: false,
                     // escKey: false,
                     // keyPress: false,
-                    // slideEndAnimatoin: false,
-                    // hideControlOnEnd: false,
-                    // getCaptionFromTitleOrAlt: true,
-                    showAfterLoad: true,
+                    slideEndAnimatoin: true,
                     hideControlOnEnd: true,
+                    // getCaptionFromTitleOrAlt: true,
+                    // showAfterLoad: true,
+                    // hideControlOnEnd: true,
                     // download: false,
                     // counter: false,
                     // thumbnail: true,
                     subHtmlSelectorRelative: true,
-                    mode: "lg-zoom-in-big",
+                    // mode: "lg-zoom-in-big",
                     selector: ".lightgallery"
                 });
             });
@@ -456,6 +459,9 @@ export default {
         text-overflow: inherit;
         display: block;
         overflow: auto;
+        .caption {
+            display: none;
+        }
     }
     .md-card-actions {
         .liked {
