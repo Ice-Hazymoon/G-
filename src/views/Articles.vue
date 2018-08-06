@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 4:53:33 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 3:52:06 pm
+ * Last Modified: Monday, 6th August 2018 9:55:31 pm
  */
 <template>
     <div id="content">
@@ -45,6 +45,7 @@
 import Masonry from "masonry-layout";
 import imagesLoaded from "imagesloaded";
 import ArticleCard from "../components/ArticleCard";
+import api from "../api.js";
 
 export default {
     beforeRouteLeave(to, from, next) {
@@ -68,7 +69,7 @@ export default {
     created() {
         this.$store.commit("setForbidMask", true); // 打开遮罩
         this.$http
-            .get("http://192.168.31.32:8090/posts")
+            .get(api.posts.get + "?page=1")
             .then(e => {
                 if (e.data.code === 200) {
                     this.likeNum =
@@ -123,6 +124,7 @@ export default {
     data: () => ({
         more: true,
         scrollHeight: 0,
+        page: 1,
         msnry: {
             layout() {
                 return false;
@@ -141,7 +143,7 @@ export default {
         },
         like() {
             this.$http
-                .get("http://192.168.31.32:8090/like")
+                .get(api.like.get)
                 .then(e => {
                     if (e.data.code === 200) {
                         this.likeNum = [true, e.data.likeNum];
@@ -170,7 +172,7 @@ export default {
         },
         load() {
             this.$http
-                .get("http://192.168.31.32:8090/posts")
+                .get(api.posts.get + "?page=" + this.page++)
                 .then(e => {
                     if (e.data.code === 200) {
                         this.data = this.data.concat(
@@ -234,12 +236,25 @@ export default {
                 this.scrollHeight = window.scrollY;
                 this.load();
             }
+        },
+        drawerStatus() {
+            setTimeout(() => this.layout(), 500);
+        }
+    },
+    computed: {
+        drawerStatus() {
+            return this.$store.state.drawerVisible;
         }
     }
 };
 </script>
 
 <style lang="scss">
+@media (max-width: 599px) {
+    #content > .grid {
+        margin-top: 16px !important;
+    }
+}
 #content {
     min-height: 1000px;
     .c-header {

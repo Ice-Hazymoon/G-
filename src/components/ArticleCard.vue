@@ -3,7 +3,7 @@
  * File Created: Monday, 30th July 2018 2:26:45 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 1:38:40 pm
+ * Last Modified: Monday, 6th August 2018 8:48:03 pm
  */
 <template>
     <div class="article">
@@ -183,6 +183,7 @@
 
 <script>
 import imagesLoaded from "imagesloaded";
+import api from "../api.js";
 
 export default {
     props: ["data"],
@@ -288,7 +289,7 @@ export default {
         },
         sendReply(item) {
             this.$http
-                .post("http://127.0.0.1:8090/comment/" + item.id, {
+                .post(api.comment.post + item.id, {
                     content: item.tmp.r,
                     name: this.comment.nickname,
                     email: this.comment.email,
@@ -316,7 +317,7 @@ export default {
         likeArticles(item) {
             if (item.isLike) return false;
             this.$http
-                .post("http://127.0.0.1:8090/like", {
+                .post(api.like.post, {
                     id: item.id
                 })
                 .then(e => {

@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 5:08:47 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 7:17:53 pm
+ * Last Modified: Monday, 6th August 2018 11:11:53 pm
  */
 <template>
     <div id="posts">
@@ -76,13 +76,22 @@
                     <!-- <a href="../assets/images/card2.jpg">
                         <img src="../assets/images/card2.jpg" alt="">
                     </a> -->
+                    <div data-sub-html=".caption" class="lightgallery" data-src="https://myblogpic.b0.upaiyun.com/2018/07/2018070516124833.jpg">
+                        <img src="https://myblogpic.b0.upaiyun.com/2018/07/2018070516124833.jpg" alt="初音未来">
+                        <div class="caption">
+                            <h4>镜音双子</h4><p>汪汪汪</p>
+                        </div>
+                    </div>
                     <p>孔子说：「学了又时常温习和练习，不是很愉快吗？有志同道合的人从远方来，不是很令人高兴的吗？人家不了解我，我也不怨恨、恼怒，不也是一个有德的君子吗？」 </p>
                     <h4>评析</h4>
                     <p>宋代著名学者<u>朱熹</u>对此章评价极高，说它是「入道之门，积德之基」。本章这三句话是人们非常熟悉的。历来的解释都是：学了以后，又时常温习和练习，不也高兴吗等等。三句话，一句一个意思，前后句子也没有什么连贯性。但也有人认为这样解释不符合原义，指出这里的「学」不是指学习，而是指学说或主张；「时」不能解为时常，而是时代或社会的意思，「习」不是温习，而是使用，引申为采用。而且，这三句话不是孤立的，而是前后相互连贯的。这三句的意思是：自己的学说，要是被社会采用了，那就太高兴了；退一步说，要是没有被社会所采用，可是很多朋友赞同<abbr title="张燕婴">我</abbr>的学说，纷纷到我这里来讨论问题，我也感到快乐；再退一步说，即使社会不采用，人们也不理解我，我也不怨恨，这样做，不也就是君子吗？（见《齐鲁学刊》1986年第6期文）这种解释可以自圆其说，而且也有一定的道理，供读者在理解本章内容时参考。</p>
                     <p>此外，在对「人不知，而不愠」一句的解释中，也有人认为，「人不知」的后面没有宾语，人家不知道什么呢？当时因为孔子有说话的特定环境，他不需要说出知道什么，别人就可以理解了，却给后人留下一个谜。有人说，这一句是接上一句说的，从远方来的朋友向我求教，我告诉他，他还不懂，我却不怨恨。这样，「人不知」就是「人家不知道我所讲述的」了。这样的解释似乎有些牵强。</p>
                     <p>总之，本章提出以学习为乐事，做到人不知而不愠，反映出孔子学而不厌、诲人不倦、注重修养、严格要求自己的主张。这些思想主张在《论语》书中多处可见，有助于对第一章内容的深入了解。</p>
-                    <div class="lightgallery" data-src="https://myblogpic.b0.upaiyun.com/2018/07/2018070516124833.jpg">
+                    <div data-sub-html=".caption" class="lightgallery" data-src="https://myblogpic.b0.upaiyun.com/2018/07/2018070516124833.jpg">
                         <img src="https://myblogpic.b0.upaiyun.com/2018/07/2018070516124833.jpg" alt="初音未来">
+                        <div class="caption">
+                            <h4>初音未来</h4><p>喵喵喵</p>
+                        </div>
                     </div>
                 </div>
             </md-card-content>
@@ -196,10 +205,10 @@
 </template>
 
 <script>
-import lightGallery from "lightgallery.js";
-// import "lg-zoom.js";
-import "lightgallery.js/dist/css/lightgallery.css";
-// import "lightgallery.js/dist/css/lightgallery.min.css";
+// import "lightgallery.js/src/sass/lightgallery.scss";
+import "lightgallery.js/dist/css/lightgallery.min.css";
+import "lightgallery.js/dist/css/lg-transitions.css";
+import api from "../api.js";
 export default {
     props: ["id"],
     beforeRouteLeave(to, from, next) {
@@ -215,7 +224,7 @@ export default {
     },
     created() {
         this.$http
-            .get("http://192.168.31.32:8090/posts/" + this.id)
+            .get(api.posts.get + this.id)
             .then(e => {
                 if (e.data.code === 200) {
                     e.data.data.tmp = {
@@ -239,32 +248,33 @@ export default {
             });
     },
     mounted() {
-        // require(["lightgallery.js"], function() {
-        //     require(["lg-zoom.js", "lg-fullscreen.js"], function() {
-        lightGallery(document.getElementById("lightgallery"), {
-            fullScreen: true,
-            controls: false,
-            enableDrag: false,
-            enableTouch: false,
-            useLeft: true,
-            loop: false,
-            escKey: false,
-            keyPress: false,
-            slideEndAnimatoin: true,
-            hideControlOnEnd: true,
-            getCaptionFromTitleOrAlt: false,
-            showAfterLoad: false,
-            download: false,
-            counter: false,
-            thumbnail: true,
-            selector: ".lightgallery"
+        require(["lightgallery.js"], () => {
+            require(["lg-zoom.js", "lg-fullscreen.js"], () => {
+                const lightGallery = window.lightGallery;
+                lightGallery(document.getElementById("lightgallery"), {
+                    // fullScreen: true,
+                    // closable: false,
+                    // controls: false,
+                    // enableDrag: false,
+                    // enableTouch: false,
+                    // useLeft: true,
+                    loop: false,
+                    // escKey: false,
+                    // keyPress: false,
+                    // slideEndAnimatoin: false,
+                    // hideControlOnEnd: false,
+                    // getCaptionFromTitleOrAlt: true,
+                    showAfterLoad: true,
+                    hideControlOnEnd: true,
+                    // download: false,
+                    // counter: false,
+                    // thumbnail: true,
+                    subHtmlSelectorRelative: true,
+                    mode: "lg-zoom-in-big",
+                    selector: ".lightgallery"
+                });
+            });
         });
-        //     });
-        // });
-        // lightGallery(document.getElementById('lightgallery'), {
-        //     mode: 'lg-fade',
-        //     cssEasing : 'cubic-bezier(0.25, 0, 0.25, 1)'
-        // });
     },
     data: () => ({
         data: null,
@@ -332,7 +342,7 @@ export default {
         },
         sendReply() {
             this.$http
-                .post("http://192.168.31.32:8090/comment/" + this.data.id, {
+                .post(api.comment.post + this.data.id, {
                     content: this.data.tmp.r,
                     name: this.comment.nickname,
                     email: this.comment.email,
@@ -359,7 +369,7 @@ export default {
         likeArticles() {
             if (this.data.isLike) return false;
             this.$http
-                .post("http://192.168.31.32:8090/like", {
+                .post(api.like.post, {
                     id: this.data.id
                 })
                 .then(e => {
@@ -402,11 +412,34 @@ export default {
 </script>
 
 <style lang="scss">
+@media (max-width: 599px) {
+    #posts {
+        .md-card {
+            box-shadow: none !important;
+        }
+        .md-card-header {
+            .r {
+                .toolsbar {
+                    display: none !important;
+                }
+            }
+        }
+        .md-card {
+            margin: 0 !important;
+        }
+    }
+    .md-content {
+        padding-top: 55px !important;
+    }
+}
 #posts {
     margin: 0 auto;
     max-width: 530px;
     min-height: 1000px;
     margin-bottom: 50px;
+    .md-card {
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    }
     .md-card-header {
         .date,
         .toolsbar {

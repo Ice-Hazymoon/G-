@@ -29,7 +29,8 @@ import Appbar from "./template/Appbar";
 import jump from "jump.js";
 export default {
     data: () => ({
-        showGoTop: false
+        showGoTop: false,
+        isTop: true //防止多次点击
     }),
     components: {
         Sidebar,
@@ -53,17 +54,16 @@ export default {
     },
     methods: {
         goTop() {
-            jump(document.body);
-        }
-    },
-    watch: {
-        drawerStatus() {
-            setTimeout(() => this.layout(), 500);
-        }
-    },
-    computed: {
-        drawerStatus() {
-            return this.$store.state.drawerVisible;
+            if (this.isTop) {
+                this.isTop = false;
+                jump(document.body, {
+                    callback: () => {
+                        this.isTop = true;
+                    }
+                });
+            } else {
+                return false;
+            }
         }
     }
 };
