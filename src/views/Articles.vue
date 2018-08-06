@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 4:53:33 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Saturday, 4th August 2018 11:54:03 am
+ * Last Modified: Monday, 6th August 2018 3:52:06 pm
  */
 <template>
     <div id="content">
@@ -35,6 +35,9 @@
 
             <ArticleCard @layout="layout" :data.sync="data"></ArticleCard>
         </div>
+        <div class="load-more" :style="{'visibility': !reachBottom ? 'hidden' : ''}">
+            <md-progress-spinner :md-diameter="35" :md-stroke="5" md-mode="indeterminate"></md-progress-spinner>
+        </div>
     </div>
 </template>
 
@@ -45,6 +48,7 @@ import ArticleCard from "../components/ArticleCard";
 
 export default {
     beforeRouteLeave(to, from, next) {
+        window.removeEventListener("scroll", this.klajsdklajs);
         document.querySelector(".md-content > div").classList.add("r-b");
         setTimeout(() => {
             setTimeout(() => {
@@ -52,16 +56,17 @@ export default {
                     .querySelector(".md-content > div")
                     .classList.remove("r-b");
             }, 500);
-            // window.scrollTo(0,0);
             next();
         }, 500);
     },
     activated() {
         if (this.data.length) {
+            window.addEventListener("scroll", this.klajsdklajs);
             this.$store.commit("setGlobalProgress", false);
         }
     },
     created() {
+        this.$store.commit("setForbidMask", true); // 打开遮罩
         this.$http
             .get("http://192.168.31.32:8090/posts")
             .then(e => {
@@ -85,8 +90,11 @@ export default {
                     this.$nextTick(() => {
                         imagesLoaded(document.querySelector(".grid"), () => {
                             this.$store.commit("setGlobalProgress", false);
-                            if (window.innerWidth < 600) return false;
-                            this.$store.commit("setForbidMask", false);
+                            if (window.innerWidth < 600) {
+                                //如果在移动设备上不执行 msnry
+                                this.$store.commit("setForbidMask", false);
+                                return false;
+                            }
                             this.msnry = new Masonry(".grid", {
                                 percentPosition: true,
                                 columnWidth: ".grid-sizer",
@@ -94,9 +102,13 @@ export default {
                                 stagger: 50
                             });
                             this.$store.commit("setForbidMask", false);
+                            window.scrollTo(0, 0);
+                            this.handleScroll();
+                            window.addEventListener("scroll", this.klajsdklajs);
                         });
                     });
                 } else {
+                    this.$store.commit("setGlobalProgress", false);
                     this.$store.commit(
                         "snackbar",
                         "请求错误, 请稍后重试" + e.data.msg
@@ -104,18 +116,22 @@ export default {
                 }
             })
             .catch(err => {
+                this.$store.commit("setGlobalProgress", false);
                 this.$store.commit("snackbar", "请求错误, 请稍后重试" + err);
             });
     },
     data: () => ({
         more: true,
+        scrollHeight: 0,
         msnry: {
             layout() {
                 return false;
             }
         },
         data: [],
-        likeNum: [false, 0]
+        likeNum: [false, 0],
+        reachBottom: false,
+        loadMore: false
     }),
     methods: {
         layout() {
@@ -144,20 +160,81 @@ export default {
                         "请求错误, 请稍后重试" + err
                     );
                 });
-        }
-    },
-    watch: {
-        drawerStatus() {
-            setTimeout(() => this.layout(), 500);
-        }
-    },
-    computed: {
-        drawerStatus() {
-            return this.$store.state.drawerVisible;
+        },
+        handleScroll() {
+            let r = window.scrollY;
+            window.scrollTo(0, document.body.scrollHeight);
+            this.scrollHeight = window.scrollY;
+            window.scrollTo(0, r);
+            this.reachBottom = false;
+        },
+        load() {
+            this.$http
+                .get("http://192.168.31.32:8090/posts")
+                .then(e => {
+                    if (e.data.code === 200) {
+                        this.data = this.data.concat(
+                            e.data.data.map(item => {
+                                item.commentVal = "";
+                                item.commentList = [];
+                                item.show = true;
+                                item.tmp = {
+                                    c: false, //Cardactive
+                                    m: false, //Comment
+                                    b: false, //Progress Bar
+                                    r: "", //replyComtent
+                                    x: "" //replyId
+                                };
+                                return item;
+                            })
+                        );
+                        this.$nextTick(() => {
+                            imagesLoaded(
+                                document.querySelector(".grid"),
+                                () => {
+                                    this.msnry = new Masonry(".grid", {
+                                        percentPosition: true,
+                                        columnWidth: ".grid-sizer",
+                                        itemSelector: ".grid-item",
+                                        stagger: 50
+                                    });
+                                    this.data.map(item => {
+                                        item.show = false;
+                                    });
+                                    this.handleScroll();
+                                }
+                            );
+                        });
+                    } else {
+                        this.$store.commit(
+                            "snackbar",
+                            "请求错误, 请稍后重试" + e.data.msg
+                        );
+                    }
+                })
+                .catch(err => {
+                    this.$store.commit(
+                        "snackbar",
+                        "请求错误, 请稍后重试" + err
+                    );
+                });
+        },
+        klajsdklajs() {
+            if (window.scrollY === this.scrollHeight) {
+                this.reachBottom = true;
+            }
         }
     },
     components: {
         ArticleCard
+    },
+    watch: {
+        reachBottom(val) {
+            if (val) {
+                this.scrollHeight = window.scrollY;
+                this.load();
+            }
+        }
     }
 };
 </script>
@@ -187,6 +264,11 @@ export default {
         .active {
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
+    }
+    .load-more {
+        width: 100%;
+        margin: 24px 0;
+        text-align: center;
     }
 }
 @media screen and (min-width: 1400px) {

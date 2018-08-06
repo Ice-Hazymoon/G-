@@ -3,9 +3,10 @@
  * File Created: Monday, 23rd July 2018 4:32:42 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Saturday, 4th August 2018 1:38:18 pm
+ * Last Modified: Monday, 6th August 2018 4:00:19 pm
  */
 
+@import './typo.scss';
 
 body{
     padding-left: calc(100vw - 100%);
@@ -218,10 +219,14 @@ body{
             text-overflow: ellipsis;
         }
         .title {
+            cursor: pointer;
             margin-bottom: 15px;
             font-weight: bold;
             color: rgba(0, 0, 0, 0.87);
         }
+    }
+    .md-card-media img{
+        cursor: pointer;
     }
     .cl {
         background-color: #fafafa;
@@ -360,85 +365,4 @@ body{
 }
 
 
-
-
-@import "~vue-material/dist/theme/engine"; // Import the theme engine
-@include md-register-theme("default-dark", (
-    primary: md-get-palette-color(blue, A200), // The primary color of your application
-    accent: md-get-palette-color(red, A200), // The accent or secondary color
-    text: #fff,
-    theme: dark
-));
-@import "~vue-material/dist/theme/all";
-.md-theme-default-dark{
-    .md-app, .md-drawer, .md-list, .md-content, #appbar{
-        background-color: #303030 !important;
-    }
-    .qrcode ul{
-        background-color: #fff !important;
-        color: #000;
-    }
-    #appbar{
-        .title, .sub-title{
-            color: #fff;
-        }
-        .search{
-            background-color: #424242;
-            input{
-                color: #ffffff;
-            }
-        }
-    }
-    #sidebar{
-        .md-list-item-text{
-            color: #fff;
-        }
-        .info span{
-            color: #fff;
-        }
-        .copy{
-            color: #7d7d7d;
-        }
-    }
-    #posts, #content{
-        .comment, .comment-list-open, .comment-list{
-            background-color: #424242;
-            border-color: rgba(255,255,255,.12);
-        }
-        .status{
-            border-color: rgba(255,255,255,.12);
-        }
-        .comment textarea{
-            color: #fff;
-        }
-        .md-card-actions, .t .toolsbar{
-            button{
-                background-color: #3c3c3c;
-                &.liked{
-                    background-color: #ff5252;
-                    &:hover{
-                        background-color: #ff2929;
-                    }
-                }
-                i{
-                    color: #fff;
-                }
-                &:hover{
-                    background-color: #595959;
-                }
-            }
-        }
-    }
-    .md-app{
-
-    }
-    .md-content{
-        .title{
-            color: #fff;
-        }
-    }
-    .md-tooltip{
-        background-color: #5c5c5c;
-        color: #fff;
-    }
-}
+@import './dark.scss';

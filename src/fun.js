@@ -3,7 +3,7 @@
  * File Created: Monday, 30th July 2018 3:09:04 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Friday, 3rd August 2018 11:05:06 am
+ * Last Modified: Monday, 6th August 2018 11:17:02 am
  */
 
 export default {
@@ -52,5 +52,26 @@ export default {
             }
         }
         return fmt;
+    },
+    scollPostion() {
+        //滚动条位置
+        var t, l, w, h;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            t = document.documentElement.scrollTop;
+            l = document.documentElement.scrollLeft;
+            w = document.documentElement.scrollWidth;
+            h = document.documentElement.scrollHeight;
+        } else if (document.body) {
+            t = document.body.scrollTop;
+            l = document.body.scrollLeft;
+            w = document.body.scrollWidth;
+            h = document.body.scrollHeight;
+        }
+        return {
+            top: t,
+            left: l,
+            width: w,
+            height: h
+        };
     }
 };

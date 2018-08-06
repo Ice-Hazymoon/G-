@@ -14,7 +14,7 @@ export default new Vuex.Store({
             content: "Snackbar"
         },
         globalProgress: false,
-        forbidMask: true
+        forbidMask: false
     },
     mutations: {
         switchSidebar(state, e) {

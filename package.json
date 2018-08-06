@@ -10,6 +10,12 @@
   "dependencies": {
     "axios": "^0.18.0",
     "imagesloaded": "^4.1.4",
+    "jump.js": "^1.0.2",
+    "lg-autoplay.js": "^1.0.0",
+    "lg-fullscreen.js": "^1.0.0",
+    "lg-pager.js": "^1.0.0",
+    "lg-zoom.js": "^1.0.1",
+    "lightgallery.js": "^1.0.3",
     "masonry-layout": "^4.2.2",
     "normalize.css": "^8.0.0",
     "register-service-worker": "^1.0.0",

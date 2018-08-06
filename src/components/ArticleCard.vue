@@ -3,7 +3,7 @@
  * File Created: Monday, 30th July 2018 2:26:45 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Saturday, 4th August 2018 11:43:14 am
+ * Last Modified: Monday, 6th August 2018 1:38:40 pm
  */
 <template>
     <div class="article">
@@ -25,7 +25,12 @@
             </md-dialog-actions>
         </md-dialog>
 
-        <article class="grid-item" v-for="(item, index) in data" :key="index" :index="index">
+        <article :style="{'visibility': item.show ? 'hidden' : ''}"
+        class="grid-item"
+        :class="{'c': item.show}"
+        v-for="(item, index) in data"
+        :key="index"
+        :index="index">
             <md-card @click.native="handleActive(item, $event)" :class="{'active': item.tmp.m}">
                 <md-card-header>
                     <md-avatar>
@@ -53,7 +58,7 @@
                                 </md-button>
                                 <md-menu-content class="qrcode">
                                     <span>在其它设备中阅读本文章</span>
-                                    <img :src="'https://api.imjad.cn/qrcode/?encode=raw&size=180&text=' + getUrl + item.path" alt="">
+                                    <img :src="'https://api.imjad.cn/qrcode/?encode=raw&size=180&text=' + item.url" alt="">
                                 </md-menu-content>
                             </md-menu>
                         </div>
@@ -62,12 +67,12 @@
                 </md-card-header>
 
                 <md-card-content>
-                    <div class="title">{{ item.title }}</div>
+                    <div @click.stop="$router.push(item.path)" class="title">{{ item.title }}</div>
                     <div class="content">{{ item.summary }}</div>
                 </md-card-content>
 
                 <md-card-media>
-                    <img :src="item.cover" alt="Cover">
+                    <img :src="item.cover" alt="Cover" @click.stop="$router.push(item.path)">
                 </md-card-media>
 
                 <md-progress-bar md-mode="indeterminate" v-show="item.tmp.b"></md-progress-bar>
@@ -121,23 +126,23 @@
                                     <md-icon>share</md-icon>
                                 </md-button>
                                 <md-menu-content>
-                                    <md-menu-item target="_blank" :href="shareUrl.weibo + 'appkey=&searchPic=false&style=simple&title=' + item.title + '&url=' + getUrl + item.path">
+                                    <md-menu-item target="_blank" :href="shareUrl.weibo + 'appkey=&searchPic=false&style=simple&title=' + item.title + '&url=' + item.url">
                                         <span>分享到 微博</span>
                                     </md-menu-item>
 
-                                    <md-menu-item target="_blank" :href="shareUrl.twitter + 'via=Ice-Hazymoon&url=' + getUrl + item.path + '&text=' + item.title">
+                                    <md-menu-item target="_blank" :href="shareUrl.twitter + 'via=Ice-Hazymoon&url=' + item.url + '&text=' + item.title">
                                         <span>分享到 Twitter</span>
                                     </md-menu-item>
 
-                                    <md-menu-item target="_blank" :href="shareUrl.qq + 'site=Ice-Hazymoon%20blog&url=' + getUrl + item.path + '&pics=' + item.cover + '&summary=' + item.summary + '&title' + item.title">
+                                    <md-menu-item target="_blank" :href="shareUrl.qq + 'site=Ice-Hazymoon%20blog&url=' + item.url + '&pics=' + item.cover + '&summary=' + item.summary + '&title' + item.title">
                                         <span>分享到 QQ</span>
                                     </md-menu-item>
 
-                                    <md-menu-item target="_blank" :href="shareUrl.google_plus + 'url=' + getUrl + item.path">
+                                    <md-menu-item target="_blank" :href="shareUrl.google_plus + 'url=' + item.url">
                                         <span>分享到 Google+</span>
                                     </md-menu-item>
 
-                                    <md-menu-item target="_blank" :href="shareUrl.telegram + 'url=' + getUrl + item.path">
+                                    <md-menu-item target="_blank" :href="shareUrl.telegram + 'url=' + item.url">
                                         <span>分享到 Telegram</span>
                                     </md-menu-item>
                                 </md-menu-content>
@@ -334,9 +339,6 @@ export default {
         }
     },
     computed: {
-        getUrl() {
-            return window.location.href;
-        },
         shareUrl() {
             return {
                 weibo: "http://service.weibo.com/share/share.php?",
@@ -355,6 +357,12 @@ export default {
 
 <style lang="scss">
 .grid-item {
+    position: relative;
+    left: 0;
+    top: 0;
+    &.c {
+        position: absolute !important;
+    }
     .md-progress-bar {
         position: absolute;
         width: 100%;

@@ -18,20 +18,22 @@
                 <Sidebar/>
             </md-app-drawer>
         </md-app>
+        <md-button class="md-fab go-top" @click="goTop" :class="{'showGoTop': !showGoTop}">
+            <md-icon>arrow_upward</md-icon>
+        </md-button>
     </div>
 </template>
 <script>
 import Sidebar from "./template/Sidebar";
 import Appbar from "./template/Appbar";
+import jump from "jump.js";
 export default {
+    data: () => ({
+        showGoTop: false
+    }),
     components: {
         Sidebar,
         Appbar
-    },
-    computed: {
-        drawerVisible() {
-            return this.$store.state.drawerVisible;
-        }
     },
     mounted() {
         function d() {
@@ -45,6 +47,24 @@ export default {
         }
         d.bind(this)();
         window.addEventListener("resize", d.bind(this));
+        window.addEventListener("scroll", () => {
+            this.showGoTop = window.scrollY > 500;
+        });
+    },
+    methods: {
+        goTop() {
+            jump(document.body);
+        }
+    },
+    watch: {
+        drawerStatus() {
+            setTimeout(() => this.layout(), 500);
+        }
+    },
+    computed: {
+        drawerStatus() {
+            return this.$store.state.drawerVisible;
+        }
     }
 };
 </script>
@@ -56,6 +76,15 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #f1f1f1;
+    .go-top {
+        position: fixed;
+        right: 20px;
+        bottom: 50px;
+        transition: transform 0.2s ease;
+        &.showGoTop {
+            transform: scale(0);
+        }
+    }
     .md-content > div {
         transition: all 0.5s cubic-bezier(0, 0, 0.2, 1);
         animation: ru 0.5s cubic-bezier(0, 0, 0.2, 1);

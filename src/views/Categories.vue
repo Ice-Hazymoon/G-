@@ -1,12 +1,12 @@
 /*
  * Project: blog
- * File Created: Wednesday, 1st August 2018 5:05:21 pm
+ * File Created: Monday, 6th August 2018 10:12:40 am
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 7:07:10 pm
+ * Last Modified: Monday, 6th August 2018 7:07:25 pm
  */
 <template>
-    <div>404</div>
+    <div>Categories</div>
 </template>
 
 <script>
@@ -31,6 +31,7 @@ export default {
     },
     activated() {
         // if (true) {
+        console.log(1);
         this.$store.commit("setGlobalProgress", false);
         // }
     },

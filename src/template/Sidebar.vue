@@ -3,7 +3,7 @@
  * File Created: Tuesday, 24th July 2018 4:10:42 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Wednesday, 1st August 2018 4:59:02 pm
+ * Last Modified: Monday, 6th August 2018 2:25:25 pm
  */
 <template>
     <div id="sidebar">
@@ -19,19 +19,24 @@
                 <span class="md-list-item-text">首页</span>
             </md-list-item>
 
+            <md-list-item to="/archive">
+                <md-icon>archive</md-icon>
+                <span class="md-list-item-text">归档</span>
+            </md-list-item>
+
             <md-list-item to="/links">
                 <md-icon>supervisor_account</md-icon>
                 <span class="md-list-item-text">人脉</span>
             </md-list-item>
 
-            <md-list-item>
-                <md-icon>delete</md-icon>
-                <span class="md-list-item-text">Trash</span>
+            <md-list-item to="/categories">
+                <md-icon>class</md-icon>
+                <span class="md-list-item-text">分类</span>
             </md-list-item>
 
-            <md-list-item>
-                <md-icon>error</md-icon>
-                <span class="md-list-item-text">Spam</span>
+            <md-list-item to="/tags">
+                <md-icon>loyalty</md-icon>
+                <span class="md-list-item-text">标签</span>
             </md-list-item>
         </md-list>
         <md-list class="info">
