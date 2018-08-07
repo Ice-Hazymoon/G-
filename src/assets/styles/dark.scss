@@ -3,7 +3,7 @@
  * File Created: Saturday, 4th August 2018 12:31:21 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 5:48:47 pm
+ * Last Modified: Tuesday, 7th August 2018 6:35:19 pm
  */
 
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
@@ -12,6 +12,9 @@ accent: md-get-palette-color(red, A200), // The accent or secondary color
 text: #fff, theme: dark));
 @import "~vue-material/dist/theme/all";
 .md-theme-default-dark {
+    body{
+        background-color: #303030;
+    }
     .owo{
         .md-tabs-navigation{
             padding: 0 !important;

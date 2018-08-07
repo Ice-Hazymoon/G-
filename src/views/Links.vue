@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 4:59:07 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 5:52:43 pm
+ * Last Modified: Tuesday, 7th August 2018 6:36:55 pm
  */
 <template>
     <div id="links">
@@ -127,6 +127,22 @@ export default {
             left: -8px;
             right: 0;
             width: 100%;
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    #links {
+        ul > li {
+            width: calc(50% - 24px);
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    #links {
+        ul > li {
+            width: calc(100% - 24px);
         }
     }
 }
