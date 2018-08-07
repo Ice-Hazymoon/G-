@@ -1,0 +1,1305 @@
+{
+    "颜文字": {
+        "type": "emoticon",
+        "container": [
+            {
+                "icon": "OωO",
+                "text": "Author: DIYgod"
+            },
+            {
+                "icon": "|´・ω・)ノ",
+                "text": "Hi"
+            },
+            {
+                "icon": "ヾ(≧∇≦*)ゝ",
+                "text": "开心"
+            },
+            {
+                "icon": "(☆ω☆)",
+                "text": "星星眼"
+            },
+            {
+                "icon": "（╯‵□′）╯︵┴─┴",
+                "text": "掀桌"
+            },
+            {
+                "icon": "￣﹃￣",
+                "text": "流口水"
+            },
+            {
+                "icon": "(*/ω＼*)",
+                "text": "捂脸"
+            },
+            {
+                "icon": "∠( ᐛ 」∠)＿",
+                "text": "给跪"
+            },
+            {
+                "icon": "(๑•̀ㅁ•́ฅ)",
+                "text": "Hi"
+            },
+            {
+                "icon": "→_→",
+                "text": "斜眼"
+            },
+            {
+                "icon": "୧(๑•̀⌄•́๑)૭",
+                "text": "加油"
+            },
+            {
+                "icon": "٩(ˊᗜˋ*)و",
+                "text": "有木有WiFi"
+            },
+            {
+                "icon": "(ノ°ο°)ノ",
+                "text": "前方高能预警"
+            },
+            {
+                "icon": "(´இ皿இ｀)",
+                "text": "我从未见过如此厚颜无耻之人"
+            },
+            {
+                "icon": "⌇●﹏●⌇",
+                "text": "吓死宝宝惹"
+            },
+            {
+                "icon": "(ฅ´ω`ฅ)",
+                "text": "已阅留爪"
+            },
+            {
+                "icon": "(╯°A°)╯︵○○○",
+                "text": "去吧大师球"
+            },
+            {
+                "icon": "φ(￣∇￣o)",
+                "text": "太萌惹"
+            },
+            {
+                "icon": "ヾ(´･ ･｀｡)ノ\"",
+                "text": "咦咦咦"
+            },
+            {
+                "icon": "( ง ᵒ̌皿ᵒ̌)ง⁼³₌₃",
+                "text": "气呼呼"
+            },
+            {
+                "icon": "(ó﹏ò｡)",
+                "text": "我受到了惊吓"
+            },
+            {
+                "icon": "Σ(っ °Д °;)っ",
+                "text": "什么鬼"
+            },
+            {
+                "icon": "( ,,´･ω･)ﾉ\"(´っω･｀｡)",
+                "text": "摸摸头"
+            },
+            {
+                "icon": "╮(╯▽╰)╭ ",
+                "text": "无奈"
+            },
+            {
+                "icon": "o(*////▽////*)q ",
+                "text": "脸红"
+            },
+            {
+                "icon": "＞﹏＜",
+                "text": ""
+            },
+            {
+                "icon": "( ๑´•ω•) \"(ㆆᴗㆆ)",
+                "text": ""
+            },
+            {
+                "icon": "(｡•ˇ‸ˇ•｡)",
+                "text": ""
+            },
+            {
+                "icon": "(๑•̀ω•́๑)",
+                "text": ""
+            },
+            {
+                "icon": "(๑•́ ₃ •̀๑)",
+                "text": ""
+            },
+            {
+                "icon": "(灬°ω°灬)",
+                "text": ""
+            },
+            {
+                "icon": "(*^ω^*)",
+                "text": ""
+            },
+            {
+                "icon": "✧*。٩(ˊωˋ*)و✧*。",
+                "text": ""
+            },
+            {
+                "icon": "(￣y▽￣)~*捂嘴偷笑",
+                "text": ""
+            },
+            {
+                "icon": "(o`•ω•)ノ(ノД`)",
+                "text": ""
+            },
+            {
+                "icon": "(⌒▽⌒)",
+                "text": ""
+            },
+            {
+                "icon": "（￣▽￣）",
+                "text": ""
+            },
+            {
+                "icon": "(=・ω・=)",
+                "text": ""
+            },
+            {
+                "icon": "(｀・ω・´)",
+                "text": ""
+            },
+            {
+                "icon": "(〜￣△￣)〜",
+                "text": ""
+            },
+            {
+                "icon": "(･∀･)",
+                "text": ""
+            },
+            {
+                "icon": "(°∀°)ﾉ",
+                "text": ""
+            },
+            {
+                "icon": "(￣3￣)",
+                "text": ""
+            },
+            {
+                "icon": "╮(￣▽￣)╭",
+                "text": ""
+            },
+            {
+                "icon": "( ´_ゝ｀)",
+                "text": ""
+            },
+            {
+                "icon": "←_←",
+                "text": ""
+            },
+            {
+                "icon": "→_→",
+                "text": ""
+            },
+            {
+                "icon": "(<_<)",
+                "text": ""
+            },
+            {
+                "icon": "(>_>)",
+                "text": ""
+            },
+            {
+                "icon": "(;¬_¬)",
+                "text": ""
+            },
+            {
+                "icon": "(\"▔□▔)",
+                "text": ""
+            },
+            {
+                "icon": "(ﾟДﾟ≡ﾟдﾟ)!?",
+                "text": ""
+            },
+            {
+                "icon": "Σ(ﾟдﾟ;)",
+                "text": ""
+            },
+            {
+                "icon": "Σ( ￣□￣||)",
+                "text": ""
+            },
+            {
+                "icon": "(´；ω；`)",
+                "text": ""
+            },
+            {
+                "icon": "（/TДT)/",
+                "text": ""
+            },
+            {
+                "icon": "(^・ω・^ )",
+                "text": ""
+            },
+            {
+                "icon": "(｡･ω･｡)",
+                "text": ""
+            },
+            {
+                "icon": "(●￣(ｴ)￣●)",
+                "text": ""
+            },
+            {
+                "icon": "ε=ε=(ノ≧∇≦)ノ",
+                "text": ""
+            },
+            {
+                "icon": "(´･_･`)",
+                "text": ""
+            },
+            {
+                "icon": "(-_-#)",
+                "text": ""
+            },
+            {
+                "icon": "（￣へ￣）",
+                "text": ""
+            },
+            {
+                "icon": "(￣ε(#￣) Σ",
+                "text": ""
+            },
+            {
+                "icon": "ヽ(`Д´)ﾉ",
+                "text": ""
+            },
+            {
+                "icon": "(╯°口°)╯(┴—┴",
+                "text": ""
+            },
+            {
+                "icon": "（#-_-)┯━┯",
+                "text": ""
+            },
+            {
+                "icon": "_(:3」∠)_",
+                "text": ""
+            },
+            {
+                "icon": "_(•̀ω•́ 」∠)_",
+                "text": ""
+            },
+            {
+                "icon": "─=≡Σ((( つ•̀ω•́)つ",
+                "text": ""
+            },
+            {
+                "icon": "(ಥ_ಥ)",
+                "text": ""
+            },
+            {
+                "icon": "(๑•̀ㅂ•́)و✧",
+                "text": ""
+            },
+            {
+                "icon": "(๑╹∀╹๑)",
+                "text": ""
+            },
+            {
+                "icon": "눈_눈",
+                "text": ""
+            },
+            {
+                "icon": "ᕦ(ò_óˇ)ᕤ",
+                "text": ""
+            },
+            {
+                "icon": "(๑•ั็ω•็ั๑)",
+                "text": ""
+            },
+            {
+                "icon": "( *・ω・)✄╰ひ╯",
+                "text": ""
+            },
+            {
+                "icon": "~(￣▽￣)C❀(捏菊花)",
+                "text": ""
+            },
+            {
+                "icon": "(((┏(;￣▽￣)┛装完逼就跑",
+                "text": ""
+            }
+        ]
+    },
+    "阿鲁": {
+        "type": "image",
+        "container": [
+            {
+                "icon": "<div title=\"流眼泪\" class=\"owoico owoalu sprite-alu-_1_\"></div>",
+                "text": "流眼泪"
+            },
+            {
+                "icon": "<div title=\"眼睛流血\" class=\"owoico owoalu sprite-alu-_2_\"></div>",
+                "text": "眼睛流血"
+            },
+            {
+                "icon": "<div title=\"脸红\" class=\"owoico owoalu sprite-alu-_3_\"></div>",
+                "text": "脸红"
+            },
+            {
+                "icon": "<div title=\"亲亲\" class=\"owoico owoalu sprite-alu-_4_\"></div>",
+                "text": "亲亲"
+            },
+            {
+                "icon": "<div title=\"冒汗\" class=\"owoico owoalu sprite-alu-_5_\"></div>",
+                "text": "冒汗"
+            },
+            {
+                "icon": "<div title=\"阴影\" class=\"owoico owoalu sprite-alu-_6_\"></div>",
+                "text": "阴影"
+            },
+            {
+                "icon": "<div title=\"困\" class=\"owoico owoalu sprite-alu-_7_\"></div>",
+                "text": "困"
+            },
+            {
+                "icon": "<div title=\"骷髅\" class=\"owoico owoalu sprite-alu-_8_\"></div>",
+                "text": "骷髅"
+            },
+            {
+                "icon": "<div title=\"弱智\" class=\"owoico owoalu sprite-alu-_9_\"></div>",
+                "text": "弱智"
+            },
+            {
+                "icon": "<div title=\"抠鼻\" class=\"owoico owoalu sprite-alu-_10_\"></div>",
+                "text": "抠鼻"
+            },
+            {
+                "icon": "<div title=\"抠鼻出血\" class=\"owoico owoalu sprite-alu-_11_\"></div>",
+                "text": "抠鼻出血"
+            },
+            {
+                "icon": "<div title=\"嘴角流血\" class=\"owoico owoalu sprite-alu-_12_\"></div>",
+                "text": "嘴角流血"
+            },
+            {
+                "icon": "<div title=\"流口水\" class=\"owoico owoalu sprite-alu-_13_\"></div>",
+                "text": "流口水"
+            },
+            {
+                "icon": "<div title=\"流鼻血\" class=\"owoico owoalu sprite-alu-_14_\"></div>",
+                "text": "流鼻血"
+            },
+            {
+                "icon": "<div title=\"绷带\" class=\"owoico owoalu sprite-alu-_15_\"></div>",
+                "text": "绷带"
+            },
+            {
+                "icon": "<div title=\"流鼻涕\" class=\"owoico owoalu sprite-alu-_16_\"></div>",
+                "text": "流鼻涕"
+            },
+            {
+                "icon": "<div title=\"吐舌\" class=\"owoico owoalu sprite-alu-_17_\"></div>",
+                "text": "吐舌"
+            },
+            {
+                "icon": "<div title=\"口罩\" class=\"owoico owoalu sprite-alu-_18_\"></div>",
+                "text": "口罩"
+            },
+            {
+                "icon": "<div title=\"胶带\" class=\"owoico owoalu sprite-alu-_19_\"></div>",
+                "text": "胶带"
+            },
+            {
+                "icon": "<div title=\"墨镜\" class=\"owoico owoalu sprite-alu-_20_\"></div>",
+                "text": "墨镜"
+            },
+            {
+                "icon": "<div title=\"眼镜\" class=\"owoico owoalu sprite-alu-_21_\"></div>",
+                "text": "眼镜"
+            },
+            {
+                "icon": "<div title=\"推眼镜\" class=\"owoico owoalu sprite-alu-_22_\"></div>",
+                "text": "推眼镜"
+            },
+            {
+                "icon": "<div title=\"扇子\" class=\"owoico owoalu sprite-alu-_23_\"></div>",
+                "text": "扇子"
+            },
+            {
+                "icon": "<div title=\"捂嘴\" class=\"owoico owoalu sprite-alu-_24_\"></div>",
+                "text": "捂嘴"
+            },
+            {
+                "icon": "<div title=\"含棒\" class=\"owoico owoalu sprite-alu-_25_\"></div>",
+                "text": "含棒"
+            },
+            {
+                "icon": "<div title=\"呕吐\" class=\"owoico owoalu sprite-alu-_26_\"></div>",
+                "text": "呕吐"
+            },
+            {
+                "icon": "<div title=\"喷水\" class=\"owoico owoalu sprite-alu-_27_\"></div>",
+                "text": "喷水"
+            },
+            {
+                "icon": "<div title=\"喷血\" class=\"owoico owoalu sprite-alu-_28_\"></div>",
+                "text": "喷血"
+            },
+            {
+                "icon": "<div title=\"幽灵\" class=\"owoico owoalu sprite-alu-_29_\"></div>",
+                "text": "幽灵"
+            },
+            {
+                "icon": "<div title=\"耳机\" class=\"owoico owoalu sprite-alu-_30_\"></div>",
+                "text": "耳机"
+            },
+            {
+                "icon": "<div title=\"哼歌\" class=\"owoico owoalu sprite-alu-_31_\"></div>",
+                "text": "哼歌"
+            },
+            {
+                "icon": "<div title=\"吹泡泡\" class=\"owoico owoalu sprite-alu-_32_\"></div>",
+                "text": "吹泡泡"
+            },
+            {
+                "icon": "<div title=\"头带\" class=\"owoico owoalu sprite-alu-_33_\"></div>",
+                "text": "头带"
+            },
+            {
+                "icon": "<div title=\"真棒\" class=\"owoico owoalu sprite-alu-_34_\"></div>",
+                "text": "真棒"
+            },
+            {
+                "icon": "<div title=\"鄙视\" class=\"owoico owoalu sprite-alu-_35_\"></div>",
+                "text": "鄙视"
+            },
+            {
+                "icon": "<div title=\"剪刀手\" class=\"owoico owoalu sprite-alu-_36_\"></div>",
+                "text": "剪刀手"
+            },
+            {
+                "icon": "<div title=\"拳头\" class=\"owoico owoalu sprite-alu-_37_\"></div>",
+                "text": "拳头"
+            },
+            {
+                "icon": "<div title=\"巴掌\" class=\"owoico owoalu sprite-alu-_38_\"></div>",
+                "text": "巴掌"
+            },
+            {
+                "icon": "<div title=\"竖中指\" class=\"owoico owoalu sprite-alu-_39_\"></div>",
+                "text": "竖中指"
+            },
+            {
+                "icon": "<div title=\"OK\" class=\"owoico owoalu sprite-alu-_40_\"></div>",
+                "text": "OK"
+            },
+            {
+                "icon": "<div title=\"捂眼睛\" class=\"owoico owoalu sprite-alu-_41_\"></div>",
+                "text": "捂眼睛"
+            },
+            {
+                "icon": "<div title=\"无奈\" class=\"owoico owoalu sprite-alu-_42_\"></div>",
+                "text": "无奈"
+            },
+            {
+                "icon": "<div title=\"撒花\" class=\"owoico owoalu sprite-alu-_43_\"></div>",
+                "text": "撒花"
+            },
+            {
+                "icon": "<div title=\"捂头\" class=\"owoico owoalu sprite-alu-_44_\"></div>",
+                "text": "捂头"
+            },
+            {
+                "icon": "<div title=\"无语\" class=\"owoico owoalu sprite-alu-_45_\"></div>",
+                "text": "无语"
+            },
+            {
+                "icon": "<div title=\"害羞\" class=\"owoico owoalu sprite-alu-_46_\"></div>",
+                "text": "害羞"
+            },
+            {
+                "icon": "<div title=\"思索\" class=\"owoico owoalu sprite-alu-_47_\"></div>",
+                "text": "思索"
+            },
+            {
+                "icon": "<div title=\"嘘\" class=\"owoico owoalu sprite-alu-_48_\"></div>",
+                "text": "嘘"
+            },
+            {
+                "icon": "<div title=\"抱拳\" class=\"owoico owoalu sprite-alu-_49_\"></div>",
+                "text": "抱拳"
+            },
+            {
+                "icon": "<div title=\"鼓掌\" class=\"owoico owoalu sprite-alu-_50_\"></div>",
+                "text": "鼓掌"
+            },
+            {
+                "icon": "<div title=\"举手\" class=\"owoico owoalu sprite-alu-_51_\"></div>",
+                "text": "举手"
+            },
+            {
+                "icon": "<div title=\"指\" class=\"owoico owoalu sprite-alu-_52_\"></div>",
+                "text": "指"
+            },
+            {
+                "icon": "<div title=\"勾引\" class=\"owoico owoalu sprite-alu-_53_\"></div>",
+                "text": "勾引"
+            },
+            {
+                "icon": "<div title=\"冰冻\" class=\"owoico owoalu sprite-alu-_54_\"></div>",
+                "text": "冰冻"
+            },
+            {
+                "icon": "<div title=\"冒火\" class=\"owoico owoalu sprite-alu-_55_\"></div>",
+                "text": "冒火"
+            },
+            {
+                "icon": "<div title=\"暗中观察\" class=\"owoico owoalu sprite-alu-_56_\"></div>",
+                "text": "暗中观察"
+            },
+            {
+                "icon": "<div title=\"暗中无奈\" class=\"owoico owoalu sprite-alu-_57_\"></div>",
+                "text": "暗中无奈"
+            },
+            {
+                "icon": "<div title=\"暗中阴影\" class=\"owoico owoalu sprite-alu-_58_\"></div>",
+                "text": "暗中阴影"
+            },
+            {
+                "icon": "<div title=\"暗中流汗\" class=\"owoico owoalu sprite-alu-_59_\"></div>",
+                "text": "暗中流汗"
+            },
+            {
+                "icon": "<div title=\"暗中流泪\" class=\"owoico owoalu sprite-alu-_60_\"></div>",
+                "text": "暗中流泪"
+            },
+            {
+                "icon": "<div title=\"暗中偷窥\" class=\"owoico owoalu sprite-alu-_61_\"></div>",
+                "text": "暗中偷窥"
+            },
+            {
+                "icon": "<div title=\"暗中记录\" class=\"owoico owoalu sprite-alu-_62_\"></div>",
+                "text": "暗中记录"
+            },
+            {
+                "icon": "<div title=\"暗中查看\" class=\"owoico owoalu sprite-alu-_63_\"></div>",
+                "text": "暗中查看"
+            },
+            {
+                "icon": "<div title=\"睡死\" class=\"owoico owoalu sprite-alu-_64_\"></div>",
+                "text": "睡死"
+            },
+            {
+                "icon": "<div title=\"流血\" class=\"owoico owoalu sprite-alu-_65_\"></div>",
+                "text": "流血"
+            },
+            {
+                "icon": "<div title=\"暗中钓鱼\" class=\"owoico owoalu sprite-alu-_66_\"></div>",
+                "text": "暗中钓鱼"
+            },
+            {
+                "icon": "<div title=\"暗中潜水\" class=\"owoico owoalu sprite-alu-_67_\"></div>",
+                "text": "暗中潜水"
+            },
+            {
+                "icon": "<div title=\"头顶便便\" class=\"owoico owoalu sprite-alu-_68_\"></div>",
+                "text": "头顶便便"
+            },
+            {
+                "icon": "<div title=\"举白旗\" class=\"owoico owoalu sprite-alu-_69_\"></div>",
+                "text": "举白旗"
+            },
+            {
+                "icon": "<div title=\"被砍\" class=\"owoico owoalu sprite-alu-_70_\"></div>",
+                "text": "被砍"
+            },
+            {
+                "icon": "<div title=\"被打\" class=\"owoico owoalu sprite-alu-_71_\"></div>",
+                "text": "被打"
+            },
+            {
+                "icon": "<div title=\"rip\" class=\"owoico owoalu sprite-alu-_72_\"></div>",
+                "text": "rip"
+            },
+            {
+                "icon": "<div title=\"坐着\" class=\"owoico owoalu sprite-alu-_73_\"></div>",
+                "text": "坐着"
+            },
+            {
+                "icon": "<div title=\"托腮\" class=\"owoico owoalu sprite-alu-_74_\"></div>",
+                "text": "托腮"
+            },
+            {
+                "icon": "<div title=\"无聊\" class=\"owoico owoalu sprite-alu-_75_\"></div>",
+                "text": "无聊"
+            },
+            {
+                "icon": "<div title=\"拍桌\" class=\"owoico owoalu sprite-alu-_76_\"></div>",
+                "text": "拍桌"
+            },
+            {
+                "icon": "<div title=\"深思\" class=\"owoico owoalu sprite-alu-_77_\"></div>",
+                "text": "深思"
+            },
+            {
+                "icon": "<div title=\"身后有人\" class=\"owoico owoalu sprite-alu-_78_\"></div>",
+                "text": "身后有人"
+            },
+            {
+                "icon": "<div title=\"递花\" class=\"owoico owoalu sprite-alu-_79_\"></div>",
+                "text": "递花"
+            },
+            {
+                "icon": "<div title=\"递黄瓜\" class=\"owoico owoalu sprite-alu-_80_\"></div>",
+                "text": "递黄瓜"
+            },
+            {
+                "icon": "<div title=\"递香蕉\" class=\"owoico owoalu sprite-alu-_81_\"></div>",
+                "text": "递香蕉"
+            },
+            {
+                "icon": "<div title=\"递避孕套\" class=\"owoico owoalu sprite-alu-_82_\"></div>",
+                "text": "递避孕套"
+            },
+            {
+                "icon": "<div title=\"递鸡腿\" class=\"owoico owoalu sprite-alu-_83_\"></div>",
+                "text": "递鸡腿"
+            },
+            {
+                "icon": "<div title=\"递绿帽\" class=\"owoico owoalu sprite-alu-_84_\"></div>",
+                "text": "递绿帽"
+            },
+            {
+                "icon": "<div title=\"递纸巾\" class=\"owoico owoalu sprite-alu-_85_\"></div>",
+                "text": "递纸巾"
+            },
+            {
+                "icon": "<div title=\"递菜刀\" class=\"owoico owoalu sprite-alu-_86_\"></div>",
+                "text": "递菜刀"
+            },
+            {
+                "icon": "<div title=\"递药丸\" class=\"owoico owoalu sprite-alu-_87_\"></div>",
+                "text": "递药丸"
+            },
+            {
+                "icon": "<div title=\"递马赛克\" class=\"owoico owoalu sprite-alu-_88_\"></div>",
+                "text": "递马赛克"
+            },
+            {
+                "icon": "<div title=\"加一\" class=\"owoico owoalu sprite-alu-_89_\"></div>",
+                "text": "加一"
+            },
+            {
+                "icon": "<div title=\"递奖杯\" class=\"owoico owoalu sprite-alu-_90_\"></div>",
+                "text": "递奖杯"
+            },
+            {
+                "icon": "<div title=\"拍照\" class=\"owoico owoalu sprite-alu-_91_\"></div>",
+                "text": "拍照"
+            },
+            {
+                "icon": "<div title=\"扔骨头\" class=\"owoico owoalu sprite-alu-_92_\"></div>",
+                "text": "扔骨头"
+            },
+            {
+                "icon": "<div title=\"扔避孕套\" class=\"owoico owoalu sprite-alu-_93_\"></div>",
+                "text": "扔避孕套"
+            },
+            {
+                "icon": "<div title=\"抛爱心\" class=\"owoico owoalu sprite-alu-_94_\"></div>",
+                "text": "抛爱心"
+            },
+            {
+                "icon": "<div title=\"撒钱\" class=\"owoico owoalu sprite-alu-_95_\"></div>",
+                "text": "撒钱"
+            },
+            {
+                "icon": "<div title=\"递钱\" class=\"owoico owoalu sprite-alu-_96_\"></div>",
+                "text": "递钱"
+            },
+            {
+                "icon": "<div title=\"切手\" class=\"owoico owoalu sprite-alu-_97_\"></div>",
+                "text": "切手"
+            },
+            {
+                "icon": "<div title=\"搬砖\" class=\"owoico owoalu sprite-alu-_98_\"></div>",
+                "text": "搬砖"
+            },
+            {
+                "icon": "<div title=\"扔转\" class=\"owoico owoalu sprite-alu-_99_\"></div>",
+                "text": "扔转"
+            },
+            {
+                "icon": "<div title=\"送快递\" class=\"owoico owoalu sprite-alu-_100_\"></div>",
+                "text": "送快递"
+            },
+            {
+                "icon": "<div title=\"送水\" class=\"owoico owoalu sprite-alu-_101_\"></div>",
+                "text": "送水"
+            },
+            {
+                "icon": "<div title=\"递礼物\" class=\"owoico owoalu sprite-alu-_102_\"></div>",
+                "text": "递礼物"
+            },
+            {
+                "icon": "<div title=\"放鸽子\" class=\"owoico owoalu sprite-alu-_103_\"></div>",
+                "text": "放鸽子"
+            },
+            {
+                "icon": "<div title=\"肌肉\" class=\"owoico owoalu sprite-alu-_104_\"></div>",
+                "text": "肌肉"
+            },
+            {
+                "icon": "<div title=\"被窝\" class=\"owoico owoalu sprite-alu-_105_\"></div>",
+                "text": "被窝"
+            },
+            {
+                "icon": "<div title=\"死在被窝\" class=\"owoico owoalu sprite-alu-_106_\"></div>",
+                "text": "死在被窝"
+            },
+            {
+                "icon": "<div title=\"起床\" class=\"owoico owoalu sprite-alu-_107_\"></div>",
+                "text": "起床"
+            },
+            {
+                "icon": "<div title=\"捂被子\" class=\"owoico owoalu sprite-alu-_108_\"></div>",
+                "text": "捂被子"
+            },
+            {
+                "icon": "<div title=\"给钱\" class=\"owoico owoalu sprite-alu-_109_\"></div>",
+                "text": "给钱"
+            },
+            {
+                "icon": "<div title=\"吃瓜\" class=\"owoico owoalu sprite-alu-_110_\"></div>",
+                "text": "吃瓜"
+            },
+            {
+                "icon": "<div title=\"吨吨吨\" class=\"owoico owoalu sprite-alu-_111_\"></div>",
+                "text": "吨吨吨"
+            },
+            {
+                "icon": "<div title=\"喂便便\" class=\"owoico owoalu sprite-alu-_112_\"></div>",
+                "text": "喂便便"
+            },
+            {
+                "icon": "<div title=\"玩电脑\" class=\"owoico owoalu sprite-alu-_113_\"></div>",
+                "text": "玩电脑"
+            },
+            {
+                "icon": "<div title=\"开车\" class=\"owoico owoalu sprite-alu-_114_\"></div>",
+                "text": "开车"
+            },
+            {
+                "icon": "<div title=\"手铐\" class=\"owoico owoalu sprite-alu-_115_\"></div>",
+                "text": "手铐"
+            },
+            {
+                "icon": "<div title=\"递酒杯\" class=\"owoico owoalu sprite-alu-_116_\"></div>",
+                "text": "递酒杯"
+            },
+            {
+                "icon": "<div title=\"干杯\" class=\"owoico owoalu sprite-alu-_117_\"></div>",
+                "text": "干杯"
+            },
+            {
+                "icon": "<div title=\"击掌\" class=\"owoico owoalu sprite-alu-_118_\"></div>",
+                "text": "击掌"
+            },
+            {
+                "icon": "<div title=\"悄悄话\" class=\"owoico owoalu sprite-alu-_119_\"></div>",
+                "text": "悄悄话"
+            },
+            {
+                "icon": "<div title=\"鞭子\" class=\"owoico owoalu sprite-alu-_120_\"></div>",
+                "text": "鞭子"
+            },
+            {
+                "icon": "<div title=\"鞭打\" class=\"owoico owoalu sprite-alu-_121_\"></div>",
+                "text": "鞭打"
+            },
+            {
+                "icon": "<div title=\"流泪扇巴掌\" class=\"owoico owoalu sprite-alu-_122_\"></div>",
+                "text": "流泪扇巴掌"
+            },
+            {
+                "icon": "<div title=\"用钱扇人\" class=\"owoico owoalu sprite-alu-_123_\"></div>",
+                "text": "用钱扇人"
+            },
+            {
+                "icon": "<div title=\"自己捅自己\" class=\"owoico owoalu sprite-alu-_124_\"></div>",
+                "text": "自己捅自己"
+            },
+            {
+                "icon": "<div title=\"背后捅人\" class=\"owoico owoalu sprite-alu-_125_\"></div>",
+                "text": "背后捅人"
+            },
+            {
+                "icon": "<div title=\"捅人\" class=\"owoico owoalu sprite-alu-_126_\"></div>",
+                "text": "捅人"
+            },
+            {
+                "icon": "<div title=\"互相伤害\" class=\"owoico owoalu sprite-alu-_127_\"></div>",
+                "text": "互相伤害"
+            },
+            {
+                "icon": "<div title=\"用剑砍人\" class=\"owoico owoalu sprite-alu-_128_\"></div>",
+                "text": "用剑砍人"
+            },
+            {
+                "icon": "<div title=\"自杀\" class=\"owoico owoalu sprite-alu-_129_\"></div>",
+                "text": "自杀"
+            },
+            {
+                "icon": "<div title=\"枪毙\" class=\"owoico owoalu sprite-alu-_130_\"></div>",
+                "text": "枪毙"
+            },
+            {
+                "icon": "<div title=\"一箭双雕\" class=\"owoico owoalu sprite-alu-_131_\"></div>",
+                "text": "一箭双雕"
+            },
+            {
+                "icon": "<div title=\"递上吊绳\" class=\"owoico owoalu sprite-alu-_132_\"></div>",
+                "text": "递上吊绳"
+            },
+            {
+                "icon": "<div title=\"上吊\" class=\"owoico owoalu sprite-alu-_133_\"></div>",
+                "text": "上吊"
+            },
+            {
+                "icon": "<div title=\"微笑\" class=\"owoico owoalu sprite-alu-_134_\"></div>",
+                "text": "微笑"
+            },
+            {
+                "icon": "<div title=\"皱眉\" class=\"owoico owoalu sprite-alu-_135_\"></div>",
+                "text": "皱眉"
+            },
+            {
+                "icon": "<div title=\"坏笑\" class=\"owoico owoalu sprite-alu-_136_\"></div>",
+                "text": "坏笑"
+            },
+            {
+                "icon": "<div title=\"怀疑\" class=\"owoico owoalu sprite-alu-_137_\"></div>",
+                "text": "怀疑"
+            },
+            {
+                "icon": "<div title=\"阴险\" class=\"owoico owoalu sprite-alu-_138_\"></div>",
+                "text": "阴险"
+            },
+            {
+                "icon": "<div title=\"傲娇\" class=\"owoico owoalu sprite-alu-_139_\"></div>",
+                "text": "傲娇"
+            },
+            {
+                "icon": "<div title=\"白眼\" class=\"owoico owoalu sprite-alu-_140_\"></div>",
+                "text": "白眼"
+            },
+            {
+                "icon": "<div title=\"囧\" class=\"owoico owoalu sprite-alu-_141_\"></div>",
+                "text": "囧"
+            },
+            {
+                "icon": "<div title=\"睁大眼\" class=\"owoico owoalu sprite-alu-_142_\"></div>",
+                "text": "睁大眼"
+            },
+            {
+                "icon": "<div title=\"小眼睛\" class=\"owoico owoalu sprite-alu-_143_\"></div>",
+                "text": "小眼睛"
+            },
+            {
+                "icon": "<div title=\"失落皱眉\" class=\"owoico owoalu sprite-alu-_144_\"></div>",
+                "text": "失落皱眉"
+            },
+            {
+                "icon": "<div title=\"撇嘴\" class=\"owoico owoalu sprite-alu-_145_\"></div>",
+                "text": "撇嘴"
+            },
+            {
+                "icon": "<div title=\"死鱼眼\" class=\"owoico owoalu sprite-alu-_146_\"></div>",
+                "text": "死鱼眼"
+            },
+            {
+                "icon": "<div title=\"卖萌\" class=\"owoico owoalu sprite-alu-_147_\"></div>",
+                "text": "卖萌"
+            },
+            {
+                "icon": "<div title=\"蜜汁微笑\" class=\"owoico owoalu sprite-alu-_148_\"></div>",
+                "text": "蜜汁微笑"
+            },
+            {
+                "icon": "<div title=\"呲牙笑\" class=\"owoico owoalu sprite-alu-_149_\"></div>",
+                "text": "呲牙笑"
+            },
+            {
+                "icon": "<div title=\"笑哭\" class=\"owoico owoalu sprite-alu-_150_\"></div>",
+                "text": "笑哭"
+            }
+        ]
+    },
+    "泡泡": {
+        "type": "image",
+        "container": [
+            {
+                "icon": "<div title=\"呵呵\" class=\"owoico sprite-tieba_emotion_01\"></div>",
+                "text": "呵呵"
+            },
+            {
+                "icon": "<div title=\"高兴\" class=\"owoico sprite-tieba_emotion_02\"></div>",
+                "text": "高兴"
+            },
+            {
+                "icon": "<div title=\"吐舌\" class=\"owoico sprite-tieba_emotion_03\"></div>",
+                "text": "吐舌"
+            },
+            {
+                "icon": "<div title=\"惊讶\" class=\"owoico sprite-tieba_emotion_04\"></div>",
+                "text": "惊讶"
+            },
+            {
+                "icon": "<div title=\"酷\" class=\"owoico sprite-tieba_emotion_05\"></div>",
+                "text": "酷"
+            },
+            {
+                "icon": "<div title=\"生气\" class=\"owoico sprite-tieba_emotion_06\"></div>",
+                "text": "生气"
+            },
+            {
+                "icon": "<div title=\"抛媚眼\" class=\"owoico sprite-tieba_emotion_07\"></div>",
+                "text": "抛媚眼"
+            },
+            {
+                "icon": "<div title=\"流汗\" class=\"owoico sprite-tieba_emotion_08\"></div>",
+                "text": "流汗"
+            },
+            {
+                "icon": "<div title=\"大哭\" class=\"owoico sprite-tieba_emotion_09\"></div>",
+                "text": "大哭"
+            },
+            {
+                "icon": "<div title=\"无语\" class=\"owoico sprite-tieba_emotion_10\"></div>",
+                "text": "无语"
+            },
+            {
+                "icon": "<div title=\"鄙视\" class=\"owoico sprite-tieba_emotion_11\"></div>",
+                "text": "鄙视"
+            },
+            {
+                "icon": "<div title=\"不高兴\" class=\"owoico sprite-tieba_emotion_12\"></div>",
+                "text": "不高兴"
+            },
+            {
+                "icon": "<div title=\"真棒\" class=\"owoico sprite-tieba_emotion_13\"></div>",
+                "text": "真棒"
+            },
+            {
+                "icon": "<div title=\"满眼是钱\" class=\"owoico sprite-tieba_emotion_14\"></div>",
+                "text": "满眼是钱"
+            },
+            {
+                "icon": "<div title=\"疑问\" class=\"owoico sprite-tieba_emotion_15\"></div>",
+                "text": "疑问"
+            },
+            {
+                "icon": "<div title=\"阴险\" class=\"owoico sprite-tieba_emotion_16\"></div>",
+                "text": "阴险"
+            },
+            {
+                "icon": "<div title=\"吐\" class=\"owoico sprite-tieba_emotion_17\"></div>",
+                "text": "吐"
+            },
+            {
+                "icon": "<div title=\"疑\" class=\"owoico sprite-tieba_emotion_18\"></div>",
+                "text": "疑"
+            },
+            {
+                "icon": "<div title=\"害羞\" class=\"owoico sprite-tieba_emotion_19\"></div>",
+                "text": "害羞"
+            },
+            {
+                "icon": "<div title=\"亲\" class=\"owoico sprite-tieba_emotion_20\"></div>",
+                "text": "亲"
+            },
+            {
+                "icon": "<div title=\"懵逼\" class=\"owoico sprite-tieba_emotion_21\"></div>",
+                "text": "懵逼"
+            },
+            {
+                "icon": "<div title=\"激动\" class=\"owoico sprite-tieba_emotion_22\"></div>",
+                "text": "激动"
+            },
+            {
+                "icon": "<div title=\"呵\" class=\"owoico sprite-tieba_emotion_23\"></div>",
+                "text": "呵"
+            },
+            {
+                "icon": "<div title=\"握拳\" class=\"owoico sprite-tieba_emotion_24\"></div>",
+                "text": "握拳"
+            },
+            {
+                "icon": "<div title=\"滑稽\" class=\"owoico sprite-tieba_emotion_25\"></div>",
+                "text": "滑稽"
+            },
+            {
+                "icon": "<div title=\"咧嘴笑\" class=\"owoico sprite-tieba_emotion_26\"></div>",
+                "text": "咧嘴笑"
+            },
+            {
+                "icon": "<div title=\"大汗\" class=\"owoico sprite-tieba_emotion_27\"></div>",
+                "text": "大汗"
+            },
+            {
+                "icon": "<div title=\"好奇\" class=\"owoico sprite-tieba_emotion_28\"></div>",
+                "text": "好奇"
+            },
+            {
+                "icon": "<div title=\"睡觉\" class=\"owoico sprite-tieba_emotion_29\"></div>",
+                "text": "睡觉"
+            },
+            {
+                "icon": "<div title=\"流泪\" class=\"owoico sprite-tieba_emotion_30\"></div>",
+                "text": "流泪"
+            },
+            {
+                "icon": "<div title=\"愤怒\" class=\"owoico sprite-tieba_emotion_31\"></div>",
+                "text": "愤怒"
+            },
+            {
+                "icon": "<div title=\"哦\" class=\"owoico sprite-tieba_emotion_32\"></div>",
+                "text": "哦"
+            },
+            {
+                "icon": "<div title=\"喷\" class=\"owoico sprite-tieba_emotion_33\"></div>",
+                "text": "喷"
+            },
+            {
+                "icon": "<div title=\"爱心\" class=\"owoico sprite-tieba_emotion_34\"></div>",
+                "text": "爱心"
+            },
+            {
+                "icon": "<div title=\"心碎\" class=\"owoico sprite-tieba_emotion_35\"></div>",
+                "text": "心碎"
+            },
+            {
+                "icon": "<div title=\"鲜花\" class=\"owoico sprite-tieba_emotion_36\"></div>",
+                "text": "鲜花"
+            },
+            {
+                "icon": "<div title=\"礼物\" class=\"owoico sprite-tieba_emotion_37\"></div>",
+                "text": "礼物"
+            },
+            {
+                "icon": "<div title=\"彩虹\" class=\"owoico sprite-tieba_emotion_38\"></div>",
+                "text": "彩虹"
+            },
+            {
+                "icon": "<div title=\"月亮\" class=\"owoico sprite-tieba_emotion_39\"></div>",
+                "text": "月亮"
+            },
+            {
+                "icon": "<div title=\"太阳\" class=\"owoico sprite-tieba_emotion_40\"></div>",
+                "text": "太阳"
+            },
+            {
+                "icon": "<div title=\"钱\" class=\"owoico sprite-tieba_emotion_41\"></div>",
+                "text": "钱"
+            },
+            {
+                "icon": "<div title=\"灯泡\" class=\"owoico sprite-tieba_emotion_42\"></div>",
+                "text": "灯泡"
+            },
+            {
+                "icon": "<div title=\"咖啡\" class=\"owoico sprite-tieba_emotion_43\"></div>",
+                "text": "咖啡"
+            },
+            {
+                "icon": "<div title=\"蛋糕\" class=\"owoico sprite-tieba_emotion_44\"></div>",
+                "text": "蛋糕"
+            },
+            {
+                "icon": "<div title=\"音乐\" class=\"owoico sprite-tieba_emotion_45\"></div>",
+                "text": "音乐"
+            },
+            {
+                "icon": "<div title=\"六\" class=\"owoico sprite-tieba_emotion_46\"></div>",
+                "text": "六"
+            },
+            {
+                "icon": "<div title=\"剪刀手\" class=\"owoico sprite-tieba_emotion_47\"></div>",
+                "text": "剪刀手"
+            },
+            {
+                "icon": "<div title=\"棒\" class=\"owoico sprite-tieba_emotion_48\"></div>",
+                "text": "棒"
+            },
+            {
+                "icon": "<div title=\"下\" class=\"owoico sprite-tieba_emotion_49\"></div>",
+                "text": "下"
+            },
+            {
+                "icon": "<div title=\"OK\" class=\"owoico sprite-tieba_emotion_50\"></div>",
+                "text": "OK"
+            },
+            {
+                "icon": "<div title=\"滑稽02\" class=\"owoico sprite-tieba_emotion_51\"></div>",
+                "text": "滑稽02"
+            },
+            {
+                "icon": "<div title=\"腼腆\" class=\"owoico sprite-tieba_emotion_52\"></div>",
+                "text": "腼腆"
+            },
+            {
+                "icon": "<div title=\"捂嘴\" class=\"owoico sprite-tieba_emotion_53\"></div>",
+                "text": "捂嘴"
+            },
+            {
+                "icon": "<div title=\"猥琐笑\" class=\"owoico sprite-tieba_emotion_54\"></div>",
+                "text": "猥琐笑"
+            },
+            {
+                "icon": "<div title=\"惊讶吓\" class=\"owoico sprite-tieba_emotion_55\"></div>",
+                "text": "惊讶吓"
+            },
+            {
+                "icon": "<div title=\"酸爽\" class=\"owoico sprite-tieba_emotion_56\"></div>",
+                "text": "酸爽"
+            },
+            {
+                "icon": "<div title=\"啊\" class=\"owoico sprite-tieba_emotion_57\"></div>",
+                "text": "啊"
+            },
+            {
+                "icon": "<div title=\"笑出泪\" class=\"owoico sprite-tieba_emotion_58\"></div>",
+                "text": "笑出泪"
+            },
+            {
+                "icon": "<div title=\"抠鼻\" class=\"owoico sprite-tieba_emotion_59\"></div>",
+                "text": "抠鼻"
+            },
+            {
+                "icon": "<div title=\"犀利\" class=\"owoico sprite-tieba_emotion_60\"></div>",
+                "text": "犀利"
+            },
+            {
+                "icon": "<div title=\"呆\" class=\"owoico sprite-tieba_emotion_61\"></div>",
+                "text": "呆"
+            },
+            {
+                "icon": "<div title=\"傲娇\" class=\"owoico sprite-tieba_emotion_62\"></div>",
+                "text": "傲娇"
+            },
+            {
+                "icon": "<div title=\"沙发\" class=\"owoico sprite-tieba_emotion_63\"></div>",
+                "text": "沙发"
+            },
+            {
+                "icon": "<div title=\"纸巾\" class=\"owoico sprite-tieba_emotion_64\"></div>",
+                "text": "纸巾"
+            },
+            {
+                "icon": "<div title=\"香蕉\" class=\"owoico sprite-tieba_emotion_65\"></div>",
+                "text": "香蕉"
+            },
+            {
+                "icon": "<div title=\"便便\" class=\"owoico sprite-tieba_emotion_66\"></div>",
+                "text": "便便"
+            },
+            {
+                "icon": "<div title=\"药丸\" class=\"owoico sprite-tieba_emotion_67\"></div>",
+                "text": "药丸"
+            },
+            {
+                "icon": "<div title=\"红领巾\" class=\"owoico sprite-tieba_emotion_68\"></div>",
+                "text": "红领巾"
+            },
+            {
+                "icon": "<div title=\"蜡烛\" class=\"owoico sprite-tieba_emotion_69\"></div>",
+                "text": "蜡烛"
+            },
+            {
+                "icon": "<div title=\"三道杠\" class=\"owoico sprite-tieba_emotion_70\"></div>",
+                "text": "三道杠"
+            },
+            {
+                "icon": "<div title=\"乖巧\" class=\"owoico sprite-tieba_emotion_71\"></div>",
+                "text": "乖巧"
+            },
+            {
+                "icon": "<div title=\"黑脸笑\" class=\"owoico sprite-tieba_emotion_72\"></div>",
+                "text": "黑脸笑"
+            },
+            {
+                "icon": "<div title=\"举手\" class=\"owoico sprite-tieba_emotion_73\"></div>",
+                "text": "举手"
+            },
+            {
+                "icon": "<div title=\"指两边\" class=\"owoico sprite-tieba_emotion_74\"></div>",
+                "text": "指两边"
+            },
+            {
+                "icon": "<div title=\"自己体会\" class=\"owoico sprite-tieba_emotion_75\"></div>",
+                "text": "自己体会"
+            },
+            {
+                "icon": "<div title=\"吃瓜\" class=\"owoico sprite-tieba_emotion_76\"></div>",
+                "text": "吃瓜"
+            },
+            {
+                "icon": "<div title=\"托腮\" class=\"owoico sprite-tieba_emotion_77\"></div>",
+                "text": "托腮"
+            },
+            {
+                "icon": "<div title=\"无奈\" class=\"owoico sprite-tieba_emotion_78\"></div>",
+                "text": "无奈"
+            },
+            {
+                "icon": "<div title=\"dog脸\" class=\"owoico sprite-tieba_emotion_79\"></div>",
+                "text": "dog脸"
+            },
+            {
+                "icon": "<div title=\"暗中观察\" class=\"owoico sprite-tieba_emotion_80\"></div>",
+                "text": "暗中观察"
+            },
+            {
+                "icon": "<div title=\"暗中观察dog\" class=\"owoico sprite-tieba_emotion_81\"></div>",
+                "text": "暗中观察dog"
+            },
+            {
+                "icon": "<div title=\"吨吨吨\" class=\"owoico sprite-tieba_emotion_82\"></div>",
+                "text": "吨吨吨"
+            },
+            {
+                "icon": "<div title=\"笑喷\" class=\"owoico sprite-tieba_emotion_83\"></div>",
+                "text": "笑喷"
+            },
+            {
+                "icon": "<div title=\"满脸不安\" class=\"owoico sprite-tieba_emotion_84\"></div>",
+                "text": "满脸不安"
+            },
+            {
+                "icon": "<div title=\"手握炸药\" class=\"owoico sprite-tieba_emotion_85\"></div>",
+                "text": "手握炸药"
+            },
+            {
+                "icon": "<div title=\"黑脸\" class=\"owoico sprite-tieba_emotion_86\"></div>",
+                "text": "黑脸"
+            },
+            {
+                "icon": "<div title=\"滑稽右\" class=\"owoico sprite-tieba_emotion_87\"></div>",
+                "text": "滑稽右"
+            },
+            {
+                "icon": "<div title=\"流汗滑稽\" class=\"owoico sprite-tieba_emotion_88\"></div>",
+                "text": "流汗滑稽"
+            },
+            {
+                "icon": "<div title=\"被打滑稽\" class=\"owoico sprite-tieba_emotion_89\"></div>",
+                "text": "被打滑稽"
+            },
+            {
+                "icon": "<div title=\"cos滑稽\" class=\"owoico sprite-tieba_emotion_90\"></div>",
+                "text": "cos滑稽"
+            },
+            {
+                "icon": "<div title=\"斗鸡眼滑稽\" class=\"owoico sprite-tieba_emotion_91\"></div>",
+                "text": "斗鸡眼滑稽"
+            },
+            {
+                "icon": "<div title=\"滑稽小嘴\" class=\"owoico sprite-tieba_emotion_92\"></div>",
+                "text": "滑稽小嘴"
+            },
+            {
+                "icon": "<div title=\"滑稽大佬\" class=\"owoico sprite-tieba_emotion_93\"></div>",
+                "text": "滑稽大佬"
+            }
+        ]
+    }
+}

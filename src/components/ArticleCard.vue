@@ -3,7 +3,7 @@
  * File Created: Monday, 30th July 2018 2:26:45 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 8:48:03 pm
+ * Last Modified: Tuesday, 7th August 2018 11:43:05 am
  */
 <template>
     <div class="article">
@@ -25,7 +25,7 @@
             </md-dialog-actions>
         </md-dialog>
 
-        <article :style="{'visibility': item.show ? 'hidden' : ''}"
+        <article
         class="grid-item"
         :class="{'c': item.show}"
         v-for="(item, index) in data"
@@ -363,6 +363,11 @@ export default {
     top: 0;
     &.c {
         position: absolute !important;
+        visibility: hidden;
+        top: 0;
+        @media (max-width: 599px) {
+            display: none !important;
+        }
     }
     .md-progress-bar {
         position: absolute;

@@ -3,10 +3,11 @@
  * File Created: Monday, 23rd July 2018 4:32:42 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 10:47:03 pm
+ * Last Modified: Tuesday, 7th August 2018 10:57:13 am
  */
 
 @import './typo.scss';
+@import './owo.scss';
 
 body{
     padding-left: calc(100vw - 100%);
@@ -39,6 +40,7 @@ body{
     border: none !important;
     padding-top: 64px !important;
     position: fixed !important;
+    height: 100%;
     background-color: #f1f1f1 !important;
     .md-list{
         background-color: #f1f1f1 !important;

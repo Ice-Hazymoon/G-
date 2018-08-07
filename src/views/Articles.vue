@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 4:53:33 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 9:55:31 pm
+ * Last Modified: Tuesday, 7th August 2018 11:52:43 am
  */
 <template>
     <div id="content">
@@ -94,14 +94,14 @@ export default {
                             if (window.innerWidth < 600) {
                                 //如果在移动设备上不执行 msnry
                                 this.$store.commit("setForbidMask", false);
-                                return false;
+                            } else {
+                                this.msnry = new Masonry(".grid", {
+                                    percentPosition: true,
+                                    columnWidth: ".grid-sizer",
+                                    itemSelector: ".grid-item",
+                                    stagger: 50
+                                });
                             }
-                            this.msnry = new Masonry(".grid", {
-                                percentPosition: true,
-                                columnWidth: ".grid-sizer",
-                                itemSelector: ".grid-item",
-                                stagger: 50
-                            });
                             this.$store.commit("setForbidMask", false);
                             window.scrollTo(0, 0);
                             this.handleScroll();
@@ -164,11 +164,13 @@ export default {
                 });
         },
         handleScroll() {
-            let r = window.scrollY;
-            window.scrollTo(0, document.body.scrollHeight);
-            this.scrollHeight = window.scrollY;
-            window.scrollTo(0, r);
-            this.reachBottom = false;
+            this.$nextTick(() => {
+                let r = window.scrollY;
+                window.scrollTo(0, document.body.scrollHeight);
+                this.scrollHeight = window.scrollY;
+                window.scrollTo(0, r);
+                this.reachBottom = false;
+            });
         },
         load() {
             this.$http
@@ -194,12 +196,14 @@ export default {
                             imagesLoaded(
                                 document.querySelector(".grid"),
                                 () => {
-                                    this.msnry = new Masonry(".grid", {
-                                        percentPosition: true,
-                                        columnWidth: ".grid-sizer",
-                                        itemSelector: ".grid-item",
-                                        stagger: 50
-                                    });
+                                    if (!this.isMobile) {
+                                        this.msnry = new Masonry(".grid", {
+                                            percentPosition: true,
+                                            columnWidth: ".grid-sizer",
+                                            itemSelector: ".grid-item",
+                                            stagger: 50
+                                        });
+                                    }
                                     this.data.map(item => {
                                         item.show = false;
                                     });
@@ -244,6 +248,9 @@ export default {
     computed: {
         drawerStatus() {
             return this.$store.state.drawerVisible;
+        },
+        isMobile() {
+            return window.innerWidth < 650;
         }
     }
 };

@@ -3,11 +3,12 @@
  * File Created: Tuesday, 17th July 2018 10:57:18 am
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 2:06:57 pm
+ * Last Modified: Tuesday, 7th August 2018 9:49:29 am
  */
 const Mock = require("mockjs");
 const express = require("express");
 const bodyParser = require("body-parser");
+const fs = require("fs");
 
 let app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -149,4 +150,11 @@ app.post("/like", (req, res) => {
     );
 });
 
+app.get("/owojson", (req, res) => {
+    let json = JSON.parse(fs.readFileSync("./owo.json"));
+    res.json({
+        code: 200,
+        data: json
+    });
+});
 app.listen(8090);

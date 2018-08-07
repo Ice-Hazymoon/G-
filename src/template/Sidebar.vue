@@ -3,12 +3,15 @@
  * File Created: Tuesday, 24th July 2018 4:10:42 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Monday, 6th August 2018 2:25:25 pm
+ * Last Modified: Tuesday, 7th August 2018 11:18:48 am
  */
 <template>
     <div id="sidebar">
         <md-toolbar class="md-transparent header" md-elevation="0">
             <span class="md-title">Ice-Hazymoon</span>
+            <md-button @click="darkTheme" class="md-icon-button">
+                <md-icon>brightness_6</md-icon>
+            </md-button>
             <md-button @click="switchSidebar" class="md-dense md-icon-button closeDrawer">
                 <md-icon>chevron_left</md-icon>
             </md-button>
@@ -115,6 +118,12 @@ export default {
     methods: {
         switchSidebar() {
             this.$store.commit("switchSidebar", false);
+        },
+        darkTheme() {
+            this.$material.theming.theme =
+                this.$material.theming.theme === "default-dark"
+                    ? "default"
+                    : "default-dark";
         }
     }
 };

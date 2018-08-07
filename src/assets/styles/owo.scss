@@ -1,0 +1,1671 @@
+/*
+ * Project: blog
+ * File Created: Tuesday, 7th August 2018 10:19:52 am
+ * Author: Ice-Hazymoon (imiku.me@gmail.com)
+ * -----
+ * Last Modified: Tuesday, 7th August 2018 11:09:32 am
+ */
+
+/* 表情 */
+
+@media (max-width:599px){
+    .owo{
+        .md-dialog-content{
+            padding: 0 !important
+        }
+    }
+}
+
+.owo {
+    .md-content {
+        padding: 0 !important;
+        background-color: #fff !important;
+    }
+    .md-dialog-container{
+        overflow-x: hidden;
+    }
+    .md-dialog-content{
+        padding-bottom: 0 !important;
+    }
+    .owobtn {
+        position: relative;
+        user-select: none;
+        padding: 5px 10px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #f7f7f7;
+        display: inline-block;
+        &:hover {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            animation: owo 5s infinite ease-in-out;
+        }
+    }
+    @keyframes owo {
+        2% {
+            transform: translateY(1.5px) rotate(1.5deg);
+        }
+        4% {
+            transform: translateY(-1.5px) rotate(-0.5deg);
+        }
+        6% {
+            transform: translateY(1.5px) rotate(-1.5deg);
+        }
+        8% {
+            transform: translateY(-1.5px) rotate(-1.5deg);
+        }
+        10% {
+            transform: translateY(2.5px) rotate(1.5deg);
+        }
+        12% {
+            transform: translateY(-0.5px) rotate(1.5deg);
+        }
+        14% {
+            transform: translateY(-1.5px) rotate(1.5deg);
+        }
+        16% {
+            transform: translateY(-0.5px) rotate(-1.5deg);
+        }
+        18% {
+            transform: translateY(0.5px) rotate(-1.5deg);
+        }
+        20% {
+            transform: translateY(-1.5px) rotate(2.5deg);
+        }
+        22% {
+            transform: translateY(0.5px) rotate(-1.5deg);
+        }
+        24% {
+            transform: translateY(1.5px) rotate(1.5deg);
+        }
+        26% {
+            transform: translateY(0.5px) rotate(0.5deg);
+        }
+        28% {
+            transform: translateY(0.5px) rotate(1.5deg);
+        }
+        30% {
+            transform: translateY(-0.5px) rotate(2.5deg);
+        }
+        32%,
+        34% {
+            transform: translateY(1.5px) rotate(-0.5deg);
+        }
+        36% {
+            transform: translateY(-1.5px) rotate(2.5deg);
+        }
+        38% {
+            transform: translateY(1.5px) rotate(-1.5deg);
+        }
+        40% {
+            transform: translateY(-0.5px) rotate(2.5deg);
+        }
+        42% {
+            transform: translateY(2.5px) rotate(-1.5deg);
+        }
+        44% {
+            transform: translateY(1.5px) rotate(0.5deg);
+        }
+        46% {
+            transform: translateY(-1.5px) rotate(2.5deg);
+        }
+        48% {
+            transform: translateY(-0.5px) rotate(0.5deg);
+        }
+        50% {
+            transform: translateY(0.5px) rotate(0.5deg);
+        }
+        52% {
+            transform: translateY(2.5px) rotate(2.5deg);
+        }
+        54% {
+            transform: translateY(-1.5px) rotate(1.5deg);
+        }
+        56% {
+            transform: translateY(2.5px) rotate(2.5deg);
+        }
+        58% {
+            transform: translateY(0.5px) rotate(2.5deg);
+        }
+        60% {
+            transform: translateY(2.5px) rotate(2.5deg);
+        }
+        62% {
+            transform: translateY(-0.5px) rotate(2.5deg);
+        }
+        64% {
+            transform: translateY(-0.5px) rotate(1.5deg);
+        }
+        66% {
+            transform: translateY(1.5px) rotate(-0.5deg);
+        }
+        68% {
+            transform: translateY(-1.5px) rotate(-0.5deg);
+        }
+        70% {
+            transform: translateY(1.5px) rotate(0.5deg);
+        }
+        72% {
+            transform: translateY(2.5px) rotate(1.5deg);
+        }
+        74% {
+            transform: translateY(-0.5px) rotate(0.5deg);
+        }
+        76% {
+            transform: translateY(-0.5px) rotate(2.5deg);
+        }
+        78% {
+            transform: translateY(-0.5px) rotate(1.5deg);
+        }
+        80% {
+            transform: translateY(1.5px) rotate(1.5deg);
+        }
+        82% {
+            transform: translateY(-0.5px) rotate(0.5deg);
+        }
+        84% {
+            transform: translateY(1.5px) rotate(2.5deg);
+        }
+        86% {
+            transform: translateY(-1.5px) rotate(-1.5deg);
+        }
+        88% {
+            transform: translateY(-0.5px) rotate(2.5deg);
+        }
+        90% {
+            transform: translateY(2.5px) rotate(-0.5deg);
+        }
+        92% {
+            transform: translateY(0.5px) rotate(-0.5deg);
+        }
+        94% {
+            transform: translateY(2.5px) rotate(0.5deg);
+        }
+        96% {
+            transform: translateY(-0.5px) rotate(1.5deg);
+        }
+        98% {
+            transform: translateY(-1.5px) rotate(-0.5deg);
+        }
+        0%,
+        to {
+            transform: translate(0) rotate(0deg);
+        }
+    }
+}
+
+.owoico {
+    background-image: url('../owopaopao.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.owoalu {
+    background-image: url('../owoalu.png');
+}
+
+/* 泡泡 */
+
+.sprite-tieba_emotion_01 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -5px;
+}
+
+.sprite-tieba_emotion_02 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -5px;
+}
+
+.sprite-tieba_emotion_03 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -5px;
+}
+
+.sprite-tieba_emotion_04 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -5px;
+}
+
+.sprite-tieba_emotion_05 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -5px;
+}
+
+.sprite-tieba_emotion_06 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -5px;
+}
+
+.sprite-tieba_emotion_07 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -5px;
+}
+
+.sprite-tieba_emotion_08 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -5px;
+}
+
+.sprite-tieba_emotion_09 {
+    width: 30px;
+    height: 30px;
+    background-position: -325px -5px;
+}
+
+.sprite-tieba_emotion_10 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -45px;
+}
+
+.sprite-tieba_emotion_11 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -45px;
+}
+
+.sprite-tieba_emotion_12 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -45px;
+}
+
+.sprite-tieba_emotion_13 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -45px;
+}
+
+.sprite-tieba_emotion_14 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -45px;
+}
+
+.sprite-tieba_emotion_15 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -45px;
+}
+
+.sprite-tieba_emotion_16 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -45px;
+}
+
+.sprite-tieba_emotion_17 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -45px;
+}
+
+.sprite-tieba_emotion_18 {
+    width: 30px;
+    height: 30px;
+    background-position: -325px -45px;
+}
+
+.sprite-tieba_emotion_19 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -85px;
+}
+
+.sprite-tieba_emotion_20 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -85px;
+}
+
+.sprite-tieba_emotion_21 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -85px;
+}
+
+.sprite-tieba_emotion_22 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -85px;
+}
+
+.sprite-tieba_emotion_23 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -85px;
+}
+
+.sprite-tieba_emotion_24 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -85px;
+}
+
+.sprite-tieba_emotion_25 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -85px;
+}
+
+.sprite-tieba_emotion_26 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -85px;
+}
+
+.sprite-tieba_emotion_27 {
+    width: 30px;
+    height: 30px;
+    background-position: -325px -85px;
+}
+
+.sprite-tieba_emotion_28 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -125px;
+}
+
+.sprite-tieba_emotion_29 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -125px;
+}
+
+.sprite-tieba_emotion_30 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -125px;
+}
+
+.sprite-tieba_emotion_31 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -125px;
+}
+
+.sprite-tieba_emotion_32 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -125px;
+}
+
+.sprite-tieba_emotion_33 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -125px;
+}
+
+.sprite-tieba_emotion_34 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -125px;
+}
+
+.sprite-tieba_emotion_35 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -125px;
+}
+
+.sprite-tieba_emotion_36 {
+    width: 30px;
+    height: 30px;
+    background-position: -325px -125px;
+}
+
+.sprite-tieba_emotion_37 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -165px;
+}
+
+.sprite-tieba_emotion_38 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -165px;
+}
+
+.sprite-tieba_emotion_39 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -165px;
+}
+
+.sprite-tieba_emotion_40 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -165px;
+}
+
+.sprite-tieba_emotion_41 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -165px;
+}
+
+.sprite-tieba_emotion_42 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -165px;
+}
+
+.sprite-tieba_emotion_43 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -165px;
+}
+
+.sprite-tieba_emotion_44 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -165px;
+}
+
+.sprite-tieba_emotion_45 {
+    width: 30px;
+    height: 30px;
+    background-position: -325px -165px;
+}
+
+.sprite-tieba_emotion_46 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -205px;
+}
+
+.sprite-tieba_emotion_47 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -205px;
+}
+
+.sprite-tieba_emotion_48 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -205px;
+}
+
+.sprite-tieba_emotion_49 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -205px;
+}
+
+.sprite-tieba_emotion_50 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -205px;
+}
+
+.sprite-tieba_emotion_51 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -205px;
+}
+
+.sprite-tieba_emotion_52 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -205px;
+}
+
+.sprite-tieba_emotion_53 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -205px;
+}
+
+.sprite-tieba_emotion_54 {
+    width: 30px;
+    height: 30px;
+    background-position: -325px -205px;
+}
+
+.sprite-tieba_emotion_55 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -245px;
+}
+
+.sprite-tieba_emotion_56 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -245px;
+}
+
+.sprite-tieba_emotion_57 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -245px;
+}
+
+.sprite-tieba_emotion_58 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -245px;
+}
+
+.sprite-tieba_emotion_59 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -245px;
+}
+
+.sprite-tieba_emotion_60 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -245px;
+}
+
+.sprite-tieba_emotion_61 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -245px;
+}
+
+.sprite-tieba_emotion_62 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -245px;
+}
+
+.sprite-tieba_emotion_63 {
+    width: 30px;
+    height: 30px;
+    background-position: -325px -245px;
+}
+
+.sprite-tieba_emotion_64 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -285px;
+}
+
+.sprite-tieba_emotion_65 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -285px;
+}
+
+.sprite-tieba_emotion_66 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -285px;
+}
+
+.sprite-tieba_emotion_67 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -285px;
+}
+
+.sprite-tieba_emotion_68 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -285px;
+}
+
+.sprite-tieba_emotion_69 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -285px;
+}
+
+.sprite-tieba_emotion_70 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -285px;
+}
+
+.sprite-tieba_emotion_71 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -285px;
+}
+
+.sprite-tieba_emotion_72 {
+    width: 30px;
+    height: 30px;
+    background-position: -325px -285px;
+}
+
+.sprite-tieba_emotion_73 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -325px;
+}
+
+.sprite-tieba_emotion_74 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -325px;
+}
+
+.sprite-tieba_emotion_75 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -325px;
+}
+
+.sprite-tieba_emotion_76 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -325px;
+}
+
+.sprite-tieba_emotion_77 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -325px;
+}
+
+.sprite-tieba_emotion_78 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -325px;
+}
+
+.sprite-tieba_emotion_79 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -325px;
+}
+
+.sprite-tieba_emotion_80 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -325px;
+}
+
+.sprite-tieba_emotion_81 {
+    width: 30px;
+    height: 30px;
+    background-position: -325px -325px;
+}
+
+.sprite-tieba_emotion_82 {
+    width: 30px;
+    height: 30px;
+    background-position: -365px -5px;
+}
+
+.sprite-tieba_emotion_83 {
+    width: 30px;
+    height: 30px;
+    background-position: -365px -45px;
+}
+
+.sprite-tieba_emotion_84 {
+    width: 30px;
+    height: 30px;
+    background-position: -365px -85px;
+}
+
+.sprite-tieba_emotion_85 {
+    width: 30px;
+    height: 30px;
+    background-position: -365px -125px;
+}
+
+.sprite-tieba_emotion_86 {
+    width: 30px;
+    height: 30px;
+    background-position: -365px -165px;
+}
+
+.sprite-tieba_emotion_87 {
+    width: 30px;
+    height: 30px;
+    background-position: -365px -205px;
+}
+
+.sprite-tieba_emotion_88 {
+    width: 30px;
+    height: 30px;
+    background-position: -365px -245px;
+}
+
+.sprite-tieba_emotion_89 {
+    width: 30px;
+    height: 30px;
+    background-position: -365px -285px;
+}
+
+.sprite-tieba_emotion_90 {
+    width: 30px;
+    height: 30px;
+    background-position: -365px -325px;
+}
+
+.sprite-tieba_emotion_91 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -365px;
+}
+
+.sprite-tieba_emotion_92 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -365px;
+}
+
+.sprite-tieba_emotion_93 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -365px;
+}
+
+/* 阿鲁 */
+
+.sprite-alu-_100_ {
+    width: 32px;
+    height: 33px;
+    background-position: -5px -5px;
+}
+
+.sprite-alu-_101_ {
+    width: 47px;
+    height: 33px;
+    background-position: -47px -5px;
+}
+
+.sprite-alu-_102_ {
+    width: 49px;
+    height: 33px;
+    background-position: -104px -5px;
+}
+
+.sprite-alu-_103_ {
+    width: 61px;
+    height: 33px;
+    background-position: -163px -5px;
+}
+
+.sprite-alu-_104_ {
+    width: 47px;
+    height: 33px;
+    background-position: -234px -5px;
+}
+
+.sprite-alu-_105_ {
+    width: 62px;
+    height: 33px;
+    background-position: -291px -5px;
+}
+
+.sprite-alu-_106_ {
+    width: 52px;
+    height: 33px;
+    background-position: -363px -5px;
+}
+
+.sprite-alu-_107_ {
+    width: 47px;
+    height: 33px;
+    background-position: -425px -5px;
+}
+
+.sprite-alu-_108_ {
+    width: 41px;
+    height: 33px;
+    background-position: -482px -5px;
+}
+
+.sprite-alu-_109_ {
+    width: 42px;
+    height: 33px;
+    background-position: -533px -5px;
+}
+
+.sprite-alu-_10_ {
+    width: 35px;
+    height: 33px;
+    background-position: -5px -48px;
+}
+
+.sprite-alu-_110_ {
+    width: 29px;
+    height: 33px;
+    background-position: -50px -48px;
+}
+
+.sprite-alu-_111_ {
+    width: 38px;
+    height: 33px;
+    background-position: -89px -48px;
+}
+
+.sprite-alu-_112_ {
+    width: 41px;
+    height: 33px;
+    background-position: -137px -48px;
+}
+
+.sprite-alu-_113_ {
+    width: 43px;
+    height: 33px;
+    background-position: -188px -48px;
+}
+
+.sprite-alu-_114_ {
+    width: 45px;
+    height: 33px;
+    background-position: -241px -48px;
+}
+
+.sprite-alu-_115_ {
+    width: 28px;
+    height: 33px;
+    background-position: -296px -48px;
+}
+
+.sprite-alu-_116_ {
+    width: 48px;
+    height: 33px;
+    background-position: -334px -48px;
+}
+
+.sprite-alu-_117_ {
+    width: 98px;
+    height: 33px;
+    background-position: -392px -48px;
+}
+
+.sprite-alu-_118_ {
+    width: 76px;
+    height: 33px;
+    background-position: -500px -48px;
+}
+
+.sprite-alu-_119_ {
+    width: 46px;
+    height: 33px;
+    background-position: -5px -91px;
+}
+
+.sprite-alu-_11_ {
+    width: 30px;
+    height: 33px;
+    background-position: -61px -91px;
+}
+
+.sprite-alu-_120_ {
+    width: 75px;
+    height: 33px;
+    background-position: -101px -91px;
+}
+
+.sprite-alu-_121_ {
+    width: 83px;
+    height: 33px;
+    background-position: -186px -91px;
+}
+
+.sprite-alu-_122_ {
+    width: 64px;
+    height: 33px;
+    background-position: -279px -91px;
+}
+
+.sprite-alu-_123_ {
+    width: 70px;
+    height: 33px;
+    background-position: -353px -91px;
+}
+
+.sprite-alu-_124_ {
+    width: 36px;
+    height: 33px;
+    background-position: -433px -91px;
+}
+
+.sprite-alu-_125_ {
+    width: 50px;
+    height: 33px;
+    background-position: -479px -91px;
+}
+
+.sprite-alu-_126_ {
+    width: 47px;
+    height: 33px;
+    background-position: -539px -91px;
+}
+
+.sprite-alu-_127_ {
+    width: 49px;
+    height: 33px;
+    background-position: -5px -134px;
+}
+
+.sprite-alu-_128_ {
+    width: 73px;
+    height: 33px;
+    background-position: -64px -134px;
+}
+
+.sprite-alu-_129_ {
+    width: 43px;
+    height: 33px;
+    background-position: -147px -134px;
+}
+
+.sprite-alu-_12_ {
+    width: 33px;
+    height: 33px;
+    background-position: -200px -134px;
+}
+
+.sprite-alu-_130_ {
+    width: 93px;
+    height: 33px;
+    background-position: -243px -134px;
+}
+
+.sprite-alu-_131_ {
+    width: 49px;
+    height: 33px;
+    background-position: -346px -134px;
+}
+
+.sprite-alu-_132_ {
+    width: 46px;
+    height: 33px;
+    background-position: -405px -134px;
+}
+
+.sprite-alu-_133_ {
+    width: 20px;
+    height: 33px;
+    background-position: -461px -134px;
+}
+
+.sprite-alu-_134_ {
+    width: 36px;
+    height: 33px;
+    background-position: -491px -134px;
+}
+
+.sprite-alu-_135_ {
+    width: 36px;
+    height: 33px;
+    background-position: -537px -134px;
+}
+
+.sprite-alu-_136_ {
+    width: 37px;
+    height: 33px;
+    background-position: -5px -177px;
+}
+
+.sprite-alu-_137_ {
+    width: 36px;
+    height: 33px;
+    background-position: -52px -177px;
+}
+
+.sprite-alu-_138_ {
+    width: 36px;
+    height: 33px;
+    background-position: -98px -177px;
+}
+
+.sprite-alu-_139_ {
+    width: 36px;
+    height: 33px;
+    background-position: -144px -177px;
+}
+
+.sprite-alu-_13_ {
+    width: 32px;
+    height: 33px;
+    background-position: -190px -177px;
+}
+
+.sprite-alu-_140_ {
+    width: 36px;
+    height: 33px;
+    background-position: -232px -177px;
+}
+
+.sprite-alu-_141_ {
+    width: 37px;
+    height: 33px;
+    background-position: -278px -177px;
+}
+
+.sprite-alu-_142_ {
+    width: 37px;
+    height: 33px;
+    background-position: -325px -177px;
+}
+
+.sprite-alu-_143_ {
+    width: 37px;
+    height: 33px;
+    background-position: -372px -177px;
+}
+
+.sprite-alu-_144_ {
+    width: 37px;
+    height: 33px;
+    background-position: -419px -177px;
+}
+
+.sprite-alu-_145_ {
+    width: 37px;
+    height: 33px;
+    background-position: -466px -177px;
+}
+
+.sprite-alu-_146_ {
+    width: 37px;
+    height: 33px;
+    background-position: -513px -177px;
+}
+
+.sprite-alu-_147_ {
+    width: 37px;
+    height: 33px;
+    background-position: -5px -220px;
+}
+
+.sprite-alu-_148_ {
+    width: 37px;
+    height: 33px;
+    background-position: -52px -220px;
+}
+
+.sprite-alu-_149_ {
+    width: 37px;
+    height: 33px;
+    background-position: -99px -220px;
+}
+
+.sprite-alu-_14_ {
+    width: 31px;
+    height: 33px;
+    background-position: -560px -177px;
+}
+
+.sprite-alu-_150_ {
+    width: 37px;
+    height: 33px;
+    background-position: -146px -220px;
+}
+
+.sprite-alu-_15_ {
+    width: 36px;
+    height: 33px;
+    background-position: -193px -220px;
+}
+
+.sprite-alu-_16_ {
+    width: 31px;
+    height: 33px;
+    background-position: -239px -220px;
+}
+
+.sprite-alu-_17_ {
+    width: 31px;
+    height: 33px;
+    background-position: -280px -220px;
+}
+
+.sprite-alu-_18_ {
+    width: 32px;
+    height: 33px;
+    background-position: -321px -220px;
+}
+
+.sprite-alu-_19_ {
+    width: 34px;
+    height: 33px;
+    background-position: -363px -220px;
+}
+
+.sprite-alu-_1_ {
+    width: 37px;
+    height: 33px;
+    background-position: -407px -220px;
+}
+
+.sprite-alu-_20_ {
+    width: 38px;
+    height: 33px;
+    background-position: -454px -220px;
+}
+
+.sprite-alu-_21_ {
+    width: 38px;
+    height: 33px;
+    background-position: -502px -220px;
+}
+
+.sprite-alu-_22_ {
+    width: 40px;
+    height: 33px;
+    background-position: -550px -220px;
+}
+
+.sprite-alu-_23_ {
+    width: 35px;
+    height: 33px;
+    background-position: -5px -263px;
+}
+
+.sprite-alu-_24_ {
+    width: 33px;
+    height: 33px;
+    background-position: -50px -263px;
+}
+
+.sprite-alu-_25_ {
+    width: 35px;
+    height: 33px;
+    background-position: -93px -263px;
+}
+
+.sprite-alu-_26_ {
+    width: 32px;
+    height: 33px;
+    background-position: -138px -263px;
+}
+
+.sprite-alu-_27_ {
+    width: 48px;
+    height: 33px;
+    background-position: -180px -263px;
+}
+
+.sprite-alu-_28_ {
+    width: 48px;
+    height: 33px;
+    background-position: -238px -263px;
+}
+
+.sprite-alu-_29_ {
+    width: 53px;
+    height: 33px;
+    background-position: -296px -263px;
+}
+
+.sprite-alu-_2_ {
+    width: 37px;
+    height: 33px;
+    background-position: -359px -263px;
+}
+
+.sprite-alu-_30_ {
+    width: 40px;
+    height: 33px;
+    background-position: -406px -263px;
+}
+
+.sprite-alu-_31_ {
+    width: 58px;
+    height: 33px;
+    background-position: -456px -263px;
+}
+
+.sprite-alu-_32_ {
+    width: 50px;
+    height: 33px;
+    background-position: -524px -263px;
+}
+
+.sprite-alu-_33_ {
+    width: 42px;
+    height: 33px;
+    background-position: -5px -306px;
+}
+
+.sprite-alu-_34_ {
+    width: 48px;
+    height: 33px;
+    background-position: -57px -306px;
+}
+
+.sprite-alu-_35_ {
+    width: 43px;
+    height: 33px;
+    background-position: -115px -306px;
+}
+
+.sprite-alu-_36_ {
+    width: 47px;
+    height: 33px;
+    background-position: -168px -306px;
+}
+
+.sprite-alu-_37_ {
+    width: 46px;
+    height: 33px;
+    background-position: -225px -306px;
+}
+
+.sprite-alu-_38_ {
+    width: 46px;
+    height: 33px;
+    background-position: -281px -306px;
+}
+
+.sprite-alu-_39_ {
+    width: 43px;
+    height: 33px;
+    background-position: -337px -306px;
+}
+
+.sprite-alu-_3_ {
+    width: 37px;
+    height: 33px;
+    background-position: -390px -306px;
+}
+
+.sprite-alu-_40_ {
+    width: 49px;
+    height: 33px;
+    background-position: -437px -306px;
+}
+
+.sprite-alu-_41_ {
+    width: 50px;
+    height: 33px;
+    background-position: -496px -306px;
+}
+
+.sprite-alu-_42_ {
+    width: 50px;
+    height: 33px;
+    background-position: -5px -349px;
+}
+
+.sprite-alu-_43_ {
+    width: 51px;
+    height: 33px;
+    background-position: -65px -349px;
+}
+
+.sprite-alu-_44_ {
+    width: 31px;
+    height: 33px;
+    background-position: -556px -306px;
+}
+
+.sprite-alu-_45_ {
+    width: 29px;
+    height: 33px;
+    background-position: -126px -349px;
+}
+
+.sprite-alu-_46_ {
+    width: 29px;
+    height: 33px;
+    background-position: -165px -349px;
+}
+
+.sprite-alu-_47_ {
+    width: 29px;
+    height: 33px;
+    background-position: -204px -349px;
+}
+
+.sprite-alu-_48_ {
+    width: 27px;
+    height: 33px;
+    background-position: -243px -349px;
+}
+
+.sprite-alu-_49_ {
+    width: 28px;
+    height: 33px;
+    background-position: -280px -349px;
+}
+
+.sprite-alu-_4_ {
+    width: 37px;
+    height: 33px;
+    background-position: -318px -349px;
+}
+
+.sprite-alu-_50_ {
+    width: 28px;
+    height: 33px;
+    background-position: -365px -349px;
+}
+
+.sprite-alu-_51_ {
+    width: 41px;
+    height: 33px;
+    background-position: -403px -349px;
+}
+
+.sprite-alu-_52_ {
+    width: 49px;
+    height: 33px;
+    background-position: -454px -349px;
+}
+
+.sprite-alu-_53_ {
+    width: 44px;
+    height: 33px;
+    background-position: -513px -349px;
+}
+
+.sprite-alu-_54_ {
+    width: 41px;
+    height: 33px;
+    background-position: -5px -392px;
+}
+
+.sprite-alu-_55_ {
+    width: 36px;
+    height: 33px;
+    background-position: -56px -392px;
+}
+
+.sprite-alu-_56_ {
+    width: 69px;
+    height: 33px;
+    background-position: -102px -392px;
+}
+
+.sprite-alu-_57_ {
+    width: 69px;
+    height: 33px;
+    background-position: -181px -392px;
+}
+
+.sprite-alu-_58_ {
+    width: 69px;
+    height: 33px;
+    background-position: -260px -392px;
+}
+
+.sprite-alu-_59_ {
+    width: 69px;
+    height: 33px;
+    background-position: -339px -392px;
+}
+
+.sprite-alu-_5_ {
+    width: 37px;
+    height: 33px;
+    background-position: -418px -392px;
+}
+
+.sprite-alu-_60_ {
+    width: 57px;
+    height: 33px;
+    background-position: -465px -392px;
+}
+
+.sprite-alu-_61_ {
+    width: 69px;
+    height: 33px;
+    background-position: -5px -435px;
+}
+
+.sprite-alu-_62_ {
+    width: 74px;
+    height: 33px;
+    background-position: -84px -435px;
+}
+
+.sprite-alu-_63_ {
+    width: 65px;
+    height: 33px;
+    background-position: -168px -435px;
+}
+
+.sprite-alu-_64_ {
+    width: 49px;
+    height: 33px;
+    background-position: -532px -392px;
+}
+
+.sprite-alu-_65_ {
+    width: 52px;
+    height: 33px;
+    background-position: -243px -435px;
+}
+
+.sprite-alu-_66_ {
+    width: 91px;
+    height: 33px;
+    background-position: -305px -435px;
+}
+
+.sprite-alu-_67_ {
+    width: 59px;
+    height: 33px;
+    background-position: -406px -435px;
+}
+
+.sprite-alu-_68_ {
+    width: 46px;
+    height: 33px;
+    background-position: -475px -435px;
+}
+
+.sprite-alu-_69_ {
+    width: 77px;
+    height: 33px;
+    background-position: -5px -478px;
+}
+
+.sprite-alu-_6_ {
+    width: 37px;
+    height: 33px;
+    background-position: -531px -435px;
+}
+
+.sprite-alu-_70_ {
+    width: 52px;
+    height: 33px;
+    background-position: -92px -478px;
+}
+
+.sprite-alu-_71_ {
+    width: 55px;
+    height: 33px;
+    background-position: -154px -478px;
+}
+
+.sprite-alu-_72_ {
+    width: 60px;
+    height: 33px;
+    background-position: -219px -478px;
+}
+
+.sprite-alu-_73_ {
+    width: 36px;
+    height: 33px;
+    background-position: -289px -478px;
+}
+
+.sprite-alu-_74_ {
+    width: 36px;
+    height: 33px;
+    background-position: -335px -478px;
+}
+
+.sprite-alu-_75_ {
+    width: 35px;
+    height: 33px;
+    background-position: -381px -478px;
+}
+
+.sprite-alu-_76_ {
+    width: 29px;
+    height: 33px;
+    background-position: -426px -478px;
+}
+
+.sprite-alu-_77_ {
+    width: 40px;
+    height: 33px;
+    background-position: -465px -478px;
+}
+
+.sprite-alu-_78_ {
+    width: 30px;
+    height: 33px;
+    background-position: -515px -478px;
+}
+
+.sprite-alu-_79_ {
+    width: 54px;
+    height: 33px;
+    background-position: -5px -521px;
+}
+
+.sprite-alu-_7_ {
+    width: 37px;
+    height: 33px;
+    background-position: -555px -478px;
+}
+
+.sprite-alu-_80_ {
+    width: 49px;
+    height: 33px;
+    background-position: -69px -521px;
+}
+
+.sprite-alu-_81_ {
+    width: 47px;
+    height: 33px;
+    background-position: -128px -521px;
+}
+
+.sprite-alu-_82_ {
+    width: 45px;
+    height: 33px;
+    background-position: -185px -521px;
+}
+
+.sprite-alu-_83_ {
+    width: 47px;
+    height: 33px;
+    background-position: -240px -521px;
+}
+
+.sprite-alu-_84_ {
+    width: 55px;
+    height: 33px;
+    background-position: -297px -521px;
+}
+
+.sprite-alu-_85_ {
+    width: 47px;
+    height: 33px;
+    background-position: -362px -521px;
+}
+
+.sprite-alu-_86_ {
+    width: 51px;
+    height: 33px;
+    background-position: -419px -521px;
+}
+
+.sprite-alu-_87_ {
+    width: 43px;
+    height: 33px;
+    background-position: -480px -521px;
+}
+
+.sprite-alu-_88_ {
+    width: 51px;
+    height: 33px;
+    background-position: -533px -521px;
+}
+
+.sprite-alu-_89_ {
+    width: 51px;
+    height: 33px;
+    background-position: -585px -5px;
+}
+
+.sprite-alu-_8_ {
+    width: 34px;
+    height: 33px;
+    background-position: -586px -48px;
+}
+
+.sprite-alu-_90_ {
+    width: 50px;
+    height: 33px;
+    background-position: -596px -91px;
+}
+
+.sprite-alu-_91_ {
+    width: 45px;
+    height: 33px;
+    background-position: -583px -134px;
+}
+
+.sprite-alu-_92_ {
+    width: 59px;
+    height: 33px;
+    background-position: -584px -263px;
+}
+
+.sprite-alu-_93_ {
+    width: 61px;
+    height: 33px;
+    background-position: -567px -349px;
+}
+
+.sprite-alu-_94_ {
+    width: 55px;
+    height: 33px;
+    background-position: -600px -220px;
+}
+
+.sprite-alu-_95_ {
+    width: 48px;
+    height: 33px;
+    background-position: -601px -177px;
+}
+
+.sprite-alu-_96_ {
+    width: 54px;
+    height: 33px;
+    background-position: -597px -306px;
+}
+
+.sprite-alu-_97_ {
+    width: 37px;
+    height: 33px;
+    background-position: -591px -392px;
+}
+
+.sprite-alu-_98_ {
+    width: 23px;
+    height: 33px;
+    background-position: -630px -48px;
+}
+
+.sprite-alu-_99_ {
+    width: 50px;
+    height: 33px;
+    background-position: -578px -435px;
+}
+
+.sprite-alu-_9_ {
+    width: 37px;
+    height: 33px;
+    background-position: -602px -478px;
+}
+
+/* 表情end */

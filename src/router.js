@@ -23,6 +23,7 @@ export default new Router({
         {
             path: "/:year/:month/:day/:id.html",
             component: Posts,
+            props: true,
             meta: {
                 keep_alive: false
             }

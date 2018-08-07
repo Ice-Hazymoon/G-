@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 5:08:47 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 12:09:25 am
+ * Last Modified: Tuesday, 7th August 2018 11:56:10 am
  */
 <template>
     <div id="posts">
@@ -22,6 +22,22 @@
             <md-dialog-actions>
                 <md-button class="md-primary" @click="add.linkDialog = false">Close</md-button>
                 <md-button class="md-primary" @click="addlink">OK</md-button>
+            </md-dialog-actions>
+        </md-dialog>
+
+        <!-- owo -->
+        <md-dialog class="owo" :md-active.sync="owoDialog">
+            <md-dialog-title>添加表情</md-dialog-title>
+            <md-dialog-content>
+                <md-tabs md-alignment="fixed">
+                    <md-tab :md-label="index" v-for="(item, index) in owoData" :key="index">
+                        <div class="owobtn" title="item.text" v-for="(item2, index2) in item.container" :key="index2" v-html="item2.icon"></div>
+                    </md-tab>
+                </md-tabs>
+            </md-dialog-content>
+
+            <md-dialog-actions>
+                <md-button class="md-primary" @click="owoDialog = false">Close</md-button>
             </md-dialog-actions>
         </md-dialog>
 
@@ -197,6 +213,10 @@
                         <md-icon>link</md-icon>
                         <md-tooltip v-if="!isMobile" md-direction="bottom">添加链接</md-tooltip>
                     </md-button>
+                    <md-button @click="owoDialog = true" class="md-icon-button" md-menu-trigger>
+                        <md-tooltip v-if="!isMobile" md-direction="bottom">添加表情</md-tooltip>
+                        <md-icon>mood</md-icon>
+                    </md-button>
                     <div class="toolsbar">
                         <md-button @click="cancelReply" v-if="data.tmp.r" class="md-primary cancel">取消回复</md-button>
                         <md-button @click="sendReply(data, $event)" :disabled="commentVal=='' || comment.nickname=='' || comment.email==''" class="submit">发布</md-button>
@@ -208,9 +228,7 @@
 </template>
 
 <script>
-// import "lightgallery.js/src/sass/lightgallery.scss";
 import "lightgallery.js/dist/css/lightgallery.min.css";
-// import "lightgallery.js/dist/css/lg-transitions.css";
 import api from "../api.js";
 export default {
     props: ["id"],
@@ -226,6 +244,7 @@ export default {
         }, 500);
     },
     created() {
+        this.getOwoData();
         this.$http
             .get(api.posts.get + this.id)
             .then(e => {
@@ -251,29 +270,15 @@ export default {
             });
     },
     mounted() {
+        console.log("done");
         require(["lightgallery.js"], () => {
             require(["lg-zoom.js", "lg-fullscreen.js"], () => {
                 const lightGallery = window.lightGallery;
                 lightGallery(document.getElementById("lightgallery"), {
-                    // fullScreen: true,
-                    // closable: false,
-                    // controls: false,
-                    // enableDrag: false,
-                    // enableTouch: false,
-                    // useLeft: true,
                     loop: false,
-                    // escKey: false,
-                    // keyPress: false,
                     slideEndAnimatoin: true,
                     hideControlOnEnd: true,
-                    // getCaptionFromTitleOrAlt: true,
-                    // showAfterLoad: true,
-                    // hideControlOnEnd: true,
-                    // download: false,
-                    // counter: false,
-                    // thumbnail: true,
                     subHtmlSelectorRelative: true,
-                    // mode: "lg-zoom-in-big",
                     selector: ".lightgallery"
                 });
             });
@@ -289,11 +294,13 @@ export default {
             },
             linkDialog: false
         },
+        owoData: {},
         comment: {
             email: "",
             nickname: ""
         },
-        commentVal: ""
+        commentVal: "",
+        owoDialog: false
     }),
     methods: {
         handleDate: require("../fun.js").default.handleDate,
@@ -379,6 +386,26 @@ export default {
                     if (e.data.code === 200) {
                         this.data.isLike = true;
                         this.data.like = e.data.likeNum;
+                    } else {
+                        this.$store.commit(
+                            "snackbar",
+                            "请求错误, 请稍后重试" + e.data.msg
+                        );
+                    }
+                })
+                .catch(err => {
+                    this.$store.commit(
+                        "snackbar",
+                        "请求错误, 请稍后重试" + err
+                    );
+                });
+        },
+        getOwoData() {
+            this.$http
+                .get(api.owo.get)
+                .then(e => {
+                    if (e.data.code === 200) {
+                        this.owoData = e.data.data;
                     } else {
                         this.$store.commit(
                             "snackbar",
