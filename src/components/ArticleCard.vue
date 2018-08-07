@@ -3,7 +3,7 @@
  * File Created: Monday, 30th July 2018 2:26:45 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 11:43:05 am
+ * Last Modified: Tuesday, 7th August 2018 4:54:53 pm
  */
 <template>
     <div class="article">
@@ -183,7 +183,7 @@
 
 <script>
 import imagesLoaded from "imagesloaded";
-import api from "../api.js";
+import api from "../../config/config.js";
 
 export default {
     props: ["data"],

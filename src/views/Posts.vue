@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 5:08:47 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 11:56:10 am
+ * Last Modified: Tuesday, 7th August 2018 5:34:12 pm
  */
 <template>
     <div id="posts">
@@ -28,7 +28,7 @@
         <!-- owo -->
         <md-dialog class="owo" :md-active.sync="owoDialog">
             <md-dialog-title>添加表情</md-dialog-title>
-            <md-dialog-content>
+            <md-dialog-content class="md-scrollbar">
                 <md-tabs md-alignment="fixed">
                     <md-tab :md-label="index" v-for="(item, index) in owoData" :key="index">
                         <div class="owobtn" title="item.text" v-for="(item2, index2) in item.container" :key="index2" v-html="item2.icon"></div>
@@ -229,7 +229,7 @@
 
 <script>
 import "lightgallery.js/dist/css/lightgallery.min.css";
-import api from "../api.js";
+import api from "../../config/config.js";
 export default {
     props: ["id"],
     beforeRouteLeave(to, from, next) {
@@ -245,6 +245,7 @@ export default {
     },
     created() {
         this.getOwoData();
+        console.log(document.querySelector("#lightgallery"));
         this.$http
             .get(api.posts.get + this.id)
             .then(e => {
@@ -254,6 +255,7 @@ export default {
                         x: "" //replyId
                     };
                     this.data = e.data.data;
+                    this.$nextTick(this.handleLightGallery);
                     setTimeout(() => {
                         this.$store.commit("setGlobalProgress", false);
                         this.$store.commit("setForbidMask", false);
@@ -268,21 +270,6 @@ export default {
             .catch(err => {
                 this.$store.commit("snackbar", "请求错误, 请稍后重试" + err);
             });
-    },
-    mounted() {
-        console.log("done");
-        require(["lightgallery.js"], () => {
-            require(["lg-zoom.js", "lg-fullscreen.js"], () => {
-                const lightGallery = window.lightGallery;
-                lightGallery(document.getElementById("lightgallery"), {
-                    loop: false,
-                    slideEndAnimatoin: true,
-                    hideControlOnEnd: true,
-                    subHtmlSelectorRelative: true,
-                    selector: ".lightgallery"
-                });
-            });
-        });
     },
     data: () => ({
         data: null,
@@ -419,6 +406,22 @@ export default {
                         "请求错误, 请稍后重试" + err
                     );
                 });
+        },
+        handleLightGallery() {
+            require(["lightgallery.js"], () => {
+                require(["lg-zoom.js", "lg-fullscreen.js"], () => {
+                    window.lightGallery(
+                        document.getElementById("lightgallery"),
+                        {
+                            loop: false,
+                            slideEndAnimatoin: true,
+                            hideControlOnEnd: true,
+                            subHtmlSelectorRelative: true,
+                            selector: ".lightgallery"
+                        }
+                    );
+                });
+            });
         }
     },
     computed: {

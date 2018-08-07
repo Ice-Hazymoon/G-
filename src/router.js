@@ -1,11 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
 const Links = () => import("./views/Links.vue");
-const Nya = () => import("./views/Nya.vue");
+const NotFound = () => import("./views/404.vue");
 const Posts = () => import("./views/Posts.vue");
 const Categories = () => import("./views/Categories.vue");
 const Tags = () => import("./views/Tags.vue");
-const Articles = () => import("./views/Articles.vue");
+const ArticleList = () => import("./views/ArticleList.vue");
 const Archives = () => import("./views/Archives.vue");
 
 Vue.use(Router);
@@ -14,13 +14,15 @@ export default new Router({
     mode: "history",
     routes: [
         {
+            name: "Home",
             path: "/",
-            component: Articles,
+            component: ArticleList,
             meta: {
                 keep_alive: true
             }
         },
         {
+            name: "Posts",
             path: "/:year/:month/:day/:id.html",
             component: Posts,
             props: true,
@@ -29,6 +31,7 @@ export default new Router({
             }
         },
         {
+            name: "Links",
             path: "/links",
             component: Links,
             meta: {
@@ -36,6 +39,7 @@ export default new Router({
             }
         },
         {
+            name: "Categories",
             path: "/categories",
             component: Categories,
             meta: {
@@ -43,6 +47,7 @@ export default new Router({
             }
         },
         {
+            name: "Archives",
             path: "/archive",
             component: Archives,
             meta: {
@@ -50,6 +55,7 @@ export default new Router({
             }
         },
         {
+            name: "Tags",
             path: "/tags",
             component: Tags,
             meta: {
@@ -58,7 +64,7 @@ export default new Router({
         },
         {
             path: "*",
-            component: Nya,
+            component: NotFound,
             meta: {
                 keep_alive: true
             }

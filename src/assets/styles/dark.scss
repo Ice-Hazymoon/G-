@@ -3,7 +3,7 @@
  * File Created: Saturday, 4th August 2018 12:31:21 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 11:08:54 am
+ * Last Modified: Tuesday, 7th August 2018 5:48:47 pm
  */
 
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
@@ -13,14 +13,24 @@ text: #fff, theme: dark));
 @import "~vue-material/dist/theme/all";
 .md-theme-default-dark {
     .owo{
+        .md-tabs-navigation{
+            padding: 0 !important;
+        }
+        .md-content{
+            background-color: #303030 !important;
+        }
         .owobtn{
-            background-color: #424242;
+            background-color: #424242 !important;
         }
     }
-    .md-app,
-    .md-drawer,
-    .md-list,
-    .md-content,
+    .md-app {
+        background-color: #303030 !important;
+        .md-drawer,
+        .md-list,
+        .md-content{
+            background-color: #303030 !important;
+        }
+    }
     #appbar {
         background-color: #303030 !important;
     }
@@ -106,6 +116,17 @@ text: #fff, theme: dark));
             font-weight: normal;
             color: #fff;
             margin: 20px 0;
+        }
+    }
+    #links{
+        .title{
+            color: #fff;
+        }
+        li{
+            background-color: #424242;
+            .description{
+                color: #fff;
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
  * File Created: Tuesday, 24th July 2018 4:10:42 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 11:18:48 am
+ * Last Modified: Tuesday, 7th August 2018 5:19:22 pm
  */
 <template>
     <div id="sidebar">
@@ -29,7 +29,7 @@
 
             <md-list-item to="/links">
                 <md-icon>supervisor_account</md-icon>
-                <span class="md-list-item-text">人脉</span>
+                <span class="md-list-item-text">链接</span>
             </md-list-item>
 
             <md-list-item to="/categories">

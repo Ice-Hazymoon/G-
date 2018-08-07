@@ -3,7 +3,7 @@
  * File Created: Monday, 23rd July 2018 4:32:42 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 10:57:13 am
+ * Last Modified: Tuesday, 7th August 2018 3:43:40 pm
  */
 
 @import './typo.scss';
@@ -11,6 +11,7 @@
 
 body{
     padding-left: calc(100vw - 100%);
+    background-color: #f1f1f1;
 }
 
 #sidebar{
@@ -46,7 +47,7 @@ body{
         background-color: #f1f1f1 !important;
     }
 }
-.md-content{
+.md-app .md-content:nth-child(1){
     padding: 88px 50px 0 50px !important;
     border: none !important;
     background-color: #f1f1f1 !important;
