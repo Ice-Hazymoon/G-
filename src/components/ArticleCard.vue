@@ -3,7 +3,7 @@
  * File Created: Monday, 30th July 2018 2:26:45 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 4:54:53 pm
+ * Last Modified: Wednesday, 8th August 2018 3:41:33 pm
  */
 <template>
     <div class="article">
@@ -22,6 +22,22 @@
             <md-dialog-actions>
                 <md-button class="md-primary" @click="add.linkDialog = false">Close</md-button>
                 <md-button class="md-primary" @click="addlink">OK</md-button>
+            </md-dialog-actions>
+        </md-dialog>
+
+        <!-- owo -->
+        <md-dialog class="owo" :md-active.sync="owoDialog">
+            <md-dialog-title>添加表情</md-dialog-title>
+            <md-dialog-content class="md-scrollbar">
+                <md-tabs md-alignment="fixed">
+                    <md-tab :md-label="index" v-for="(item, index) in owoData" :key="index">
+                        <div @click="addOwo(item.name, item2)" class="owobtn" :title="item2.text" v-for="(item2, index2) in item.container" :key="index2" v-html="item2.icon"></div>
+                    </md-tab>
+                </md-tabs>
+            </md-dialog-content>
+
+            <md-dialog-actions>
+                <md-button class="md-primary" @click="owoDialog = false">Close</md-button>
             </md-dialog-actions>
         </md-dialog>
 
@@ -170,6 +186,10 @@
                             <md-icon>link</md-icon>
                             <md-tooltip md-direction="bottom" v-if="!isMobile">添加链接</md-tooltip>
                         </md-button>
+                        <md-button @click.stop="(owoDialog = true) | (owoIndex = index)" class="md-icon-button" md-menu-trigger>
+                            <md-tooltip v-if="!isMobile" md-direction="bottom">添加表情</md-tooltip>
+                            <md-icon>mood</md-icon>
+                        </md-button>
                         <div class="toolsbar">
                             <md-button @click.stop="cancelReply(item)" class="md-primary cancel">{{ item.tmp.r ? '取消回复' : '取消' }}</md-button>
                             <md-button @click.stop="sendReply(item, $event)" :disabled="item.commentVal=='' || comment.nickname=='' || comment.email==''" class="submit">发布</md-button>
@@ -200,8 +220,14 @@ export default {
         comment: {
             email: "",
             nickname: ""
-        }
+        },
+        owoDialog: false,
+        owoData: {},
+        owoIndex: 0
     }),
+    mounted() {
+        this.getOwoData();
+    },
     methods: {
         handleActive(item) {
             if (item.commentList.length) {
@@ -324,6 +350,38 @@ export default {
                     if (e.data.code === 200) {
                         item.isLike = true;
                         item.like = e.data.likeNum;
+                    } else {
+                        this.$store.commit(
+                            "snackbar",
+                            "请求错误, 请稍后重试" + e.data.msg
+                        );
+                    }
+                })
+                .catch(err => {
+                    this.$store.commit(
+                        "snackbar",
+                        "请求错误, 请稍后重试" + err
+                    );
+                });
+        },
+        addOwo(name, item) {
+            if (name === "emoticon") {
+                this.data[this.owoIndex].commentVal += item.icon;
+            }
+            if (name === "alu") {
+                this.data[this.owoIndex].commentVal += "@(" + item.text + ")";
+            }
+            if (name === "paopao") {
+                this.data[this.owoIndex].commentVal += "@[" + item.text + "]";
+            }
+            this.owoDialog = false;
+        },
+        getOwoData() {
+            this.$http
+                .get(api.owo.get)
+                .then(e => {
+                    if (e.data.code === 200) {
+                        this.owoData = e.data.data;
                     } else {
                         this.$store.commit(
                             "snackbar",

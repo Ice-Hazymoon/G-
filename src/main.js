@@ -24,5 +24,7 @@ new Vue({
 
 router.beforeEach((to, from, next) => {
     store.commit("setGlobalProgress", true);
+    if (window.innerWidth <= 750) store.commit("switchSidebar", false);
+    document.title = to.meta.title;
     next();
 });

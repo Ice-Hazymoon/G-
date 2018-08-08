@@ -3,7 +3,7 @@
  * File Created: Tuesday, 17th July 2018 10:57:18 am
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 9:49:29 am
+ * Last Modified: Wednesday, 8th August 2018 2:53:34 pm
  */
 const Mock = require("mockjs");
 const express = require("express");
@@ -11,7 +11,11 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 
 let app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(
+    bodyParser.urlencoded({
+        extended: false
+    })
+);
 app.use(bodyParser.json());
 
 app.disable("x-powered-by");
@@ -66,7 +70,7 @@ app.get("/posts", (req, res) => {
                             date: "@datetime()",
                             name: "@csentence(3, 5)",
                             content:
-                                '@cparagraph(1, 4)<img src="@image(100x100, @color)"/>',
+                                "@cparagraph(1, 4)<img src='@image(100x100, @color)'/>",
                             reply: "@csentence(3, 5)",
                             avatar: "@image(100x100, @color)"
                         }
@@ -105,7 +109,7 @@ app.get("/posts/:id", (req, res) => {
                         date: "@datetime()",
                         name: "@csentence(3, 5)",
                         content:
-                            '@cparagraph(1, 4)<img src="@image(100x100, @color)"/>',
+                            "@cparagraph(1, 4)<img src='@image(100x100, @color)'/>",
                         reply: "@csentence(3, 5)",
                         avatar: "@image(100x100, @color)"
                     }
@@ -125,7 +129,7 @@ app.post("/comment/:id", (req, res) => {
                 date: "@datetime()",
                 name: "@csentence(3, 5)",
                 content:
-                    '@cparagraph(1, 4)<img src="@image(100x100, @color)"/>',
+                    "@cparagraph(1, 4)<img src='@image(100x100, @color)'/>",
                 reply: "@csentence(3, 5)",
                 avatar: "@image(100x100, @color)"
             }
@@ -156,5 +160,104 @@ app.get("/owojson", (req, res) => {
         code: 200,
         data: json
     });
+});
+
+app.get("/links", (req, res) => {
+    res.json(
+        Mock.mock({
+            code: 200,
+            data: [
+                {
+                    title: "永远的好朋友",
+                    key: "friend",
+                    "list|10": [
+                        {
+                            link: "@url",
+                            name: "@csentence(3, 5)",
+                            description: "@ctitle(6, 20)",
+                            avatar: "@image(100x100, @color)"
+                        }
+                    ]
+                },
+                {
+                    title: "个人项目",
+                    key: "project",
+                    "list|10": [
+                        {
+                            link: "@url",
+                            name: "@csentence(3, 5)",
+                            description: "@ctitle(6, 20)",
+                            avatar: "@image(100x100, @color)"
+                        }
+                    ]
+                },
+                {
+                    title: "网站收藏",
+                    key: "favorites",
+                    "list|10": [
+                        {
+                            link: "@url",
+                            name: "@csentence(3, 5)",
+                            description: "@ctitle(6, 20)",
+                            avatar: "@image(100x100, @color)"
+                        }
+                    ]
+                }
+            ]
+        })
+    );
+});
+
+app.get("/categories", (req, res) => {
+    res.json(
+        Mock.mock({
+            code: 200,
+            "data|15": [
+                {
+                    name: "@csentence(3, 5)",
+                    number: "@natural(1, 120)",
+                    background: "@image(300x150, @color)",
+                    description: "@ctitle(6, 20)",
+                    link: "@url",
+                    avatar: "@image(100x100, @color)"
+                }
+            ]
+        })
+    );
+});
+
+app.get("/archives", (req, res) => {
+    res.json(
+        Mock.mock({
+            code: 200,
+            "data|10": [
+                {
+                    type: "article",
+                    summary: "@cparagraph()",
+                    date: "@datetime()",
+                    path: "@datetime(yyyy/MM/dd/)@integer(1000, 9999).html",
+                    url:
+                        "http://127.0.0.1/@datetime(yyyy/MM/dd/)@integer(1000, 9999).html",
+                    title: "@sentence(3, 5)"
+                }
+            ]
+        })
+    );
+});
+
+app.get("/tags", (req, res) => {
+    res.json(
+        Mock.mock({
+            code: 200,
+            "data|30": [
+                {
+                    name: "@csentence(2, 5)",
+                    path: "/tags/@sentence(3, 5)",
+                    url:
+                        "http://127.0.0.1/@datetime(yyyy/MM/dd/)@integer(1000, 9999).html"
+                }
+            ]
+        })
+    );
 });
 app.listen(8090);

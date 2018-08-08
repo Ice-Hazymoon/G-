@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 4:53:33 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 2:47:06 pm
+ * Last Modified: Wednesday, 8th August 2018 2:19:54 pm
  */
 <template>
     <div id="content">
@@ -61,6 +61,7 @@ export default {
         }, 500);
     },
     activated() {
+        this.layout();
         if (this.data.length) {
             window.addEventListener("scroll", this.klajsdklajs);
             this.$store.commit("setGlobalProgress", false);
@@ -173,8 +174,9 @@ export default {
             });
         },
         load() {
+            this.page += 1;
             this.$http
-                .get(api.posts.get + "?page=" + this.page++)
+                .get(api.posts.get + "?page=" + this.page)
                 .then(e => {
                     if (e.data.code === 200) {
                         this.data = this.data.concat(
@@ -226,7 +228,8 @@ export default {
                 });
         },
         klajsdklajs() {
-            if (window.scrollY === this.scrollHeight) {
+            // console.log(window.scrollY + ' : ' + (this.scrollHeight - 20))
+            if (window.scrollY >= this.scrollHeight - 20) {
                 this.reachBottom = true;
             }
         }

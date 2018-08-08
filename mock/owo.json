@@ -1,6 +1,7 @@
 {
     "颜文字": {
         "type": "emoticon",
+        "name": "emoticon",
         "container": [
             {
                 "icon": "OωO",
@@ -322,6 +323,7 @@
     },
     "阿鲁": {
         "type": "image",
+        "name": "alu",
         "container": [
             {
                 "icon": "<div title=\"流眼泪\" class=\"owoico owoalu sprite-alu-_1_\"></div>",
@@ -927,6 +929,7 @@
     },
     "泡泡": {
         "type": "image",
+        "name": "paopao",
         "container": [
             {
                 "icon": "<div title=\"呵呵\" class=\"owoico sprite-tieba_emotion_01\"></div>",

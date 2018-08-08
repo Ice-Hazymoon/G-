@@ -3,7 +3,7 @@
  * File Created: Saturday, 4th August 2018 12:31:21 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 6:35:19 pm
+ * Last Modified: Wednesday, 8th August 2018 2:49:22 pm
  */
 
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
@@ -130,6 +130,33 @@ text: #fff, theme: dark));
             .description{
                 color: #fff;
             }
+        }
+    }
+    #categories{
+        .title{
+            color: #fff;
+        }
+        li{
+            background-color: #424242;
+            .name{
+                color: #fff;
+            }
+            .description{
+                color: #a9a9a9
+            }
+        }
+    }
+    #archives{
+        .timeline-content{
+            background-color: #424242 !important;
+        }
+        .project-name{
+            color: #fff;
+        }
+    }
+    #tags{
+        .title{
+            color: #fff;
         }
     }
 }

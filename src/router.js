@@ -18,7 +18,8 @@ export default new Router({
             path: "/",
             component: ArticleList,
             meta: {
-                keep_alive: true
+                keep_alive: true,
+                title: "主页"
             }
         },
         {
@@ -27,7 +28,8 @@ export default new Router({
             component: Posts,
             props: true,
             meta: {
-                keep_alive: false
+                keep_alive: false,
+                title: "文章"
             }
         },
         {
@@ -35,7 +37,8 @@ export default new Router({
             path: "/links",
             component: Links,
             meta: {
-                keep_alive: true
+                keep_alive: true,
+                title: "链接"
             }
         },
         {
@@ -43,7 +46,8 @@ export default new Router({
             path: "/categories",
             component: Categories,
             meta: {
-                keep_alive: true
+                keep_alive: true,
+                title: "分类"
             }
         },
         {
@@ -51,7 +55,8 @@ export default new Router({
             path: "/archive",
             component: Archives,
             meta: {
-                keep_alive: true
+                keep_alive: true,
+                title: "归档"
             }
         },
         {
@@ -59,14 +64,16 @@ export default new Router({
             path: "/tags",
             component: Tags,
             meta: {
-                keep_alive: true
+                keep_alive: true,
+                title: "标签"
             }
         },
         {
             path: "*",
             component: NotFound,
             meta: {
-                keep_alive: true
+                keep_alive: true,
+                title: "404 NOT FOUND"
             }
         }
     ],

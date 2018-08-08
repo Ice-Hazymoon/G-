@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 5:08:47 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 5:34:12 pm
+ * Last Modified: Wednesday, 8th August 2018 10:05:16 am
  */
 <template>
     <div id="posts">
@@ -31,7 +31,7 @@
             <md-dialog-content class="md-scrollbar">
                 <md-tabs md-alignment="fixed">
                     <md-tab :md-label="index" v-for="(item, index) in owoData" :key="index">
-                        <div class="owobtn" title="item.text" v-for="(item2, index2) in item.container" :key="index2" v-html="item2.icon"></div>
+                        <div @click="addOwo(item.name, item2)" class="owobtn" :title="item2.text" v-for="(item2, index2) in item.container" :key="index2" v-html="item2.icon"></div>
                     </md-tab>
                 </md-tabs>
             </md-dialog-content>
@@ -245,7 +245,6 @@ export default {
     },
     created() {
         this.getOwoData();
-        console.log(document.querySelector("#lightgallery"));
         this.$http
             .get(api.posts.get + this.id)
             .then(e => {
@@ -422,6 +421,18 @@ export default {
                     );
                 });
             });
+        },
+        addOwo(name, item) {
+            if (name === "emoticon") {
+                this.commentVal += item.icon;
+            }
+            if (name === "alu") {
+                this.commentVal += "@(" + item.text + ")";
+            }
+            if (name === "paopao") {
+                this.commentVal += "@[" + item.text + "]";
+            }
+            this.owoDialog = false;
         }
     },
     computed: {

@@ -3,7 +3,7 @@
  * File Created: Tuesday, 7th August 2018 2:37:50 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 4:54:12 pm
+ * Last Modified: Wednesday, 8th August 2018 2:22:59 pm
  */
 export default {
     posts: {
@@ -21,5 +21,14 @@ export default {
     },
     links: {
         get: "http://192.168.31.32:8090/links"
+    },
+    categories: {
+        get: "http://192.168.31.32:8090/categories"
+    },
+    archives: {
+        get: "http://192.168.31.32:8090/archives"
+    },
+    tags: {
+        get: "http://192.168.31.32:8090/tags"
     }
 };

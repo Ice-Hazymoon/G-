@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 4:59:07 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Tuesday, 7th August 2018 6:36:55 pm
+ * Last Modified: Wednesday, 8th August 2018 12:42:54 pm
  */
 <template>
     <div id="links">
@@ -11,11 +11,11 @@
             <div class="title">{{ item.title }}</div>
             <ul>
                 <li v-for="(item2, index2) in item.list" :key="index2">
-                    <img :src="item2.avatar" alt="" class="avatar">
+                    <img :src="item2.avatar" :alt="item2.name" :title="item2.name" class="avatar">
                     <div class="name">{{ item2.name }}</div>
-                    <div class="description">{{ item2.description }}</div>
+                    <div class="description" :title="item2.description">{{ item2.description }}</div>
                     <div class="h"></div>
-                    <md-button target="_blank" :href="item2.link"  class="md-primary">访问</md-button>
+                    <md-button target="_blank" :href="item2.link" :title="item2.link"  class="md-primary">访问</md-button>
                 </li>
             </ul>
         </div>
@@ -38,10 +38,6 @@ export default {
     },
     created() {
         this.$store.commit("setForbidMask", true); // 打开遮罩
-        setTimeout(() => {
-            this.$store.commit("setForbidMask", false);
-            this.$store.commit("setGlobalProgress", false);
-        }, 1000);
         this.$http
             .get(api.links.get)
             .then(e => {
@@ -53,15 +49,19 @@ export default {
                         "请求错误, 请稍后重试" + e.data.msg
                     );
                 }
+                setTimeout(() => {
+                    this.$store.commit("setForbidMask", false);
+                    this.$store.commit("setGlobalProgress", false);
+                }, 1000);
             })
             .catch(err => {
                 this.$store.commit("snackbar", "请求错误, 请稍后重试" + err);
             });
     },
     activated() {
-        // if (true) {
-        this.$store.commit("setGlobalProgress", false);
-        // }
+        if (this.data.length) {
+            this.$store.commit("setGlobalProgress", false);
+        }
     },
     data: () => ({
         data: []
@@ -73,6 +73,7 @@ export default {
 #links {
     padding-top: 15px;
     max-width: 1084px;
+    margin: 0 auto;
     .title {
         color: rgba(0, 0, 0, 0.54);
         font-size: 17px;
@@ -97,6 +98,13 @@ export default {
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            @media (max-width: 1080px) {
+                width: calc(50% - 24px);
+            }
+
+            @media (max-width: 350px) {
+                width: calc(100% - 24px);
+            }
         }
         .avatar {
             border-radius: 50%;
@@ -127,22 +135,6 @@ export default {
             left: -8px;
             right: 0;
             width: 100%;
-        }
-    }
-}
-
-@media (max-width: 1080px) {
-    #links {
-        ul > li {
-            width: calc(50% - 24px);
-        }
-    }
-}
-
-@media (max-width: 400px) {
-    #links {
-        ul > li {
-            width: calc(100% - 24px);
         }
     }
 }
