@@ -3,7 +3,7 @@
  * File Created: Monday, 6th August 2018 10:23:17 am
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Wednesday, 8th August 2018 2:20:01 pm
+ * Last Modified: Thursday, 9th August 2018 2:30:28 pm
  */
 <template>
     <div id="archives">
@@ -29,49 +29,47 @@
 </template>
 
 <script>
-import api from "../../config/config.js";
+import api from '../../config/config.js';
 export default {
     beforeRouteLeave(to, from, next) {
-        window.removeEventListener("scroll", this.load);
-        document.querySelector(".md-content > div").classList.add("r-b");
+        window.removeEventListener('scroll', this.load);
+        document.querySelector('.md-content > div').classList.add('r-b');
         setTimeout(() => {
             setTimeout(() => {
                 document
-                    .querySelector(".md-content > div")
-                    .classList.remove("r-b");
+                    .querySelector('.md-content > div')
+                    .classList.remove('r-b');
             }, 500);
             next();
         }, 500);
     },
     created() {
-        this.$store.commit("setForbidMask", true); // 打开遮罩
         this.$http
-            .get(api.archives.get + "?page=1")
+            .get(api.archives.get + '?page=1')
             .then(e => {
                 if (e.data.code === 200) {
                     this.data = e.data.data;
-                    window.addEventListener("scroll", this.load);
+                    window.addEventListener('scroll', this.load);
                     this.handleScrollH();
                 } else {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + e.data.msg
+                        'snackbar',
+                        '请求错误, 请稍后重试' + e.data.msg
                     );
                 }
                 setTimeout(() => {
-                    this.$store.commit("setForbidMask", false);
-                    this.$store.commit("setGlobalProgress", false);
+                    this.$store.commit('setGlobalProgress', false);
                 }, 1000);
             })
             .catch(err => {
-                this.$store.commit("snackbar", "请求错误, 请稍后重试" + err);
+                this.$store.commit('snackbar', '请求错误, 请稍后重试' + err);
             });
     },
     activated() {
         if (this.data.length) {
-            window.addEventListener("scroll", this.load);
+            window.addEventListener('scroll', this.load);
             this.handleScrollH();
-            this.$store.commit("setGlobalProgress", false);
+            this.$store.commit('setGlobalProgress', false);
         }
     },
     data: () => ({
@@ -86,7 +84,7 @@ export default {
                 this.page += 1;
                 this.reachBottom = true;
                 this.$http
-                    .get(api.archives.get + "?page=" + this.page)
+                    .get(api.archives.get + '?page=' + this.page)
                     .then(e => {
                         if (e.data.code === 200) {
                             this.data = this.data.concat(e.data.data);
@@ -94,15 +92,15 @@ export default {
                             this.reachBottom = false;
                         } else {
                             this.$store.commit(
-                                "snackbar",
-                                "请求错误, 请稍后重试" + e.data.msg
+                                'snackbar',
+                                '请求错误, 请稍后重试' + e.data.msg
                             );
                         }
                     })
                     .catch(err => {
                         this.$store.commit(
-                            "snackbar",
-                            "请求错误, 请稍后重试" + err
+                            'snackbar',
+                            '请求错误, 请稍后重试' + err
                         );
                     });
             }
@@ -134,7 +132,7 @@ export default {
     %clearfix {
         &:after,
         &:before {
-            content: "";
+            content: '';
             display: block;
             width: 100%;
             clear: both;
@@ -156,7 +154,7 @@ export default {
         transition: all 0.4s ease;
 
         &:before {
-            content: "";
+            content: '';
             width: 3px;
             height: 100%;
             background: $primary-color;
@@ -166,7 +164,7 @@ export default {
         }
 
         &:after {
-            content: "";
+            content: '';
             clear: both;
             display: table;
             width: 100%;
@@ -210,7 +208,7 @@ export default {
                 }
 
                 &:before {
-                    content: "";
+                    content: '';
                     position: absolute;
                     left: 45%;
                     top: 20px;
@@ -225,7 +223,7 @@ export default {
                     float: right;
 
                     &:before {
-                        content: "";
+                        content: '';
                         right: 45%;
                         left: inherit;
                         border-left: 0;

@@ -202,24 +202,24 @@
 </template>
 
 <script>
-import imagesLoaded from "imagesloaded";
-import api from "../../config/config.js";
+import imagesLoaded from 'imagesloaded';
+import api from '../../config/config.js';
 
 export default {
-    props: ["data"],
+    props: ['data'],
     data: () => ({
         add: {
             index: 0,
             img: true,
             link: {
-                linkName: "",
-                linkAddress: ""
+                linkName: '',
+                linkAddress: ''
             },
             linkDialog: false
         },
         comment: {
-            email: "",
-            nickname: ""
+            email: '',
+            nickname: ''
         },
         owoDialog: false,
         owoData: {},
@@ -252,17 +252,17 @@ export default {
             });
         },
         layout() {
-            this.$emit("layout");
+            this.$emit('layout');
         },
         focus(e) {
             this.$nextTick(() => {
                 setTimeout(
-                    () => e.path[1].querySelector("textarea").focus(),
+                    () => e.path[1].querySelector('textarea').focus(),
                     0
                 );
             });
         },
-        handleDate: require("../fun.js").default.handleDate,
+        handleDate: require('../fun.js').default.handleDate,
         addlink() {
             if (this.add.link.linkName && this.add.link.linkAddress) {
                 let a = this.add.img
@@ -282,21 +282,21 @@ export default {
                       '"></a>';
                 this.data[this.add.index].commentVal += a;
                 this.add.link = {
-                    linkName: "",
-                    linkAddress: ""
+                    linkName: '',
+                    linkAddress: ''
                 };
                 this.add.linkDialog = false;
             } else {
-                this.$store.commit("snackbar", "请输入正确的信息");
+                this.$store.commit('snackbar', '请输入正确的信息');
             }
         },
         autogrow(e) {
             let o = e.target;
             o.style.height = 0;
-            o.style.height = o.scrollTop + o.scrollHeight + "px";
+            o.style.height = o.scrollTop + o.scrollHeight + 'px';
         },
         reply(item, item2, index) {
-            item.commentVal = "";
+            item.commentVal = '';
             this.data[index].tmp.c = true;
             item.tmp.x = item2.id;
             item.tmp.r = item2.name;
@@ -308,10 +308,10 @@ export default {
             });
         },
         cancelReply(item) {
-            item.tmp.r = "";
-            item.tmp.x = "";
+            item.tmp.r = '';
+            item.tmp.x = '';
             item.tmp.c = false;
-            this.$emit("layout");
+            this.$emit('layout');
         },
         sendReply(item) {
             this.$http
@@ -325,18 +325,18 @@ export default {
                     if (e.data.code === 200) {
                         console.log(e);
                         item.comments.unshift(e.data.data);
-                        this.$store.commit("snackbar", "评论提交成功");
+                        this.$store.commit('snackbar', '评论提交成功');
                     } else {
                         this.$store.commit(
-                            "snackbar",
-                            "请求错误, 请稍后重试" + e.data.msg
+                            'snackbar',
+                            '请求错误, 请稍后重试' + e.data.msg
                         );
                     }
                 })
                 .catch(err => {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + err
+                        'snackbar',
+                        '请求错误, 请稍后重试' + err
                     );
                 });
         },
@@ -352,27 +352,27 @@ export default {
                         item.like = e.data.likeNum;
                     } else {
                         this.$store.commit(
-                            "snackbar",
-                            "请求错误, 请稍后重试" + e.data.msg
+                            'snackbar',
+                            '请求错误, 请稍后重试' + e.data.msg
                         );
                     }
                 })
                 .catch(err => {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + err
+                        'snackbar',
+                        '请求错误, 请稍后重试' + err
                     );
                 });
         },
         addOwo(name, item) {
-            if (name === "emoticon") {
+            if (name === 'emoticon') {
                 this.data[this.owoIndex].commentVal += item.icon;
             }
-            if (name === "alu") {
-                this.data[this.owoIndex].commentVal += "@(" + item.text + ")";
+            if (name === 'alu') {
+                this.data[this.owoIndex].commentVal += '@(' + item.text + ')';
             }
-            if (name === "paopao") {
-                this.data[this.owoIndex].commentVal += "@[" + item.text + "]";
+            if (name === 'paopao') {
+                this.data[this.owoIndex].commentVal += '@[' + item.text + ']';
             }
             this.owoDialog = false;
         },
@@ -384,15 +384,15 @@ export default {
                         this.owoData = e.data.data;
                     } else {
                         this.$store.commit(
-                            "snackbar",
-                            "请求错误, 请稍后重试" + e.data.msg
+                            'snackbar',
+                            '请求错误, 请稍后重试' + e.data.msg
                         );
                     }
                 })
                 .catch(err => {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + err
+                        'snackbar',
+                        '请求错误, 请稍后重试' + err
                     );
                 });
         }
@@ -400,11 +400,11 @@ export default {
     computed: {
         shareUrl() {
             return {
-                weibo: "http://service.weibo.com/share/share.php?",
-                twitter: "https://twitter.com/intent/tweet?",
-                qq: "http://connect.qq.com/widget/shareqq/index.html?",
-                telegram: "https://telegram.me/share/url?",
-                google_plus: "https://plus.google.com/share?"
+                weibo: 'http://service.weibo.com/share/share.php?',
+                twitter: 'https://twitter.com/intent/tweet?',
+                qq: 'http://connect.qq.com/widget/shareqq/index.html?',
+                telegram: 'https://telegram.me/share/url?',
+                google_plus: 'https://plus.google.com/share?'
             };
         },
         isMobile() {

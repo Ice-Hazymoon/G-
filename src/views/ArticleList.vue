@@ -3,7 +3,7 @@
  * File Created: Wednesday, 1st August 2018 4:53:33 pm
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Wednesday, 8th August 2018 2:19:54 pm
+ * Last Modified: Thursday, 9th August 2018 2:30:16 pm
  */
 <template>
     <div id="content">
@@ -42,20 +42,20 @@
 </template>
 
 <script>
-import Masonry from "masonry-layout";
-import imagesLoaded from "imagesloaded";
-import ArticleCard from "../components/ArticleCard";
-import api from "../../config/config.js";
+import Masonry from 'masonry-layout';
+import imagesLoaded from 'imagesloaded';
+import ArticleCard from '../components/ArticleCard';
+import api from '../../config/config.js';
 
 export default {
     beforeRouteLeave(to, from, next) {
-        window.removeEventListener("scroll", this.klajsdklajs);
-        document.querySelector(".md-content > div").classList.add("r-b");
+        window.removeEventListener('scroll', this.klajsdklajs);
+        document.querySelector('.md-content > div').classList.add('r-b');
         setTimeout(() => {
             setTimeout(() => {
                 document
-                    .querySelector(".md-content > div")
-                    .classList.remove("r-b");
+                    .querySelector('.md-content > div')
+                    .classList.remove('r-b');
             }, 500);
             next();
         }, 500);
@@ -63,63 +63,58 @@ export default {
     activated() {
         this.layout();
         if (this.data.length) {
-            window.addEventListener("scroll", this.klajsdklajs);
-            this.$store.commit("setGlobalProgress", false);
+            window.addEventListener('scroll', this.klajsdklajs);
+            this.$store.commit('setGlobalProgress', false);
         }
     },
     created() {
-        this.$store.commit("setForbidMask", true); // 打开遮罩
         this.$http
-            .get(api.posts.get + "?page=1")
+            .get(api.posts.get + '?page=1')
             .then(e => {
                 if (e.data.code === 200) {
                     this.likeNum =
-                        localStorage.getItem("like") === "true"
+                        localStorage.getItem('like') === 'true'
                             ? [true, e.data.likeNum]
                             : [false, e.data.likeNum];
                     this.data = e.data.data.map(item => {
-                        item.commentVal = "";
+                        item.commentVal = '';
                         item.commentList = [];
                         item.tmp = {
                             c: false, //Cardactive
                             m: false, //Comment
                             b: false, //Progress Bar
-                            r: "", //replyComtent
-                            x: "" //replyId
+                            r: '', //replyComtent
+                            x: '' //replyId
                         };
                         return item;
                     });
                     this.$nextTick(() => {
-                        imagesLoaded(document.querySelector(".grid"), () => {
-                            this.$store.commit("setGlobalProgress", false);
-                            if (window.innerWidth < 600) {
-                                //如果在移动设备上不执行 msnry
-                                this.$store.commit("setForbidMask", false);
-                            } else {
-                                this.msnry = new Masonry(".grid", {
+                        imagesLoaded(document.querySelector('.grid'), () => {
+                            if (window.innerWidth > 600) {
+                                this.msnry = new Masonry('.grid', {
                                     percentPosition: true,
-                                    columnWidth: ".grid-sizer",
-                                    itemSelector: ".grid-item",
+                                    columnWidth: '.grid-sizer',
+                                    itemSelector: '.grid-item',
                                     stagger: 50
                                 });
                             }
-                            this.$store.commit("setForbidMask", false);
+                            this.$store.commit('setGlobalProgress', false);
                             window.scrollTo(0, 0);
                             this.handleScroll();
-                            window.addEventListener("scroll", this.klajsdklajs);
+                            window.addEventListener('scroll', this.klajsdklajs);
                         });
                     });
                 } else {
-                    this.$store.commit("setGlobalProgress", false);
+                    this.$store.commit('setGlobalProgress', false);
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + e.data.msg
+                        'snackbar',
+                        '请求错误, 请稍后重试' + e.data.msg
                     );
                 }
             })
             .catch(err => {
-                this.$store.commit("setGlobalProgress", false);
-                this.$store.commit("snackbar", "请求错误, 请稍后重试" + err);
+                this.$store.commit('setGlobalProgress', false);
+                this.$store.commit('snackbar', '请求错误, 请稍后重试' + err);
             });
     },
     data: () => ({
@@ -148,19 +143,19 @@ export default {
                 .then(e => {
                     if (e.data.code === 200) {
                         this.likeNum = [true, e.data.likeNum];
-                        localStorage.setItem("like", true);
-                        this.$store.commit("snackbar", "我也喜欢你~");
+                        localStorage.setItem('like', true);
+                        this.$store.commit('snackbar', '我也喜欢你~');
                     } else {
                         this.$store.commit(
-                            "snackbar",
-                            "请求错误, 请稍后重试" + e.data.msg
+                            'snackbar',
+                            '请求错误, 请稍后重试' + e.data.msg
                         );
                     }
                 })
                 .catch(err => {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + err
+                        'snackbar',
+                        '请求错误, 请稍后重试' + err
                     );
                 });
         },
@@ -176,33 +171,33 @@ export default {
         load() {
             this.page += 1;
             this.$http
-                .get(api.posts.get + "?page=" + this.page)
+                .get(api.posts.get + '?page=' + this.page)
                 .then(e => {
                     if (e.data.code === 200) {
                         this.data = this.data.concat(
                             e.data.data.map(item => {
-                                item.commentVal = "";
+                                item.commentVal = '';
                                 item.commentList = [];
                                 item.show = true;
                                 item.tmp = {
                                     c: false, //Cardactive
                                     m: false, //Comment
                                     b: false, //Progress Bar
-                                    r: "", //replyComtent
-                                    x: "" //replyId
+                                    r: '', //replyComtent
+                                    x: '' //replyId
                                 };
                                 return item;
                             })
                         );
                         this.$nextTick(() => {
                             imagesLoaded(
-                                document.querySelector(".grid"),
+                                document.querySelector('.grid'),
                                 () => {
                                     if (!this.isMobile) {
-                                        this.msnry = new Masonry(".grid", {
+                                        this.msnry = new Masonry('.grid', {
                                             percentPosition: true,
-                                            columnWidth: ".grid-sizer",
-                                            itemSelector: ".grid-item",
+                                            columnWidth: '.grid-sizer',
+                                            itemSelector: '.grid-item',
                                             stagger: 50
                                         });
                                     }
@@ -215,15 +210,15 @@ export default {
                         });
                     } else {
                         this.$store.commit(
-                            "snackbar",
-                            "请求错误, 请稍后重试" + e.data.msg
+                            'snackbar',
+                            '请求错误, 请稍后重试' + e.data.msg
                         );
                     }
                 })
                 .catch(err => {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + err
+                        'snackbar',
+                        '请求错误, 请稍后重试' + err
                     );
                 });
         },
@@ -274,7 +269,7 @@ export default {
         margin: 0 auto;
         max-width: 1590px;
         &:after {
-            content: "";
+            content: '';
             display: block;
             clear: both;
         }

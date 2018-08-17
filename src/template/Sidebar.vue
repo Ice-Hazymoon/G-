@@ -117,13 +117,13 @@
 export default {
     methods: {
         switchSidebar() {
-            this.$store.commit("switchSidebar", false);
+            this.$store.commit('switchSidebar', false);
         },
         darkTheme() {
             this.$material.theming.theme =
-                this.$material.theming.theme === "default-dark"
-                    ? "default"
-                    : "default-dark";
+                this.$material.theming.theme === 'default-dark'
+                    ? 'default'
+                    : 'default-dark';
         }
     }
 };

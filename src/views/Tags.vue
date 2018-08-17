@@ -3,7 +3,7 @@
  * File Created: Monday, 6th August 2018 10:13:34 am
  * Author: Ice-Hazymoon (imiku.me@gmail.com)
  * -----
- * Last Modified: Wednesday, 8th August 2018 2:50:10 pm
+ * Last Modified: Thursday, 9th August 2018 2:28:18 pm
  */
 <template>
     <div id="tags">
@@ -18,21 +18,20 @@
 </template>
 
 <script>
-import api from "../../config/config.js";
+import api from '../../config/config.js';
 export default {
     beforeRouteLeave(to, from, next) {
-        document.querySelector(".md-content > div").classList.add("r-b");
+        document.querySelector('.md-content > div').classList.add('r-b');
         setTimeout(() => {
             setTimeout(() => {
                 document
-                    .querySelector(".md-content > div")
-                    .classList.remove("r-b");
+                    .querySelector('.md-content > div')
+                    .classList.remove('r-b');
             }, 500);
             next();
         }, 500);
     },
     created() {
-        this.$store.commit("setForbidMask", true); // 打开遮罩
         this.$http
             .get(api.tags.get)
             .then(e => {
@@ -40,22 +39,21 @@ export default {
                     this.data = e.data.data;
                 } else {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + e.data.msg
+                        'snackbar',
+                        '请求错误, 请稍后重试' + e.data.msg
                     );
                 }
                 setTimeout(() => {
-                    this.$store.commit("setForbidMask", false);
-                    this.$store.commit("setGlobalProgress", false);
+                    this.$store.commit('setGlobalProgress', false);
                 }, 1000);
             })
             .catch(err => {
-                this.$store.commit("snackbar", "请求错误, 请稍后重试" + err);
+                this.$store.commit('snackbar', '请求错误, 请稍后重试' + err);
             });
     },
     activated() {
         if (this.data.length) {
-            this.$store.commit("setGlobalProgress", false);
+            this.$store.commit('setGlobalProgress', false);
         }
     },
     data: () => ({

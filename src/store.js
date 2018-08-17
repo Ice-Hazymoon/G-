@@ -1,5 +1,5 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
@@ -8,13 +8,12 @@ export default new Vuex.Store({
         drawerVisible: true,
         snackbar: {
             showSnackbar: false,
-            position: "center",
+            position: 'center',
             duration: 4000,
             isInfinity: false,
-            content: "Snackbar"
+            content: 'Snackbar'
         },
-        globalProgress: false,
-        forbidMask: false
+        globalProgress: false
     },
     mutations: {
         switchSidebar(state, e) {
@@ -27,9 +26,6 @@ export default new Vuex.Store({
         },
         setGlobalProgress(state, val) {
             state.globalProgress = val;
-        },
-        setForbidMask(state, val) {
-            state.forbidMask = val;
         }
     },
     actions: {}

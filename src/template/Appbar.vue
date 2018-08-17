@@ -40,34 +40,34 @@
 <script>
 export default {
     data: () => ({
-        searchVal: "",
+        searchVal: '',
         showRi: false,
         countries: [
-            "Algeria",
-            "Argentina",
-            "Brazil",
-            "Canada",
-            "Italy",
-            "Japan",
-            "United Kingdom",
-            "United States"
+            'Algeria',
+            'Argentina',
+            'Brazil',
+            'Canada',
+            'Italy',
+            'Japan',
+            'United Kingdom',
+            'United States'
         ]
     }),
     methods: {
         switchSidebar() {
             this.$store.commit(
-                "switchSidebar",
+                'switchSidebar',
                 !this.$store.state.drawerVisible
             );
         },
         removeInput() {
-            this.searchVal = "";
+            this.searchVal = '';
         },
         darkTheme() {
             this.$material.theming.theme =
-                this.$material.theming.theme === "default-dark"
-                    ? "default"
-                    : "default-dark";
+                this.$material.theming.theme === 'default-dark'
+                    ? 'default'
+                    : 'default-dark';
         }
     }
 };

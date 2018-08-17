@@ -228,17 +228,17 @@
 </template>
 
 <script>
-import "lightgallery.js/dist/css/lightgallery.min.css";
-import api from "../../config/config.js";
+import 'lightgallery.js/dist/css/lightgallery.min.css';
+import api from '../../config/config.js';
 export default {
-    props: ["id"],
+    props: ['id'],
     beforeRouteLeave(to, from, next) {
-        document.querySelector(".md-content > div").classList.add("r-b");
+        document.querySelector('.md-content > div').classList.add('r-b');
         setTimeout(() => {
             setTimeout(() => {
                 document
-                    .querySelector(".md-content > div")
-                    .classList.remove("r-b");
+                    .querySelector('.md-content > div')
+                    .classList.remove('r-b');
             }, 500);
             next();
         }, 500);
@@ -250,24 +250,24 @@ export default {
             .then(e => {
                 if (e.data.code === 200) {
                     e.data.data.tmp = {
-                        r: "", //replyComtent
-                        x: "" //replyId
+                        r: '', //replyComtent
+                        x: '' //replyId
                     };
                     this.data = e.data.data;
                     this.$nextTick(this.handleLightGallery);
                     setTimeout(() => {
-                        this.$store.commit("setGlobalProgress", false);
-                        this.$store.commit("setForbidMask", false);
+                        this.$store.commit('setGlobalProgress', false);
+                        this.$store.commit('setForbidMask', false);
                     }, 500);
                 } else {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + e.data.msg
+                        'snackbar',
+                        '请求错误, 请稍后重试' + e.data.msg
                     );
                 }
             })
             .catch(err => {
-                this.$store.commit("snackbar", "请求错误, 请稍后重试" + err);
+                this.$store.commit('snackbar', '请求错误, 请稍后重试' + err);
             });
     },
     data: () => ({
@@ -275,24 +275,24 @@ export default {
         add: {
             img: true,
             link: {
-                linkName: "",
-                linkAddress: ""
+                linkName: '',
+                linkAddress: ''
             },
             linkDialog: false
         },
         owoData: {},
         comment: {
-            email: "",
-            nickname: ""
+            email: '',
+            nickname: ''
         },
-        commentVal: "",
+        commentVal: '',
         owoDialog: false
     }),
     methods: {
-        handleDate: require("../fun.js").default.handleDate,
-        dateFormat: require("../fun.js").default.dateFormat,
+        handleDate: require('../fun.js').default.handleDate,
+        dateFormat: require('../fun.js').default.dateFormat,
         focus() {
-            document.getElementsByTagName("textarea")[0].focus();
+            document.getElementsByTagName('textarea')[0].focus();
         },
         addlink() {
             if (this.add.link.linkName && this.add.link.linkAddress) {
@@ -313,28 +313,28 @@ export default {
                       '"></a>';
                 this.commentVal += a;
                 this.add.link = {
-                    linkName: "",
-                    linkAddress: ""
+                    linkName: '',
+                    linkAddress: ''
                 };
                 this.add.linkDialog = false;
             } else {
-                this.$store.commit("snackbar", "请输入正确的信息");
+                this.$store.commit('snackbar', '请输入正确的信息');
             }
         },
         autogrow(e) {
             let o = e.target;
             o.style.height = 0;
-            o.style.height = o.scrollTop + o.scrollHeight + "px";
+            o.style.height = o.scrollTop + o.scrollHeight + 'px';
         },
         reply(item) {
-            this.commentVal = "";
+            this.commentVal = '';
             this.data.tmp.x = item.id;
             this.data.tmp.r = item.name;
-            document.getElementsByTagName("textarea")[0].focus();
+            document.getElementsByTagName('textarea')[0].focus();
         },
         cancelReply() {
-            this.data.tmp.r = "";
-            this.data.tmp.x = "";
+            this.data.tmp.r = '';
+            this.data.tmp.x = '';
         },
         sendReply() {
             this.$http
@@ -347,18 +347,18 @@ export default {
                 .then(e => {
                     if (e.data.code === 200) {
                         this.data.comments.unshift(e.data.data);
-                        this.$store.commit("snackbar", "评论提交成功");
+                        this.$store.commit('snackbar', '评论提交成功');
                     } else {
                         this.$store.commit(
-                            "snackbar",
-                            "请求错误, 请稍后重试" + e.data.msg
+                            'snackbar',
+                            '请求错误, 请稍后重试' + e.data.msg
                         );
                     }
                 })
                 .catch(err => {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + err
+                        'snackbar',
+                        '请求错误, 请稍后重试' + err
                     );
                 });
         },
@@ -374,15 +374,15 @@ export default {
                         this.data.like = e.data.likeNum;
                     } else {
                         this.$store.commit(
-                            "snackbar",
-                            "请求错误, 请稍后重试" + e.data.msg
+                            'snackbar',
+                            '请求错误, 请稍后重试' + e.data.msg
                         );
                     }
                 })
                 .catch(err => {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + err
+                        'snackbar',
+                        '请求错误, 请稍后重试' + err
                     );
                 });
         },
@@ -394,43 +394,43 @@ export default {
                         this.owoData = e.data.data;
                     } else {
                         this.$store.commit(
-                            "snackbar",
-                            "请求错误, 请稍后重试" + e.data.msg
+                            'snackbar',
+                            '请求错误, 请稍后重试' + e.data.msg
                         );
                     }
                 })
                 .catch(err => {
                     this.$store.commit(
-                        "snackbar",
-                        "请求错误, 请稍后重试" + err
+                        'snackbar',
+                        '请求错误, 请稍后重试' + err
                     );
                 });
         },
         handleLightGallery() {
-            require(["lightgallery.js"], () => {
-                require(["lg-zoom.js", "lg-fullscreen.js"], () => {
+            require(['lightgallery.js'], () => {
+                require(['lg-zoom.js', 'lg-fullscreen.js'], () => {
                     window.lightGallery(
-                        document.getElementById("lightgallery"),
+                        document.getElementById('lightgallery'),
                         {
                             loop: false,
                             slideEndAnimatoin: true,
                             hideControlOnEnd: true,
                             subHtmlSelectorRelative: true,
-                            selector: ".lightgallery"
+                            selector: '.lightgallery'
                         }
                     );
                 });
             });
         },
         addOwo(name, item) {
-            if (name === "emoticon") {
+            if (name === 'emoticon') {
                 this.commentVal += item.icon;
             }
-            if (name === "alu") {
-                this.commentVal += "@(" + item.text + ")";
+            if (name === 'alu') {
+                this.commentVal += '@(' + item.text + ')';
             }
-            if (name === "paopao") {
-                this.commentVal += "@[" + item.text + "]";
+            if (name === 'paopao') {
+                this.commentVal += '@[' + item.text + ']';
             }
             this.owoDialog = false;
         }
@@ -438,11 +438,11 @@ export default {
     computed: {
         shareUrl() {
             return {
-                weibo: "http://service.weibo.com/share/share.php?",
-                twitter: "https://twitter.com/intent/tweet?",
-                qq: "http://connect.qq.com/widget/shareqq/index.html?",
-                telegram: "https://telegram.me/share/url?",
-                google_plus: "https://plus.google.com/share?"
+                weibo: 'http://service.weibo.com/share/share.php?',
+                twitter: 'https://twitter.com/intent/tweet?',
+                qq: 'http://connect.qq.com/widget/shareqq/index.html?',
+                telegram: 'https://telegram.me/share/url?',
+                google_plus: 'https://plus.google.com/share?'
             };
         },
         getUrl() {

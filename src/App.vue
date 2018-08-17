@@ -4,7 +4,7 @@
             <span>{{ $store.state.snackbar.content }}</span>
             <md-button class="md-primary" @click="$store.state.snackbar.showSnackbar = false">OK</md-button>
         </md-snackbar>
-        <div class="forbidMask" v-show="$store.state.forbidMask"></div>
+        <div class="forbidMask" v-show="$store.state.globalProgress"></div>
         <md-progress-bar v-show="$store.state.globalProgress" class="global-progress-bar" md-mode="indeterminate"></md-progress-bar>
         <Appbar/>
         <md-app>
@@ -24,9 +24,9 @@
     </div>
 </template>
 <script>
-import Sidebar from "./template/Sidebar";
-import Appbar from "./template/Appbar";
-import jump from "jump.js";
+import Sidebar from './template/Sidebar';
+import Appbar from './template/Appbar';
+import jump from 'jump.js';
 export default {
     data: () => ({
         showGoTop: false,
@@ -36,19 +36,22 @@ export default {
         Sidebar,
         Appbar
     },
+    created() {
+        this.$store.commit('setGlobalProgress', true);
+    },
     mounted() {
         function d() {
             let w = window.innerWidth;
             if (w <= 750) {
-                this.$store.commit("switchSidebar", false);
+                this.$store.commit('switchSidebar', false);
             }
             if (w > 750) {
-                this.$store.commit("switchSidebar", true);
+                this.$store.commit('switchSidebar', true);
             }
         }
         d.bind(this)();
-        window.addEventListener("resize", d.bind(this));
-        window.addEventListener("scroll", () => {
+        window.addEventListener('resize', d.bind(this));
+        window.addEventListener('scroll', () => {
             this.showGoTop = window.scrollY > 500;
         });
     },
